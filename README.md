@@ -4,7 +4,16 @@ Lightweight Emacs configuration for web development
 ## Features
 
 ### Evil
-The greatest Vim emulator there is. 
+The greatest Vim emulator there is. Using SPC as the leader.  
+
+### Company
+IDE-like code completion configured for
+* JavaScript using [Tern](http://ternjs.net/)
+* PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
+* HTML & SCSS
+
+### Emmet
+You already know what it does. 
 
 ### Packages
 
