@@ -4,13 +4,12 @@ Lightweight Emacs configuration for web development
 ## Features
 
 ### Evil
-The greatest Vim emulator there is. Using SPC as the leader.  
+The greatest Vim emulator there is. Comes with [relative line numbers](https://github.com/coldnew/linum-relative).
 
 ### Company
 IDE-like code completion configured for
 * JavaScript using [Tern](http://ternjs.net/)
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
-* HTML & SCSS
 
 ### Projectile
 Projectile brings clever project management to Emacs, allowing you to work with serveral different projects in your client. I wouldn't be able to use Emacs for my day job without this. 
@@ -30,17 +29,10 @@ You already know what it does.
 Because sometimes you forget.
 
 ### Neotree
+```SPC TAB``` to open a tree explorer. 
 
-
-### Packages
-
-* Neotree
-* Swoop
-* SML
-* Company
-* Php-mode
-* Emmet
-* Linum-relative
+### Smart-Mode-Line
+A smart mode line, it's simpler and less flashy than [powerline](https://github.com/coldnew/linum-relative).
 
 ### Package repositories
 Utilizes every major package repository.
@@ -50,12 +42,4 @@ Utilizes every major package repository.
 (add-to-list 'package-archives '("org"       . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ```
-
-### Syntax support
-JavaScript (ES6), PHP, HTML, CSS/SCSS, Python, Ruby & Elisp
-
-### Code completion
-JavaScript, PHP, CSS/SCSS
-
-For HTML there is Emmet. 
 
