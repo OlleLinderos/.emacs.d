@@ -12,15 +12,28 @@ IDE-like code completion configured for
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
 * HTML & SCSS
 
+### Projectile
+Projectile brings clever project management to Emacs, allowing you to work with serveral different projects in your client. I wouldn't be able to use Emacs for my day job without this. 
+
+Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) on top to keep buffers from different projects separated.
+
 ### Emmet
 You already know what it does. 
 
+### Swoop
+```SPC s``` to trigger [swoop](https://github.com/ShingoFukuyama/emacs-swoop).
+
+### Smex
+```SPC SPC``` for an enhanced M-x interface.
+
+### Which-key
+Because sometimes you forget.
+
+### Neotree
+
+
 ### Packages
 
-* Which-key
-* Smex
-* Projectile
-* Evil
 * Neotree
 * Swoop
 * SML
