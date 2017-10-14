@@ -1,5 +1,5 @@
 # Emacs.d
-Lightweight Emacs configuration.
+Lightweight Emacs configuration for web development
 
 ## Features
 
