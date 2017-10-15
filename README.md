@@ -7,7 +7,6 @@ Lightweight Emacs configuration for web development
 The greatest Vim emulator there is, [Evil](https://github.com/emacs-evil/evil). Comes with [relative line numbers](https://github.com/coldnew/linum-relative) for the complete Vim experience.
 
 ### Clever code completion
-Configured for
 * JavaScript using [Tern](http://ternjs.net/)
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
 
