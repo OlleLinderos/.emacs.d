@@ -12,9 +12,9 @@ Configured for
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
 
 ### Project management
-[Projectile](https://github.com/bbatsov/projectile) brings clever project management to Emacs, allowing you to work with serveral different projects in your client. 
+[Projectile](https://github.com/bbatsov/projectile) brings clever project management to Emacs, allowing you to work with serveral different projects in your client. ```SPC p``` to get a complete list of commands. 
 
-[Perspective](https://github.com/nex3/perspective-el) brings workspaces to Emacs, allowing you to work on serveral projects simultaneously. I wouldn't be able to use Emacs for my day job without this. 
+[Perspective](https://github.com/nex3/perspective-el) brings workspaces to Emacs, allowing you to work on serveral projects simultaneously. I wouldn't be able to use Emacs for my day job without this. ```SPC l``` to get a complete list of commands.
 
 Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) to get that fluidity. 
 
