@@ -122,18 +122,30 @@
 (evil-leader/set-leader "SPC")
 (evil-leader/set-key
   "SPC" 'smex
+  "TAB" 'neotree-toggle
   "/" 'comment-region
   "\\\\" 'uncomment-region
   "b" 'buffer-menu
-  "d" 'dired
-  "w" 'toggle-truncate-lines
-  "s" 'swoop
-  "TAB" 'neotree-toggle
-  "x" 'delete-trailing-whitespace)
+  "d" 'text-map
+  "f" 'file-map
+  "s" 'swoop)
 
 ;; alt + p for projectile map
 (setq projectile-keymap-prefix (kbd "π"))
 
+;; General file-map
+(progn
+  (define-prefix-command 'file-map)
+  (define-key file-map (kbd "f") 'find-file)
+  (define-key file-map (kbd "d") 'dired)
+  )
+
+;; Text actions map
+(progn
+  (define-prefix-command 'text-map)
+  (define-key text-map (kbd "x") 'delete-trailing-whitespace)
+  (define-key text-map (kbd "t") 'toggle-truncate-lines)
+  )
 
 ;;
 ;; Initialize packages and hooks
@@ -142,6 +154,7 @@
 (which-key-mode)
 (smex-initialize)
 (projectile-mode)
+(autopair-global-mode)
 
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -173,6 +186,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
+;; (add-to-list 'company-backends 'company-tern)
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
 (eval-after-load 'php-mode
   '(require 'php-ext))
 
@@ -187,6 +203,9 @@
      (quote
       (emmet-mode nord-theme company linum-relative projectile smex better-defaults neotree evil)))))
  '(neo-theme (quote ascii))
+ '(package-selected-packages
+   (quote
+    (autopair which-key use-package swoop sml-mode smex php-extras persp-projectile nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults)))
  '(swoop-font-size-change: nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
