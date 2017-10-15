@@ -3,25 +3,25 @@ Lightweight Emacs configuration for web development
 
 ## Features
 
-### Evil
-The greatest Vim emulator there is. Comes with [relative line numbers](https://github.com/coldnew/linum-relative).
+### Vim Emulation
+The greatest Vim emulator there is, [Evil](https://github.com/emacs-evil/evil). Comes with [relative line numbers](https://github.com/coldnew/linum-relative) for the complete Vim experience.
 
-### Company
-IDE-like code completion configured for
+### Clever code completion
+Configured for
 * JavaScript using [Tern](http://ternjs.net/)
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
 
-### Projectile & Perspective
-[Projectile](https://github.com/bbatsov/projectile) brings clever project management to Emacs, allowing you to work with serveral different projects in your client. I wouldn't be able to use Emacs for my day job without this. 
+### Project management
+[Projectile](https://github.com/bbatsov/projectile) brings clever project management to Emacs, allowing you to work with serveral different projects in your client. 
 
-[Perspective](https://github.com/nex3/perspective-el) brings workspaces to Emacs, allowing you to work on serveral projects simultaneously. 
+[Perspective](https://github.com/nex3/perspective-el) brings workspaces to Emacs, allowing you to work on serveral projects simultaneously. I wouldn't be able to use Emacs for my day job without this. 
 
 Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) to get that fluidity. 
 
 ### Emmet
 You already know what it does. 
 
-### Swoop
+### Quick code navigation
 ```SPC s``` to trigger [swoop](https://github.com/ShingoFukuyama/emacs-swoop).
 
 ### Smex
@@ -34,7 +34,7 @@ Because sometimes you forget.
 ```SPC TAB``` to open a tree explorer. 
 
 ### Smart-Mode-Line
-A smart mode line, it's simpler and less flashy than [powerline](https://github.com/coldnew/linum-relative).
+A smart mode line, it's simpler and less flashy than powerline.
 
 ### Package repositories
 Utilizes every major package repository.
@@ -44,4 +44,3 @@ Utilizes every major package repository.
 (add-to-list 'package-archives '("org"       . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ```
-
