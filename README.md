@@ -11,10 +11,12 @@ IDE-like code completion configured for
 * JavaScript using [Tern](http://ternjs.net/)
 * PHP with [php-extras](https://marmalade-repo.org/packages/php-extras)
 
-### Projectile
-Projectile brings clever project management to Emacs, allowing you to work with serveral different projects in your client. I wouldn't be able to use Emacs for my day job without this. 
+### Projectile & Perspective
+[Projectile](https://github.com/bbatsov/projectile) brings clever project management to Emacs, allowing you to work with serveral different projects in your client. I wouldn't be able to use Emacs for my day job without this. 
 
-Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) on top to keep buffers from different projects separated.
+[Perspective](https://github.com/nex3/perspective-el) brings workspaces to Emacs, allowing you to work on serveral projects simultaneously. 
+
+Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) to get that fluidity. 
 
 ### Emmet
 You already know what it does. 
