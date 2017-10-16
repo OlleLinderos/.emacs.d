@@ -128,10 +128,10 @@
   "b" 'buffer-menu
   "d" 'text-map
   "f" 'file-map
-  "s" 'swoop)
-
-;; alt + p for projectile map
-(setq projectile-keymap-prefix (kbd "π"))
+  "s" 'swoop
+  "l" 'perspective-map
+  "p" 'projectile-command-map
+  "w" 'evil-window-map)
 
 ;; General file-map
 (progn
@@ -155,14 +155,14 @@
 (smex-initialize)
 (projectile-mode)
 (autopair-global-mode)
+(linum-relative-mode)
+(persp-mode)
 
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'org-mode-hook 'linum-mode)
 
-(require 'swoop)
-(require 'linum-relative)
-(linum-relative-mode)
+(setq which-key-idle-delay 0)
 
 ;; Neo-tree 
 (setq neo-smart-open t)
@@ -186,27 +186,48 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
-;; (add-to-list 'company-backends 'company-tern)
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js2-mode-hook 'ac-js2-mode)
 
-(eval-after-load 'php-mode
-  '(require 'php-ext))
+;;
+;; Major modes
+;;
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (emmet-mode)
+  (global-set-key (kbd "TAB") 'emmet-expand-line)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(defun my-setup-indent (n)
+  (setq c-basic-offset n)
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
+
+  (setq web-mode-style-padding n)
+  (setq web-mode-script-padding n)
+  )
+
+(my-setup-indent 4)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    (package-selected-packages
-     (quote
-      (emmet-mode nord-theme company linum-relative projectile smex better-defaults neotree evil)))))
  '(neo-theme (quote ascii))
+ '(nil nil t)
  '(package-selected-packages
    (quote
-    (autopair which-key use-package swoop sml-mode smex php-extras persp-projectile nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults)))
- '(swoop-font-size-change: nil))
+    (web-mode js2-mode which-key use-package swoop sml-mode smex smart-mode-line powerline php-extras persp-projectile persp-mode-projectile-bridge nord-theme nlinum neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
