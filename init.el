@@ -27,10 +27,15 @@
 ;;
 (setq inhibit-splash-screen t
       initial-scratch-message nil
-      initial-major-mode 'text-mode
-      initial-scratch-message  "
+      initial-major-mode 'emacs-lisp-mode
+      initial-scratch-message
+";;
+;;
+;;      Hello my old friend
+;;
+;; 
 
-      Hello my old friend")
+")
 
 ;; Reize initial window
 (if (display-graphic-p)
@@ -101,6 +106,30 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+;; Require everything but Evil here
+(require 'golden-ratio)
+(require 'ag)
+(require 'rainbow-delimiters)
+(require 'php-mode)
+(require 'company)
+(require 'web-mode)
+(require 'js2-mode)
+(require 'which-key)
+(require 'swoop)
+(require 'smex)
+(require 'smart-mode-line)
+(require 'php-extras)
+(require 'nord-theme)
+(require 'neotree)
+(require 'linum-relative)
+(require 'emmet-mode)
+;; (require 'company-tern)
+(require 'better-defaults)
+(require 'smart-tabs-mode)
+(require 'git-gutter)
+(require 'git-gutter-fringe)
+
+
 ;; 
 ;; Evil mode 
 ;; 
@@ -129,9 +158,18 @@
   "d" 'text-map
   "f" 'file-map
   "s" 'swoop
+  "m" 'multiple-cursors-map
   "l" 'perspective-map
   "p" 'projectile-command-map
   "w" 'evil-window-map)
+
+;; Multiple Cursors
+(progn
+  (define-prefix-command 'multiple-cursors-map)
+  (define-key multiple-cursors-map (kbd "j") 'evil-mc-make-cursor-move-next-line)
+  (define-key multiple-cursors-map (kbd "r") 'evil-mc-undo-all-cursors)
+  (define-key multiple-cursors-map (kbd "h") 'evil-mc-make-cursor-at-pos)
+  )
 
 ;; General file-map
 (progn
@@ -147,6 +185,8 @@
   (define-key text-map (kbd "t") 'toggle-truncate-lines)
   )
 
+(global-set-key (kbd "<C-tab>") 'evil-window-next)
+
 ;;
 ;; Initialize packages and hooks
 ;; 
@@ -157,12 +197,18 @@
 (autopair-global-mode)
 (linum-relative-mode)
 (persp-mode)
+(global-evil-mc-mode 1)
+(global-git-gutter-mode)
 
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'org-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (setq which-key-idle-delay 0)
+
+(setq-default right-fringe-width 20)
+(setq git-gutter-fr:side 'right-fringe)
 
 ;; Neo-tree 
 (setq neo-smart-open t)
@@ -191,13 +237,13 @@
 ;;
 ;; Major modes
 ;;
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (emmet-mode)
-  (global-set-key (kbd "TAB") 'emmet-expand-line)
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
@@ -211,11 +257,9 @@
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
-
   (setq web-mode-style-padding n)
   (setq web-mode-script-padding n)
   )
-
 (my-setup-indent 4)
 
 (custom-set-variables
@@ -227,7 +271,7 @@
  '(nil nil t)
  '(package-selected-packages
    (quote
-    (web-mode js2-mode which-key use-package swoop sml-mode smex smart-mode-line powerline php-extras persp-projectile persp-mode-projectile-bridge nord-theme nlinum neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair))))
+    (magit-popup magit git-gutter-fringe+ git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package swoop smex smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -235,3 +279,11 @@
  ;; If there is more than one, they won't work right.
  '(swoop-face-header-format-line ((t (:foreground "#999999"))))
  '(swoop-face-line-buffer-name ((t (:background "#0099cc" :foreground "#111111")))))
+
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
+(require 'magit)
+
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list
+               "~/.emacs.d/site-lisp/magit/Documentation/"))
