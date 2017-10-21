@@ -8,7 +8,9 @@ The greatest Vim emulator there is, [Evil](https://github.com/emacs-evil/evil). 
 
 ### Git
 Complete control for Git with [Magit](https://magit.vc/).
-```SPC SPC magit-status``` -> ```c c``` -> ```C-c C-c``` 
+Usage ```SPC SPC magit-status``` -> ```c c``` -> ```C-c C-c```.
+
+Has to be downloaded via Git right now, https://magit.vc/manual/magit/Installing-from-the-Git-Repository.html#Installing-from-the-Git-Repository because magit-popout-v.tar is missing from elpa right now.
 
 ### Clever code completion
 * JavaScript using [Tern](http://ternjs.net/)
