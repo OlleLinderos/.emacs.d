@@ -3,6 +3,7 @@
 (load "~/.emacs.d/configs/system.el")
 (load "~/.emacs.d/configs/plugins.el")
 (load "~/.emacs.d/configs/hotkeys.el")
+(load "~/.emacs.d/configs/preferences.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
