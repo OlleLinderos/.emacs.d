@@ -209,8 +209,6 @@
   "p" 'projectile-command-map
   "w" 'evil-window-map)
 
-(add-hook 'prog-mode-hook 'column-number-mode)
-
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
 (require 'magit)

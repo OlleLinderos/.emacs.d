@@ -1,3 +1,4 @@
+;; tab width
 (defun my-setup-indent (n)
   (setq c-basic-offset n)
   (setq coffee-tab-width n) ; coffeescript
