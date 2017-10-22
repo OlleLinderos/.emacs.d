@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: the_field
+# key: tf
+# --
+the_field("$1");

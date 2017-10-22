@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: repeater
+# key: repeater
+# --
+if (have_rows('$1')) :
+    while (have_rows('$2')) : the_row();
+        the_sub_field('$3');
+    endwhile;
+endif;

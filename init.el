@@ -104,6 +104,7 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+(use-package which-key :demand)
 (use-package yasnippet)
 (require 'yasnippet)
 (use-package company)
@@ -159,9 +160,8 @@
 (require 'autopair)
 (use-package persp-mode)
 (require 'persp-mode)
-
-
 (use-package all-the-icons)
+(require 'all-the-icons)
 
 ;; 
 ;; Evil mode 
@@ -224,10 +224,9 @@
 ;;
 ;; Initialize packages and hooks
 ;; 
-(use-package which-key :demand)
 (which-key-mode)
 (smex-initialize)
-(projectile-mode)
+;; (projectile-global-mode)
 (autopair-global-mode)
 (linum-relative-mode)
 (persp-mode)

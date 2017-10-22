@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: the_sub_field
+# key: tsf
+# --
+the_sub_field("$1");

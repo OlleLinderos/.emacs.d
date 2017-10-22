@@ -5,3 +5,6 @@ backups
 auto-save-list
 .projectile
 site-lisp/magit
+smex-items
+ido.last
+persp-confs
