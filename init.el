@@ -1,22 +1,17 @@
 ;;
-;; Disable defaults
-;;
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
-;;
 ;; Preferences
 ;;
+(setq frame-title-format "GNU Emacs: %b")
+(set-language-environment "UTF-8")
 (setq scroll-margin 10)
-(setq tab-width 2
+(setq tab-width 4
       indent-tabs-mode nil)
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
 
-(when (member "Space Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono" :height 140))
+(when (member "Space Mono for Powerline" (font-family-list))
+  (set-face-attribute 'default nil :font "Space Mono for Powerline" :height 140))
 
 (set-background-color "black")
 (set-foreground-color "white")
@@ -66,6 +61,9 @@
 ;;
 ;; Set basics
 ;;
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
@@ -106,29 +104,64 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
-;; Require everything but Evil here
-(require 'golden-ratio)
-(require 'ag)
-(require 'rainbow-delimiters)
-(require 'php-mode)
+(use-package yasnippet)
+(require 'yasnippet)
+(use-package company)
 (require 'company)
+(use-package evil-mc)
+(require 'evil-mc)
+(use-package with-editor)
+(require 'with-editor)
+(use-package golden-ratio)
+(require 'golden-ratio)
+(use-package ag)
+(require 'ag)
+(use-package rainbow-delimiters)
+(require 'rainbow-delimiters)
+(use-package php-mode)
+(require 'php-mode)
+(use-package web-mode)
 (require 'web-mode)
+(use-package js2-mode)
 (require 'js2-mode)
+(use-package which-key)
 (require 'which-key)
+(use-package swoop)
 (require 'swoop)
+(use-package smex)
 (require 'smex)
+(use-package smart-mode-line)
 (require 'smart-mode-line)
+(use-package php-extras)
 (require 'php-extras)
+(use-package nord-theme)
 (require 'nord-theme)
+(use-package neotree)
 (require 'neotree)
+(use-package linum-relative)
 (require 'linum-relative)
+(use-package emmet-mode)
 (require 'emmet-mode)
 ;; (require 'company-tern)
+(use-package better-defaults)
 (require 'better-defaults)
+(use-package smart-tabs-mode)
 (require 'smart-tabs-mode)
+(use-package git-gutter)
 (require 'git-gutter)
+(use-package git-gutter-fringe)
 (require 'git-gutter-fringe)
+(use-package which-key :demand)
+(require 'which-key)
+(use-package projectile)
+(require 'projectile)
+(use-package autopair)
+(require 'autopair)
+(use-package persp-mode)
+(require 'persp-mode)
 
+
+(use-package all-the-icons)
 
 ;; 
 ;; Evil mode 
@@ -158,6 +191,7 @@
   "d" 'text-map
   "f" 'file-map
   "s" 'swoop
+  "g" 'magit-status
   "m" 'multiple-cursors-map
   "l" 'perspective-map
   "p" 'projectile-command-map
@@ -199,6 +233,7 @@
 (persp-mode)
 (global-evil-mc-mode 1)
 (global-git-gutter-mode)
+(yas-global-mode)
 
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -210,7 +245,20 @@
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
 
+;; Rainbow delimiters
+(set-face-foreground 'rainbow-delimiters-depth-1-face "white")
+(set-face-foreground 'rainbow-delimiters-depth-2-face "cyan")
+(set-face-foreground 'rainbow-delimiters-depth-3-face "yellow")
+(set-face-foreground 'rainbow-delimiters-depth-4-face "green")
+(set-face-foreground 'rainbow-delimiters-depth-5-face "orange")
+(set-face-foreground 'rainbow-delimiters-depth-6-face "purple")
+(set-face-foreground 'rainbow-delimiters-depth-7-face "white")
+(set-face-foreground 'rainbow-delimiters-depth-8-face "cyan")
+(set-face-foreground 'rainbow-delimiters-depth-9-face "yellow")
+(set-face-foreground 'rainbow-delimiters-unmatched-face "red")
+
 ;; Neo-tree 
+(setq neo-window-width 30)
 (setq neo-smart-open t)
 (add-hook 'neotree-mode-hook
             (lambda ()
@@ -232,14 +280,17 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-
-;;
 ;; Major modes
 ;;
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(add-hook 'js2-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-yasnippet)))))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -267,16 +318,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(neo-theme (quote ascii))
+ '(neo-theme (quote icons))
  '(nil nil t)
  '(package-selected-packages
    (quote
-    (magit-popup magit git-gutter-fringe+ git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package swoop smex smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair))))
+    (flycheck company-php yasnippet all-the-icons magit-popup magit git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package swoop smex smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair)))
+ '(sml/projectile-replacement-format "[%s] ")
+ '(sml/theme (quote respectful)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(sml/git ((t (:inherit nil :foreground "#A4BA83" :weight bold))))
+ '(sml/minor-modes ((t (:foreground "#A4BA83"))))
  '(swoop-face-header-format-line ((t (:foreground "#999999"))))
  '(swoop-face-line-buffer-name ((t (:background "#0099cc" :foreground "#111111")))))
 
