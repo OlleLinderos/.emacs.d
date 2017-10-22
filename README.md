@@ -7,7 +7,7 @@ If you have a pre-existing emacs config, back it up with
 ```
 $ mv .emacs .emacs_backup & mv .emacs.d .emacs.d_backup
 ```
-To install this config run
+To install this config run this in your home directory
 ```
 $ git clone https://github.com/OlleLinderos/Emacs.d.git & mv Emacs.d .emacs.d/
 ```
