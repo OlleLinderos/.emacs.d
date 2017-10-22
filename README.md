@@ -3,6 +3,14 @@ Lightweight Emacs configuration for web development
 
 ## Installation
 
+If you have a pre-existing emacs config, back it up with
+```
+$ mv .emacs .emacs_backup & mv .emacs.d .emacs.d_backup
+```
+To install this config run
+```
+git clone https://github.com/OlleLinderos/Emacs.d.git & mv Emacs.d .emacs.d/
+```
 
 
 ## Features
