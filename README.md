@@ -55,3 +55,6 @@ Press any prefix key to get a complete tooltip with hotkey suggestions. ```SPC``
 ### Multiple cursors
 ```grs``` to stop recording. ```grr``` to resume. 
 ```SPC m``` for options.
+
+## Todo
+* Vue-mode
