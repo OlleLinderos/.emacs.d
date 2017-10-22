@@ -160,8 +160,9 @@
 (require 'autopair)
 (use-package persp-mode)
 (require 'persp-mode)
-(use-package all-the-icons)
-(require 'all-the-icons)
+
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching t)
 
 ;; 
 ;; Evil mode 
@@ -317,11 +318,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(neo-theme (quote icons))
+ '(neo-theme (quote asci))
  '(nil nil t)
  '(package-selected-packages
    (quote
-    (flycheck company-php yasnippet all-the-icons magit-popup magit git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package swoop smex smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair)))
+    (yasnippet magit-popup magit git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package swoop smex smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair)))
  '(sml/projectile-replacement-format "[%s] ")
  '(sml/theme (quote respectful)))
 (custom-set-faces
