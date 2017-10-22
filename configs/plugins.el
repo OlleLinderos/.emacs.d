@@ -230,3 +230,41 @@
   (add-to-list 'Info-directory-list
                "~/.emacs.d/site-lisp/magit/Documentation/"))
 
+;;
+;; Autocomplete
+;; 
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay t)
+
+;; Major modes
+;;
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(add-hook 'js2-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-yasnippet)))))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (emmet-mode)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(defun my-setup-indent (n)
+  (setq c-basic-offset n)
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
+  (setq web-mode-style-padding n)
+  (setq web-mode-script-padding n)
+  )
+(my-setup-indent 4)

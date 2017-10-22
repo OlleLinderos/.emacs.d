@@ -1,8 +1,8 @@
 ;; This is my Emacs configuration. There are many like it, but this one is mine.
 
-(load "./configs/system.el")
-(load "./configs/plugins.el")
-(load "./configs/hotkeys.el")
+(load "~/.emacs.d/configs/system.el")
+(load "~/.emacs.d/configs/plugins.el")
+(load "~/.emacs.d/configs/hotkeys.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
