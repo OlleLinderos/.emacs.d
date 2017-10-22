@@ -12,6 +12,15 @@ To install this config run this in your home directory
 $ git clone https://github.com/OlleLinderos/Emacs.d.git ~/.emacs.d
 ```
 
+Then clone the Magit repository:
+```
+$ git clone https://github.com/magit/magit.git ~/.emacs.d/site-lisp/magit
+$ cd ~/.emacs.d/site-lisp/magit
+```
+Then compile the libraries and generate the info manuals:
+```
+$ make
+```
 
 ## Features
 
@@ -21,7 +30,7 @@ The greatest Vim emulator there is, [Evil](https://github.com/emacs-evil/evil). 
 ### Git
 Complete in-editor git control with [Magit](https://magit.vc/).
 
-Has to be downloaded via Git right now, https://magit.vc/manual/magit/Installing-from-the-Git-Repository.html#Installing-from-the-Git-Repository because magit-popout-v.tar is missing from elpa.
+Has to be downloaded via Git right now, https://magit.vc/manual/magit/Installing-from-the-Git-Repository.html#Installing-from-the-Git-Repository because magit-popout- is missing from elpa.
 
 ### Clever code completion
 For JavaScript, CSS/SCSS, PHP, emmet for HTML.
