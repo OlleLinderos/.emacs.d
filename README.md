@@ -5,7 +5,7 @@ Lightweight Emacs configuration for web development
 
 If you have a pre-existing emacs config, back it up with
 ```
-$ mv .emacs .emacs_backup & mv .emacs.d .emacs.d_backup
+$ mv ~/.emacs ~/.emacs_backup & mv ~/.emacs.d ~/.emacs.d_backup
 ```
 To install this config run this in your home directory
 ```
