@@ -1,3 +1,25 @@
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; Avy
+(progn
+  (define-prefix-command 'avy-map)
+  (define-key avy-map (kbd "j") 'avy-goto-char)
+  (define-key avy-map (kbd "w") 'avy-goto-word-1)
+  (define-key avy-map (kbd "l") 'avy-goto-line)
+  (define-key avy-map (kbd "c") 'avy-copy-line)
+  )
+
+;; Projectile Counsel
+(progn
+  (define-prefix-command 'project-map)
+  (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
+  (define-key project-map (kbd "f") 'counsel-projectile-find-file)
+  (define-key project-map (kbd "s") 'counsel-projectile-ag)
+  (define-key project-map (kbd ".") 'projectile-command-map)
+  (define-key project-map (kbd "!") 'projectile-save-known-projects)
+  )
+
 ;; Multiple Cursors
 (progn
   (define-prefix-command 'multiple-cursors-map)
