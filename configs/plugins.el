@@ -53,10 +53,10 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (set-face-foreground 'rainbow-delimiters-depth-1-face "white")
-(set-face-foreground 'rainbow-delimiters-depth-2-face "cyan")
+(set-face-foreground 'rainbow-delimiters-depth-2-face "orange")
 (set-face-foreground 'rainbow-delimiters-depth-3-face "yellow")
 (set-face-foreground 'rainbow-delimiters-depth-4-face "green")
-(set-face-foreground 'rainbow-delimiters-depth-5-face "orange")
+(set-face-foreground 'rainbow-delimiters-depth-5-face "cyan")
 (set-face-foreground 'rainbow-delimiters-depth-6-face "purple")
 (set-face-foreground 'rainbow-delimiters-depth-7-face "white")
 (set-face-foreground 'rainbow-delimiters-depth-8-face "cyan")
@@ -92,14 +92,21 @@
               (set (make-local-variable 'company-backends)
                    '((company-yasnippet)))))
 
-;; swoop
-(use-package swoop)
-(require 'swoop)
+;; shell pop
+(use-package shell-pop)
+(require 'shell-pop)
 
-;; smex
-(use-package smex)
-(require 'smex)
-(smex-initialize)
+;; ivy (swiper, counsel)
+(use-package ivy)
+(require 'ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+
+;; avy
+(use-package avy)
+(require 'avy)
+(avy-setup-default)
 
 ;; smart-mode-line
 (use-package smart-mode-line)
@@ -113,6 +120,10 @@
 (require 'nord-theme)
 (setq nord-comment-brightness 15)
 (load-theme 'nord t)
+
+;; all-the-icons
+(use-package all-the-icons)
+(require 'all-the-icons)
 
 ;; neotree
 (use-package neotree)
@@ -159,7 +170,7 @@
 (use-package projectile)
 (require 'projectile)
 (setq projectile-indexing-method 'native)
-(setq projectile-enable-caching t)
+;; (setq projectile-enable-caching t)
 
 ;; autopair
 (use-package autopair)
@@ -188,25 +199,26 @@
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-insert-state-map (kbd "C-u")
-
   (lambda ()
     (interactive)
     (evil-delete (point-at-bol) (point))))
 
 (evil-leader/set-leader "SPC")
 (evil-leader/set-key
-  "SPC" 'smex
+  "SPC" 'counsel-M-x
+  "'" 'shell-pop
   "TAB" 'neotree-toggle
   "/" 'comment-region
   "\\\\" 'uncomment-region
   "b" 'buffer-menu
   "d" 'text-map
   "f" 'file-map
-  "s" 'swoop
+  "s" 'swiper
+  "j" 'avy-map
   "g" 'magit-status
   "m" 'multiple-cursors-map
   "l" 'perspective-map
-  "p" 'projectile-command-map
+  "p" 'project-map
   "w" 'evil-window-map)
 
 ;; magit
@@ -217,4 +229,3 @@
   (info-initialize)
   (add-to-list 'Info-directory-list
                "~/.emacs.d/site-lisp/magit/Documentation/"))
-
