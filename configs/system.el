@@ -11,7 +11,7 @@
 (when (member "Space Mono for Powerline" (font-family-list))
   (set-face-attribute 'default nil :font "Space Mono for Powerline" :height 140))
 
-;; (set-background-color "black")
+(set-background-color "black")
 (set-foreground-color "white")
 (set-face-attribute 'fringe nil :background nil)
 
