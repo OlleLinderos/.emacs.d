@@ -44,10 +44,10 @@ Sprinkled with [persp-projectile](https://github.com/bbatsov/persp-projectile) f
 ```SPC TAB``` to open [Neotree](https://github.com/jaypei/emacs-neotree).
 
 ### Quick code navigation
-```SPC s``` to trigger [swoop](https://github.com/ShingoFukuyama/emacs-swoop) and ```SPC j``` for [avy](https://github.com/abo-abo/avy).
+```SPC s``` to trigger [swiper](https://github.com/abo-abo/swiper) and ```SPC j``` for [avy](https://github.com/abo-abo/avy).
 
 ### Enhanced M-x interface
-```SPC SPC``` to open [smex](https://github.com/nonsequitur/smex).
+Recently replace Smex (using Ido) with Counsel (using Ivy). ```SPC SPC``` for M-x.
 
 ### Which-key
 Press any prefix key to get a complete tooltip with hotkey suggestions. ```SPC``` is the leader key in this config. 
