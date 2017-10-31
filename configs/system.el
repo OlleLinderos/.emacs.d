@@ -18,15 +18,13 @@
 ;; Greeting
 (setq inhibit-splash-screen t
       initial-scratch-message nil
-      initial-major-mode 'emacs-lisp-mode
-      initial-scratch-message
-";;
-;;
-;;      Hello my old friend
-;;
-;; 
+      initial-major-mode 'text-mode
+      initial-scratch-message "
 
-")
+
+
+
+              Hello my old friend")
 
 ;; Reize initial window
 (if (display-graphic-p)
