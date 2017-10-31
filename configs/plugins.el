@@ -96,7 +96,7 @@
 (use-package shell-pop)
 (require 'shell-pop)
 
-;; ivy (swiper, counsel)
+;; ivy
 (use-package ivy)
 (require 'ivy)
 (ivy-mode 1)
@@ -120,6 +120,12 @@
 (require 'nord-theme)
 (setq nord-comment-brightness 15)
 (load-theme 'nord t)
+
+;; what on earth is this name
+;; (use-package apropospriate-theme
+;;   :ensure t
+;;   :config 
+;;    (load-theme 'apropospriate-dark t))
 
 ;; all-the-icons
 (use-package all-the-icons)
@@ -207,7 +213,7 @@
 (evil-leader/set-key
   "SPC" 'counsel-M-x
   "'" 'shell-pop
-  "TAB" 'neotree-toggle
+  "TAB" 'neotree-projectile-action
   "/" 'comment-region
   "\\\\" 'uncomment-region
   "b" 'buffer-menu
@@ -215,6 +221,7 @@
   "f" 'file-map
   "s" 'swiper
   "j" 'avy-map
+  "t" 'toggle-map
   "g" 'magit-status
   "m" 'multiple-cursors-map
   "l" 'perspective-map
