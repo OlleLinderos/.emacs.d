@@ -1,6 +1,12 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+;; Toggle
+(progn
+  (define-prefix-command 'toggle-map)
+  (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen)
+  )
+
 ;; Avy
 (progn
   (define-prefix-command 'avy-map)
@@ -31,8 +37,11 @@
 ;; General file-map
 (progn
   (define-prefix-command 'file-map)
-  (define-key file-map (kbd "f") 'find-file)
-  (define-key file-map (kbd "d") 'dired)
+  (define-key file-map (kbd "f") 'counsel-find-file)
+  (define-key file-map (kbd "d") 'counsel-projectile-find-dir)
+  (define-key file-map (kbd "e")
+    (lambda() (interactive)
+      (find-file "~/.emacs.d/init.el")))
   )
 
 ;; Text actions map
