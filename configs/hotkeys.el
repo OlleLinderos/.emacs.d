@@ -38,7 +38,7 @@
 (progn
   (define-prefix-command 'file-map)
   (define-key file-map (kbd "f") 'counsel-find-file)
-  (define-key file-map (kbd "d") 'counsel-projectile-find-dir)
+  (define-key file-map (kbd "d") 'dired)
   (define-key file-map (kbd "e")
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el")))

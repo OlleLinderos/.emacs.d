@@ -1,7 +1,7 @@
 ;; package archives
 (require 'package)
-(add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+;;(add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu"          . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("org"          . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/"))
@@ -177,7 +177,7 @@
 (use-package projectile)
 (require 'projectile)
 (setq projectile-indexing-method 'native)
-;; (setq projectile-enable-caching t)
+(setq projectile-enable-caching t)
 
 ;; autopair
 (use-package autopair)
