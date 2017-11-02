@@ -72,6 +72,10 @@
 (use-package php-extras)
 (require 'php-extras)
 
+;; rjsx-mode
+(use-package rjsx-mode)
+(require 'rjsx-mode)
+
 ;; web-mode
 (use-package web-mode)
 (require 'web-mode)
