@@ -7,12 +7,12 @@ Any recent Emacs version will work with this config, but I prefer using [d12fros
 
 Get homebrew first, if you haven't already.
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 I really like running --with-natural-title-bar, full list of options [here](https://github.com/d12frosted/homebrew-emacs-plus#options).
 ```
-brew tap d12frosted/emacs-plus
-brew install emacs-plus --without-spacemacs-icon --with-natural-title-bar --HEAD
+$ brew tap d12frosted/emacs-plus
+$ brew install emacs-plus --without-spacemacs-icon --with-natural-title-bar --HEAD
 ```
 If you have a pre-existing emacs config, back it up with
 ```
