@@ -1,6 +1,6 @@
 ;; package archives
 (require 'package)
-;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu"          . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("org"          . "http://orgmode.org/elpa/"))
@@ -63,6 +63,10 @@
 (set-face-foreground 'rainbow-delimiters-depth-8-face "cyan")
 (set-face-foreground 'rainbow-delimiters-depth-9-face "yellow")
 (set-face-foreground 'rainbow-delimiters-unmatched-face "red")
+
+;; typescript
+(use-package typescript)
+(require 'typescript)
 
 ;; php-mode
 (use-package php-mode)

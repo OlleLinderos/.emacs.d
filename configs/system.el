@@ -11,9 +11,12 @@
 (when (member "Space Mono for Powerline" (font-family-list))
   (set-face-attribute 'default nil :font "Space Mono for Powerline" :height 140))
 
-(set-background-color "black")
+(set-background-color "#2E3436")
 (set-foreground-color "white")
 (set-face-attribute 'fringe nil :background nil)
+
+;; default shell
+;; (setq-default shell-file-name "/bin/bash")
 
 ;; Greeting
 (setq inhibit-splash-screen t

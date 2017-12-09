@@ -16,7 +16,7 @@
  '(neo-theme (quote nerd))
  '(package-selected-packages
    (quote
-    (ivy dumb-jump shell-pop avy exec-path-from-shell counsel-projectile counsel yasnippet magit-popup magit git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair)))
+    (tide ivy dumb-jump shell-pop avy exec-path-from-shell counsel-projectile counsel yasnippet magit-popup magit git-gutter-fringe smart-tabs-mode evil-mc golden-ratio ag rainbow-delimiters php-mode company web-mode js2-mode which-key use-package smart-mode-line php-extras nord-theme neotree linum-relative evil-leader emmet-mode company-tern better-defaults autopair)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
