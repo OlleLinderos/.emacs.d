@@ -13,10 +13,10 @@
   (setq web-mode-script-padding n)
   )
 (my-setup-indent 4)
-
+  
 ;; opacity
-;; (set-frame-parameter (selected-frame) 'alpha '(97 . 97))
-;; (add-to-list 'default-frame-alist '(alpha . (97 . 97)))
+(set-frame-parameter (selected-frame) 'alpha '(97 . 97))
+(add-to-list 'default-frame-alist '(alpha . (97 . 97)))
 
 (defun move-line-up ()
   "Move up the current line."
@@ -33,5 +33,3 @@
   (forward-line -1)
   (indent-according-to-mode))
 
-(global-set-key [(control shift down)]  'move-line-down)
-(global-set-key [(control shift up)]  'move-line-up)

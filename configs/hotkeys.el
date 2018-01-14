@@ -52,3 +52,6 @@
   )
 
 (global-set-key (kbd "<C-tab>") 'evil-window-next)
+
+(global-set-key [(control shift down)]  'move-line-down)
+(global-set-key [(control shift up)]  'move-line-up)

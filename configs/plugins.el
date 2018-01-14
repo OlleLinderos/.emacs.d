@@ -32,6 +32,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
+(require 'angular-snippets)
+
 ;; evil multiple cursors
 (use-package evil-mc)
 (require 'evil-mc)
@@ -130,12 +132,6 @@
 (setq nord-comment-brightness 15)
 (load-theme 'nord t)
 
-;; what on earth is this name
-;; (use-package apropospriate-theme
-;;   :ensure t
-;;   :config 
-;;    (load-theme 'apropospriate-dark t))
-
 ;; all-the-icons
 (use-package all-the-icons)
 (require 'all-the-icons)
@@ -186,16 +182,15 @@
 (require 'projectile)
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
+(projectile-mode)
+
+(require 'elscreen-separate-buffer-list)
+(elscreen-separate-buffer-list-mode)
 
 ;; autopair
 (use-package autopair)
 (require 'autopair)
 (autopair-global-mode)
-
-;; persp-mode
-(use-package persp-mode)
-(require 'persp-mode)
-(persp-mode)
 
 ;; Evil mode 
 (setq evil-want-C-u-scroll t) ;; vim scrolling
@@ -228,6 +223,7 @@
   "b" 'buffer-menu
   "d" 'text-map
   "f" 'file-map
+  "e" 'elscreen-map
   "s" 'swiper
   "j" 'avy-map
   "t" 'toggle-map
@@ -245,3 +241,5 @@
   (info-initialize)
   (add-to-list 'Info-directory-list
                "~/.emacs.d/site-lisp/magit/Documentation/"))
+
+(elscreen-start)

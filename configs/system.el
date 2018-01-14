@@ -16,7 +16,7 @@
 (set-face-attribute 'fringe nil :background nil)
 
 ;; default shell
-;; (setq-default shell-file-name "/bin/bash")
+(setq-default shell-file-name "/usr/local/bin/fish")
 
 ;; Greeting
 (setq inhibit-splash-screen t
@@ -42,6 +42,7 @@
       (setq default-frame-alist
             '(
               (top . 40)
+              (ns-transparent-titlebar . t)
               (left . 20)
               (tool-bar-lines . 0)
               (width . 120)
