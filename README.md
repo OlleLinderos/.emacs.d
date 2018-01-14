@@ -18,9 +18,6 @@ Then clone the Magit repository:
 ```
 git clone https://github.com/magit/magit.git ~/.emacs.d/site-lisp/magit
 cd ~/.emacs.d/site-lisp/magit
-```
-Then compile the libraries and generate the info manuals:
-```
 make
 ```
 
