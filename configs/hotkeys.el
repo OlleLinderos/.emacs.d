@@ -1,6 +1,3 @@
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
 ;; Toggle
 (progn
   (define-prefix-command 'toggle-map)

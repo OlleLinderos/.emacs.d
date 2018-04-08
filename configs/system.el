@@ -5,18 +5,18 @@
 (setq-default truncate-lines t)
 
 ;; Mac keyboard
-(setq mac-option-key-is-meta nil)
-(setq mac-option-modifier nil)
+;;(setq mac-option-key-is-meta nil)
+;;(setq mac-option-modifier nil)
 
-(when (member "Space Mono for Powerline" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono for Powerline" :height 140))
+(when (member "Source Code Pro" (font-family-list))
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 50))
 
-(set-background-color "#2E3436")
+(set-background-color "#000")
 (set-foreground-color "white")
 (set-face-attribute 'fringe nil :background nil)
 
 ;; default shell
-(setq-default shell-file-name "/usr/local/bin/fish")
+(setq-default shell-file-name "/bin/zsh")
 
 ;; Greeting
 (setq inhibit-splash-screen t

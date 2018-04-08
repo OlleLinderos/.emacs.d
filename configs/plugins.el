@@ -32,8 +32,6 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
-(require 'angular-snippets)
-
 ;; evil multiple cursors
 (use-package evil-mc)
 (require 'evil-mc)
@@ -78,8 +76,7 @@
 (use-package php-extras)
 (require 'php-extras)
 
-;; rjsx-mode
-(use-package rjsx-mode)
+;; rjsx-mode(use-package rjsx-mode)
 (require 'rjsx-mode)
 
 ;; web-mode
@@ -123,14 +120,8 @@
 (use-package smart-mode-line)
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
-(setq sml/theme 'respectful)
+;;(setq sml/theme 'respectful)
 (sml/setup)
-
-;; nord-theme
-(use-package nord-theme)
-(require 'nord-theme)
-(setq nord-comment-brightness 15)
-(load-theme 'nord t)
 
 ;; all-the-icons
 (use-package all-the-icons)
@@ -170,6 +161,30 @@
 (use-package git-gutter)
 (require 'git-gutter)
 
+;; tide
+(use-package tide)
+(require 'tide)
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+(require 'ng2-mode)
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
 ;; git-gutter-fringe
 (use-package git-gutter-fringe)
 (require 'git-gutter-fringe)
@@ -183,9 +198,6 @@
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
 (projectile-mode)
-
-(require 'elscreen-separate-buffer-list)
-(elscreen-separate-buffer-list-mode)
 
 ;; autopair
 (use-package autopair)
@@ -223,7 +235,6 @@
   "b" 'buffer-menu
   "d" 'text-map
   "f" 'file-map
-  "e" 'elscreen-map
   "s" 'swiper
   "j" 'avy-map
   "t" 'toggle-map
@@ -233,13 +244,7 @@
   "p" 'project-map
   "w" 'evil-window-map)
 
-;; magit
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
-(require 'magit)
-
-(with-eval-after-load 'info
-  (info-initialize)
-  (add-to-list 'Info-directory-list
-               "~/.emacs.d/site-lisp/magit/Documentation/"))
-
-(elscreen-start)
+(setq custom-safe-themes t)
+;; (use-package nord)
+;;(require 'nord)
+(add-hook 'after-init-hook (lambda() (load-theme 'nord)))
