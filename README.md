@@ -5,8 +5,7 @@ Lightweight Emacs configuration heavily inspired by Spacemacs
 
 To install this config run this
 ```
-cd ~
-git clone https://github.com/OlleLinderos/Emacs.d.git ~/.emacs.d
+cd ~ && git clone https://github.com/OlleLinderos/Emacs.d.git ~/.emacs.d
 ```
 
 ## Features
