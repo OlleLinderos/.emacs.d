@@ -23,14 +23,6 @@
   (define-key project-map (kbd "!") 'projectile-save-known-projects)
   )
 
-;; Multiple Cursors
-(progn
-  (define-prefix-command 'multiple-cursors-map)
-  (define-key multiple-cursors-map (kbd "j") 'evil-mc-make-cursor-move-next-line)
-  (define-key multiple-cursors-map (kbd "r") 'evil-mc-undo-all-cursors)
-  (define-key multiple-cursors-map (kbd "h") 'evil-mc-make-cursor-at-pos)
-  )
-
 ;; General file-map
 (progn
   (define-prefix-command 'file-map)
@@ -49,6 +41,22 @@
   )
 
 (global-set-key (kbd "<C-tab>") 'evil-window-next)
+
+;; utility functions
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
 
 (global-set-key [(control shift down)]  'move-line-down)
 (global-set-key [(control shift up)]  'move-line-up)

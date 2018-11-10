@@ -2,9 +2,4 @@ elpa
 projectile-bookmarks.eld
 network-security.data
 backups
-auto-save-list
-.projectile
-site-lisp/magit
-smex-items
-ido.last
-persp-confs
+projectile.cache

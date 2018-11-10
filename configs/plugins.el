@@ -1,11 +1,10 @@
 ;; package archives
 (require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu"          . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("org"          . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/"))
-(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -21,21 +20,14 @@
 (setq which-key-idle-delay 0)
 (which-key-mode)
 
-;; yasnippet
-(use-package yasnippet)
-(require 'yasnippet)
-(yas-global-mode)
-
 ;; company
 (use-package company)
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay t)
 
-;; evil multiple cursors
-(use-package evil-mc)
-(require 'evil-mc)
-(global-evil-mc-mode 1)
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
 
 ;; with-editor
 (use-package with-editor)
@@ -64,42 +56,6 @@
 (set-face-foreground 'rainbow-delimiters-depth-9-face "yellow")
 (set-face-foreground 'rainbow-delimiters-unmatched-face "red")
 
-;; typescript
-(use-package typescript)
-(require 'typescript)
-
-;; php-mode
-(use-package php-mode)
-(require 'php-mode)
-
-;; php-extras
-(use-package php-extras)
-(require 'php-extras)
-
-;; rjsx-mode(use-package rjsx-mode)
-(require 'rjsx-mode)
-
-;; web-mode
-(use-package web-mode)
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (emmet-mode)
-)
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-
-;; js2-mode
-(use-package js2-mode)
-(require 'js2-mode)
-(add-hook 'js2-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '((company-yasnippet)))))
-
 ;; shell pop
 (use-package shell-pop)
 (require 'shell-pop)
@@ -123,10 +79,6 @@
 ;;(setq sml/theme 'respectful)
 (sml/setup)
 
-;; all-the-icons
-(use-package all-the-icons)
-(require 'all-the-icons)
-
 ;; neotree
 (use-package neotree)
 (require 'neotree)
@@ -143,47 +95,13 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'org-mode-hook 'linum-mode)
 
-;; emmet
-(use-package emmet-mode)
-(require 'emmet-mode)
-
-;; (require 'company-tern)
-
 ;; better-defaults
 (use-package better-defaults)
 (require 'better-defaults)
 
-;; smart-tabs-mode
-(use-package smart-tabs-mode)
-(require 'smart-tabs-mode)
-
 ;; git-gutter
 (use-package git-gutter)
 (require 'git-gutter)
-
-;; tide
-(use-package tide)
-(require 'tide)
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
-
-(require 'ng2-mode)
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; git-gutter-fringe
 (use-package git-gutter-fringe)
@@ -191,6 +109,14 @@
 (global-git-gutter-mode)
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
+
+;; counsel
+(use-package counsel)
+(require 'counsel)
+
+;; counsel projectile
+(use-package counsel-projectile)
+(require 'counsel-projectile)
 
 ;; projectile
 (use-package projectile)
@@ -239,12 +165,10 @@
   "j" 'avy-map
   "t" 'toggle-map
   "g" 'magit-status
-  "m" 'multiple-cursors-map
-  "l" 'perspective-map
   "p" 'project-map
   "w" 'evil-window-map)
 
-(setq custom-safe-themes t)
-;; (use-package nord)
+;;(setq custom-safe-themes t)
+;;(use-package nord)
 ;;(require 'nord)
-(add-hook 'after-init-hook (lambda() (load-theme 'nord)))
+;;(add-hook 'after-init-hook (lambda() (load-theme 'nord)))

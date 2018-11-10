@@ -1,15 +1,15 @@
-;; Preferences
+;; Setup
 (setq frame-title-format "GNU Emacs: %b")
 (set-language-environment "UTF-8")
 (setq scroll-margin 10)
 (setq-default truncate-lines t)
 
 ;; Mac keyboard
-;;(setq mac-option-key-is-meta nil)
-;;(setq mac-option-modifier nil)
+(setq mac-option-key-is-meta nil)
+(setq mac-option-modifier nil)
 
 (when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 50))
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 140))
 
 (set-background-color "#000")
 (set-foreground-color "white")
