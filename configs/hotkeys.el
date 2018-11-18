@@ -1,8 +1,7 @@
 ;; Toggle
 (progn
   (define-prefix-command 'toggle-map)
-  (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen)
-  )
+  (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen))
 
 ;; Avy
 (progn
@@ -10,8 +9,7 @@
   (define-key avy-map (kbd "j") 'avy-goto-char)
   (define-key avy-map (kbd "w") 'avy-goto-word-1)
   (define-key avy-map (kbd "l") 'avy-goto-line)
-  (define-key avy-map (kbd "c") 'avy-copy-line)
-  )
+  (define-key avy-map (kbd "c") 'avy-copy-line))
 
 ;; Projectile Counsel
 (progn
@@ -20,8 +18,7 @@
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
   (define-key project-map (kbd ".") 'projectile-command-map)
-  (define-key project-map (kbd "!") 'projectile-save-known-projects)
-  )
+  (define-key project-map (kbd "!") 'projectile-save-known-projects))
 
 ;; General file-map
 (progn
@@ -30,33 +27,12 @@
   (define-key file-map (kbd "d") 'dired)
   (define-key file-map (kbd "e")
     (lambda() (interactive)
-      (find-file "~/.emacs.d/init.el")))
-  )
+      (find-file "~/.emacs.d/init.el"))))
 
 ;; Text actions map
 (progn
   (define-prefix-command 'text-map)
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
-  (define-key text-map (kbd "t") 'toggle-truncate-lines)
-  )
+  (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
 (global-set-key (kbd "<C-tab>") 'evil-window-next)
-
-;; utility functions
-(defun move-line-up ()
-  "Move up the current line."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
-
-(defun move-line-down ()
-  "Move down the current line."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
-
-(global-set-key [(control shift down)]  'move-line-down)
-(global-set-key [(control shift up)]  'move-line-up)

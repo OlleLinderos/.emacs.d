@@ -1,7 +1,7 @@
 ;; package archives
 (require 'package)
-(add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu"          . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("org"          . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/"))
@@ -15,6 +15,10 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+;; magit
+(use-package magit)
+(require 'magit)
+
 ;; which-key
 (use-package which-key :demand)
 (setq which-key-idle-delay 0)
@@ -24,10 +28,12 @@
 (use-package company)
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-tooltip-align-annotations t)
 (setq company-idle-delay t)
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
+;; CIDER
+(use-package cider)
+(require 'cider)
 
 ;; with-editor
 (use-package with-editor)
@@ -45,16 +51,6 @@
 (use-package rainbow-delimiters)
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(set-face-foreground 'rainbow-delimiters-depth-1-face "white")
-(set-face-foreground 'rainbow-delimiters-depth-2-face "orange")
-(set-face-foreground 'rainbow-delimiters-depth-3-face "yellow")
-(set-face-foreground 'rainbow-delimiters-depth-4-face "green")
-(set-face-foreground 'rainbow-delimiters-depth-5-face "cyan")
-(set-face-foreground 'rainbow-delimiters-depth-6-face "purple")
-(set-face-foreground 'rainbow-delimiters-depth-7-face "white")
-(set-face-foreground 'rainbow-delimiters-depth-8-face "cyan")
-(set-face-foreground 'rainbow-delimiters-depth-9-face "yellow")
-(set-face-foreground 'rainbow-delimiters-unmatched-face "red")
 
 ;; shell pop
 (use-package shell-pop)
@@ -76,7 +72,7 @@
 (use-package smart-mode-line)
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
-;;(setq sml/theme 'respectful)
+(setq sml/theme 'respectful)
 (sml/setup)
 
 ;; neotree
@@ -168,7 +164,7 @@
   "p" 'project-map
   "w" 'evil-window-map)
 
-;;(setq custom-safe-themes t)
-;;(use-package nord)
-;;(require 'nord)
-;;(add-hook 'after-init-hook (lambda() (load-theme 'nord)))
+;; Nord theme :D
+(setq custom-safe-themes t)
+(use-package nord-theme)
+(require 'nord-theme)

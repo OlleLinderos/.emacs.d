@@ -1,19 +1,43 @@
 ;; Setup
-(setq frame-title-format "GNU Emacs: %b")
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format nil)
+(setq ns-use-proxy-icon nil)
 (set-language-environment "UTF-8")
+
 (setq scroll-margin 10)
+
+(add-hook 'term-mode-hook
+          (lambda ()
+              (set (make-local-variable 'scroll-margin) 0)))
+
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+              (set (make-local-variable 'scroll-margin) 0)))
+
+(add-hook 'custom-mode-hook
+          (lambda ()
+              (set (make-local-variable 'scroll-margin) 0)))
+
 (setq-default truncate-lines t)
 
 ;; Mac keyboard
 (setq mac-option-key-is-meta nil)
 (setq mac-option-modifier nil)
 
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 140))
+;; Font
+(when (member "Space Mono" (font-family-list))
+  (set-face-attribute 'default nil :font "Space Mono" :height 140))
 
-(set-background-color "#000")
-(set-foreground-color "white")
+;; Fringe background
 (set-face-attribute 'fringe nil :background nil)
+
+;; opacity
+(set-frame-parameter (selected-frame) 'alpha '(99 . 99))
+(add-to-list 'default-frame-alist '(alpha . (99 . 99)))
+
+;; comment brightness
+(setq nord-comment-brightness 15)
 
 ;; default shell
 (setq-default shell-file-name "/bin/zsh")
@@ -33,21 +57,17 @@
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
-            '(
-              (tool-bar-lines . 0)
-              (width . 120) 
-              (height . 32)
-              ))
+            '((tool-bar-lines . 0)
+              (width . 135) 
+              (height . 39)))
 
       (setq default-frame-alist
-            '(
-              (top . 40)
+            '((top . 30)
+              (left . 29)
               (ns-transparent-titlebar . t)
-              (left . 20)
               (tool-bar-lines . 0)
-              (width . 120)
-              (height . 32)
-              )))
+              (width . 135)
+              (height . 39))))
   (progn
     (setq initial-frame-alist
           '(
@@ -76,3 +96,5 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+
+(add-to-list 'exec-path "/usr/local/bin")
