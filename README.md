@@ -1,5 +1,6 @@
 # Emacs.d
-My .emacs.d for Clojure and ClojureScript, checkout "web" branch for JavaScript/TypeScript setup
+My .emacs.d for Clojure and ClojureScript
+`Checkout "web" branch for JS/TS setup`
 
 ## Installation
 ```
