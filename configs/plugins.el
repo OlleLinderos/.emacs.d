@@ -34,6 +34,7 @@
 ;; CIDER
 (use-package cider)
 (require 'cider)
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; with-editor
 (use-package with-editor)
