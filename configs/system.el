@@ -19,6 +19,10 @@
           (lambda ()
               (set (make-local-variable 'scroll-margin) 0)))
 
+(add-hook 'messages-buffer-mode-hook
+          (lambda ()
+              (set (make-local-variable 'scroll-margin) 0)))
+
 (setq-default truncate-lines t)
 
 ;; Mac keyboard

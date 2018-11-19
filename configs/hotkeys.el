@@ -1,3 +1,5 @@
+(global-set-key [escape] 'minibuffer-keyboard-quit)
+
 ;; Toggle
 (progn
   (define-prefix-command 'toggle-map)
