@@ -15,6 +15,20 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+;; Evil mode 
+(setq evil-want-C-u-scroll t) ;; vim scrolling
+(use-package evil
+  :demand
+  :config (evil-mode 1))
+(require 'evil)
+
+(use-package evil-leader
+  :demand
+  :config (progn
+            (setq evil-leader/in-all-states t)
+            (global-evil-leader-mode)))
+(require 'evil-leader)
+
 ;; magit
 (use-package magit)
 (require 'magit)
@@ -49,6 +63,10 @@
 ;; golden ratio
 (use-package golden-ratio)
 (require 'golden-ratio)
+
+;; there is ranger for emacs?!
+(use-package ranger)
+(require 'ranger)
 
 ;; ag
 (use-package ag)
@@ -91,7 +109,12 @@
             (lambda ()
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
-;; linum-relative
+(defun open-neotree ()
+  (interactive)
+  (evil-window-top)
+  (neotree-projectile-action))
+
+; linum-relative
 (use-package linum-relative)
 (require 'linum-relative)
 (linum-relative-mode)
@@ -132,45 +155,6 @@
 (use-package autopair)
 (require 'autopair)
 (autopair-global-mode)
-
-;; Evil mode 
-(setq evil-want-C-u-scroll t) ;; vim scrolling
-(use-package evil
-  :demand
-  :config (evil-mode 1))
-(require 'evil)
-
-(use-package evil-leader
-  :demand
-  :config (progn
-            (setq evil-leader/in-all-states t)
-            (global-evil-leader-mode)))
-(require 'evil-leader)
-
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-insert-state-map (kbd "C-u")
-  (lambda ()
-    (interactive)
-    (evil-delete (point-at-bol) (point))))
-
-(evil-leader/set-leader "SPC")
-(evil-leader/set-key
-  "SPC" 'counsel-M-x
-  "'" 'shell-pop
-  "TAB" 'neotree-projectile-action
-  "/" 'comment-region
-  "\\\\" 'uncomment-region
-  "b" 'buffer-menu
-  "d" 'text-map
-  "c" 'cider-map
-  "f" 'file-map
-  "s" 'swiper
-  "j" 'avy-map
-  "t" 'toggle-map
-  "g" 'magit-status
-  "p" 'project-map
-  "w" 'evil-window-map)
 
 ;; Nord theme :D
 (setq custom-safe-themes t)

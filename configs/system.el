@@ -6,24 +6,9 @@
 (set-language-environment "UTF-8")
 (windmove-default-keybindings)
 
+(global-hl-line-mode)
+
 (setq scroll-margin 10)
-
-(add-hook 'term-mode-hook
-          (lambda ()
-              (set (make-local-variable 'scroll-margin) 0)))
-
-(add-hook 'cider-repl-mode-hook
-          (lambda ()
-              (set (make-local-variable 'scroll-margin) 0)))
-
-(add-hook 'custom-mode-hook
-          (lambda ()
-              (set (make-local-variable 'scroll-margin) 0)))
-
-(add-hook 'messages-buffer-mode-hook
-          (lambda ()
-              (set (make-local-variable 'scroll-margin) 0)))
-
 (setq-default truncate-lines t)
 
 ;; Mac keyboard
@@ -82,7 +67,6 @@
             (tool-bar-lines . 0)))))
 
 ;; Set basics
-(add-hook 'prog-mode-hook 'column-number-mode)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -101,5 +85,5 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
-
+(add-hook 'prog-mode-hook 'column-number-mode)
 (add-to-list 'exec-path "/usr/local/bin")

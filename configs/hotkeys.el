@@ -1,3 +1,32 @@
+;; Everything evil
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+(global-set-key (kbd "<C-tab>") 'evil-window-next)
+
+(define-key evil-insert-state-map (kbd "C-u")
+  (lambda ()
+    (interactive)
+    (evil-delete (point-at-bol) (point))))
+
+(evil-leader/set-leader "SPC")
+(evil-leader/set-key
+  "SPC" 'counsel-M-x
+  "'" 'shell-pop
+  "TAB" 'open-neotree
+  "/" 'comment-region
+  "\\\\" 'uncomment-region
+  "b" 'buffer-menu
+  "d" 'text-map
+  "c" 'cider-map
+  "f" 'file-map
+  "s" 'swiper
+  "j" 'avy-map
+  "t" 'toggle-map
+  "g" 'magit-status
+  "p" 'project-map
+  "r" 'ranger
+  "w" 'evil-window-map)
+
 (global-set-key [escape] 'minibuffer-keyboard-quit)
 
 ;; Toggle
@@ -10,7 +39,6 @@
   (define-prefix-command 'cider-map)
   (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
   (define-key cider-map (kbd "j") 'jackin-map))
-
 (progn
   (define-prefix-command 'jackin-map)
   (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
@@ -48,4 +76,3 @@
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
-(global-set-key (kbd "<C-tab>") 'evil-window-next)
