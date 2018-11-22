@@ -5,6 +5,17 @@
   (define-prefix-command 'toggle-map)
   (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen))
 
+;; Cider
+(progn
+  (define-prefix-command 'cider-map)
+  (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
+  (define-key cider-map (kbd "j") 'jackin-map))
+
+(progn
+  (define-prefix-command 'jackin-map)
+  (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
+  (define-key jackin-map (kbd "c") 'cider-jack-in-clojure))
+
 ;; Avy
 (progn
   (define-prefix-command 'avy-map)

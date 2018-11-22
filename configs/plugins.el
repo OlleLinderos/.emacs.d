@@ -35,6 +35,12 @@
 (use-package cider)
 (require 'cider)
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+(add-hook 'cider-mode-hook
+   ;; load to repl on save
+   '(lambda () (add-hook 'after-save-hook
+    '(lambda ()
+       (if (and (boundp 'cider-mode) cider-mode)
+    (cider-load-buffer))))))
 
 ;; with-editor
 (use-package with-editor)
@@ -157,6 +163,7 @@
   "\\\\" 'uncomment-region
   "b" 'buffer-menu
   "d" 'text-map
+  "c" 'cider-map
   "f" 'file-map
   "s" 'swiper
   "j" 'avy-map
