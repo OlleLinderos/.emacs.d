@@ -4,6 +4,7 @@
 (setq frame-title-format nil)
 (setq ns-use-proxy-icon nil)
 (set-language-environment "UTF-8")
+(windmove-default-keybindings)
 
 (setq scroll-margin 10)
 
