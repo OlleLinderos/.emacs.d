@@ -87,3 +87,4 @@
 (setq mouse-wheel-progressive-speed nil)
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-to-list 'exec-path "/usr/local/bin")
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
