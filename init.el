@@ -10,7 +10,9 @@
 (load "~/.emacs.d/configs/plugins.el")
 (load "~/.emacs.d/configs/hotkeys.el")
 (load "~/.emacs.d/configs/functions.el")
-(load "~/.emacs.d/configs/hooks.el")
+;;(load "~/.emacs.d/configs/hooks.el")
+
+;; TODO: Change *ansi-term* buffer name to running process name (or last command run)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
