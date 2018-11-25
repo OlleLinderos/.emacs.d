@@ -49,6 +49,8 @@
 (use-package cider)
 (require 'cider)
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+(setq cider-auto-select-error-buffer nil)
+(set-variable 'cider-stacktrace-frames-background-color "#161616")
 (add-hook 'cider-mode-hook
    ;; load to repl on save
    '(lambda () (add-hook 'after-save-hook

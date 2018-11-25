@@ -1,3 +1,5 @@
+;; Add hook to rename term to running proceess
+
 ;; Scroll margin in really annoying in terminals and repl
 (add-hook 'term-mode-hook
           (lambda ()
