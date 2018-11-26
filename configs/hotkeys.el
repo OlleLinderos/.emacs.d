@@ -21,7 +21,8 @@
   "f" 'file-map
   "s" 'swiper
   "j" 'avy-map
-  "t" 'toggle-map
+  "." 'toggle-map
+  "t" 'tide-map
   "g" 'magit-status
   "p" 'project-map
   "r" 'ranger
@@ -69,6 +70,12 @@
   (define-key file-map (kbd "e")
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el"))))
+
+;; Typescript map
+(progn
+  (define-prefix-command 'tide-map)
+  (define-key tide-map (kbd "d") 'tide-jump-to-definition)
+  (define-key tide-map (kbd "r") 'tide-rename-symbol))
 
 ;; Text actions map
 (progn

@@ -44,6 +44,12 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-tooltip-align-annotations t)
 (setq company-idle-delay t)
+(setq company-tooltip-limit 20)
+(setq company-begin-commands '(self-insert-command))
+
+(use-package emmet-mode)
+(require 'emmet-mode)
+(add-hook 'web-mode-hook 'emmet-mode)
 
 ;; CIDER
 (use-package cider)
@@ -57,6 +63,47 @@
     '(lambda ()
        (if (and (boundp 'cider-mode) cider-mode)
     (cider-load-buffer))))))
+
+(use-package flycheck)
+(require 'flycheck)
+
+(use-package tide)
+(require 'tide)
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+(setq typescript-indent-level
+        (or (plist-get (tide-tsfmt-options) ':indentSize) 2))
+
+(use-package web-mode)
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (set (make-local-variable 'company-backends) '(company-web-html))
+)
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; with-editor
 (use-package with-editor)
@@ -151,6 +198,7 @@
 (require 'projectile)
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
+(setq projectile-globally-ignored-directories '("/node_modules/" "/.git/" "/dist/"))
 (projectile-mode)
 
 ;; autopair

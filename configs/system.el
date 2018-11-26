@@ -4,7 +4,7 @@
 (setq frame-title-format nil)
 (setq ns-use-proxy-icon nil)
 (set-language-environment "UTF-8")
-(windmove-default-keybindings)
+;; (windmove-default-keybindings)
 
 (global-hl-line-mode)
 

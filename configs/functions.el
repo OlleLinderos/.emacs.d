@@ -16,3 +16,8 @@
   (indent-according-to-mode))
 
 (global-set-key [(control shift down)]  'move-line-down)
+
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))

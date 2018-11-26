@@ -10,7 +10,7 @@
 (load "~/.emacs.d/configs/plugins.el")
 (load "~/.emacs.d/configs/hotkeys.el")
 (load "~/.emacs.d/configs/functions.el")
-;;(load "~/.emacs.d/configs/hooks.el")
+(load "~/.emacs.d/configs/hooks.el")
 
 ;; TODO: Change *ansi-term* buffer name to running process name (or last command run)
 
@@ -22,7 +22,7 @@
  '(neo-theme (quote nerd))
  '(package-selected-packages
    (quote
-    (all-the-icons ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
+    (company-web all-the-icons ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
@@ -33,4 +33,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(tide-hl-identifier-face ((t (:inherit highlight :foreground "#ff9900")))))
