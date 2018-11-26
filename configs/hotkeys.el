@@ -21,6 +21,7 @@
   "f" 'file-map
   "s" 'swiper
   "j" 'avy-map
+  "l" 'persp-map
   "." 'toggle-map
   "t" 'tide-map
   "g" 'magit-status
@@ -76,6 +77,14 @@
   (define-prefix-command 'tide-map)
   (define-key tide-map (kbd "d") 'tide-jump-to-definition)
   (define-key tide-map (kbd "r") 'tide-rename-symbol))
+
+;; persp map
+(progn
+  (define-prefix-command 'persp-map)
+  (define-key persp-map (kbd "p") 'projectile-persp-switch-project)
+  (define-key persp-map (kbd "l") 'persp-switch)
+  (define-key persp-map (kbd "k") 'persp-kill)
+  (define-key persp-map (kbd "b") 'projectile-ibuffer))
 
 ;; Text actions map
 (progn

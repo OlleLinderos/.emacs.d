@@ -201,6 +201,13 @@
 (setq projectile-globally-ignored-directories '("/node_modules/" "/.git/" "/dist/"))
 (projectile-mode)
 
+;; perspective
+(use-package perspective)
+(require 'perspective)
+(persp-mode)
+(use-package persp-projectile)
+(require 'persp-projectile)
+
 ;; autopair
 (use-package autopair)
 (require 'autopair)
