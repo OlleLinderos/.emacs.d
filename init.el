@@ -22,7 +22,7 @@
  '(neo-theme (quote nerd))
  '(package-selected-packages
    (quote
-    (company-web all-the-icons ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
+    (company-web ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
