@@ -15,6 +15,7 @@
   "TAB" 'open-neotree
   "/" 'comment-region
   "\\\\" 'uncomment-region
+  "a" 'angular-map
   "b" 'buffer-menu
   "d" 'text-map
   "c" 'cider-map
@@ -77,6 +78,11 @@
   (define-prefix-command 'tide-map)
   (define-key tide-map (kbd "d") 'tide-jump-to-definition)
   (define-key tide-map (kbd "r") 'tide-rename-symbol))
+
+;; angular map
+(progn
+  (define-prefix-command 'angular-map)
+  (define-key angular-map (kbd "c") 'ng2-open-counterpart))
 
 ;; persp map
 (progn

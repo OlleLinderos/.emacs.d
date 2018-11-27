@@ -84,6 +84,9 @@
 (setq typescript-indent-level
         (or (plist-get (tide-tsfmt-options) ':indentSize) 2))
 
+(use-package ng2-mode)
+(require 'ng2-mode)
+
 (use-package web-mode)
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
