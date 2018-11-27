@@ -29,6 +29,9 @@
             (global-evil-leader-mode)))
 (require 'evil-leader)
 
+;; I kind of want this, sometimes... 
+;; (evil-set-initial-state 'term-mode 'emacs)
+
 ;; magit
 (use-package magit)
 (require 'magit)
@@ -81,11 +84,11 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
-(setq typescript-indent-level
-        (or (plist-get (tide-tsfmt-options) ':indentSize) 2))
-
 (use-package ng2-mode)
 (require 'ng2-mode)
+
+(setq typescript-indent-level 2)
+(setq javascript-indent-level 2)
 
 (use-package web-mode)
 (require 'web-mode)
@@ -103,9 +106,10 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
+(setq tide-format-options '(:indentSize 2))
+
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; with-editor
@@ -176,6 +180,11 @@
 ;; better-defaults
 (use-package better-defaults)
 (require 'better-defaults)
+
+(use-package kubernetes-evil
+  :ensure t
+  :after kubernetes)
+(require 'kubernetes-evil)
 
 ;; git-gutter
 (use-package git-gutter)
