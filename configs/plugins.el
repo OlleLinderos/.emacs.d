@@ -84,6 +84,15 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+(setq tide-format-options '(:indentSize 2))
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
 (use-package ng2-mode)
 (require 'ng2-mode)
 
@@ -103,14 +112,19 @@
 )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
+;; JavaScript mode
+(use-package js2-mode
+  :ensure t)
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-(setq tide-format-options '(:indentSize 2))
+(use-package company-tern)
+(require 'company-tern)
 
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js2-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
 
 ;; with-editor
 (use-package with-editor)
@@ -210,7 +224,12 @@
 (require 'projectile)
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
-(setq projectile-globally-ignored-directories '("/node_modules/" "/.git/" "/dist/"))
+(setq projectile-globally-ignored-directories '("node_modules/"
+                                                "bower_components/"
+                                                "vendor/"
+                                                ".git/"
+                                                "dist/"
+                                                ".tmp/"))
 (projectile-mode)
 
 ;; perspective

@@ -8,7 +8,7 @@
 
 (global-hl-line-mode)
 
-(setq scroll-margin 10)
+;; (setq scroll-margin 10)
 (setq-default truncate-lines t)
 
 ;; Mac keyboard
@@ -23,8 +23,8 @@
 (set-face-attribute 'fringe nil :background nil)
 
 ;; opacity
-(set-frame-parameter (selected-frame) 'alpha '(94 . 94))
-(add-to-list 'default-frame-alist '(alpha . (94 . 94)))
+(set-frame-parameter (selected-frame) 'alpha '(97 . 97))
+(add-to-list 'default-frame-alist '(alpha . (97 . 97)))
 
 ;; comment brightness
 (setq nord-comment-brightness 15)
