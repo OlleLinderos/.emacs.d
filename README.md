@@ -1,5 +1,5 @@
 # Emacs.d
-My .emacs.d for Clojure
+My .emacs.d for TypeScript and Clojure
 
 ## Installation
 ```
