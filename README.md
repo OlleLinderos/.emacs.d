@@ -1,12 +1,12 @@
 # Emacs.d
-My .emacs.d for TypeScript and Clojure
+Amazing emacs config for clj/cljs and ts/js!
 
 ## Installation
 ```
 cd ~ && git clone https://github.com/OlleLinderos/Emacs.d.git ~/.emacs.d
 ```
 
-requires tern for js2-mode ac. Tide for TS.
+Requires `tern` for js2-mode. For MacOs users run: 
 ```
 sudo brew install -g tern
 ```
