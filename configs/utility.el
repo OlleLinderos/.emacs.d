@@ -1,4 +1,3 @@
-;; Utility functions
 (defun indent-buffer ()
   (interactive)
   (save-excursion
