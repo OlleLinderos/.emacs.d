@@ -1,5 +1,6 @@
+;; Utility functions
+
 (defun move-line-up ()
-  "Move up the current line."
   (interactive)
   (transpose-lines 1)
   (forward-line -2)
@@ -8,7 +9,6 @@
 (global-set-key [(control shift up)]  'move-line-up)
 
 (defun move-line-down ()
-  "Move down the current line."
   (interactive)
   (forward-line 1)
   (transpose-lines 1)
@@ -21,3 +21,5 @@
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
+
+(provide 'functions)

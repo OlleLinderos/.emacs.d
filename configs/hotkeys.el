@@ -1,3 +1,5 @@
+;; All hotkeys
+
 ;; Everything evil
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -42,6 +44,7 @@
   (define-prefix-command 'cider-map)
   (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
   (define-key cider-map (kbd "j") 'jackin-map))
+
 (progn
   (define-prefix-command 'jackin-map)
   (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
@@ -98,3 +101,5 @@
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
+
+(provide 'hotkeys)

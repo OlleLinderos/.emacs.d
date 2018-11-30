@@ -1,4 +1,4 @@
-;; Setup
+;; General
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format nil)
@@ -88,3 +88,5 @@
 (add-hook 'prog-mode-hook 'column-number-mode)
 (add-to-list 'exec-path "/usr/local/bin")
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+
+(provide 'general)

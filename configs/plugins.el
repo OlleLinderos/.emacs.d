@@ -248,3 +248,5 @@
 (setq custom-safe-themes t)
 (use-package nord-theme)
 (require 'nord-theme)
+
+(provide 'plugins)
