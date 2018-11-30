@@ -1,4 +1,3 @@
-;; Everything evil
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
 (global-set-key (kbd "<C-tab>") 'evil-window-next)
