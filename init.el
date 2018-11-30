@@ -8,7 +8,7 @@
 	(require 'general)
 	(require 'plugins)
 	(require 'hotkeys)
-	(require 'functions))
+	(require 'utility))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)

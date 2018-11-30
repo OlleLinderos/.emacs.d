@@ -1,5 +1,3 @@
-;; All hotkeys
-
 ;; Everything evil
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -34,12 +32,10 @@
 
 (global-set-key [escape] 'minibuffer-keyboard-quit)
 
-;; Toggle
 (progn
   (define-prefix-command 'toggle-map)
   (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen))
 
-;; Cider
 (progn
   (define-prefix-command 'cider-map)
   (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
@@ -50,7 +46,6 @@
   (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
   (define-key jackin-map (kbd "c") 'cider-jack-in-clojure))
 
-;; Avy
 (progn
   (define-prefix-command 'avy-map)
   (define-key avy-map (kbd "j") 'avy-goto-char)
@@ -58,7 +53,6 @@
   (define-key avy-map (kbd "l") 'avy-goto-line)
   (define-key avy-map (kbd "c") 'avy-copy-line))
 
-;; Projectile Counsel
 (progn
   (define-prefix-command 'project-map)
   (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
@@ -67,7 +61,6 @@
   (define-key project-map (kbd ".") 'projectile-command-map)
   (define-key project-map (kbd "!") 'projectile-save-known-projects))
 
-;; General file-map
 (progn
   (define-prefix-command 'file-map)
   (define-key file-map (kbd "f") 'counsel-find-file)
@@ -76,18 +69,15 @@
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el"))))
 
-;; Typescript map
 (progn
   (define-prefix-command 'tide-map)
   (define-key tide-map (kbd "d") 'tide-jump-to-definition)
   (define-key tide-map (kbd "r") 'tide-rename-symbol))
 
-;; angular map
 (progn
   (define-prefix-command 'angular-map)
   (define-key angular-map (kbd "c") 'ng2-open-counterpart))
 
-;; persp map
 (progn
   (define-prefix-command 'persp-map)
   (define-key persp-map (kbd "p") 'projectile-persp-switch-project)
@@ -95,10 +85,10 @@
   (define-key persp-map (kbd "k") 'persp-kill)
   (define-key persp-map (kbd "b") 'projectile-ibuffer))
 
-;; Text actions map
 (progn
   (define-prefix-command 'text-map)
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
+  (define-key text-map (kbd "i") 'indent-buffer)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
 
