@@ -51,7 +51,7 @@
       (setq default-frame-alist
             '((top . 30)
               (left . 29)
-              (alpha . (97 . 97))
+              (alpha . (100 . 100))
               (ns-transparent-titlebar . t)
               (tool-bar-lines . 0)
               (width . 135)

@@ -110,7 +110,7 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-
+ 
 (use-package company-tern)
 (require 'company-tern)
 
@@ -160,9 +160,15 @@
 (sml/setup)
 
 
+;; mx install all the icons font
+(use-package all-the-icons)
+(require 'all-the-icons)
+
+
 (use-package neotree)
 (require 'neotree)
-(setq neo-window-width 30)
+(setq neo-theme 'icons)
+(setq neo-window-width 40)
 (setq neo-smart-open t)
 (add-hook 'neotree-mode-hook
             (lambda ()
@@ -172,6 +178,8 @@
   (interactive)
   (evil-window-top)
   (neotree-projectile-action))
+
+
 
 
 (use-package linum-relative)

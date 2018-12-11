@@ -82,7 +82,7 @@
   (define-key persp-map (kbd "p") 'projectile-persp-switch-project)
   (define-key persp-map (kbd "l") 'persp-switch)
   (define-key persp-map (kbd "k") 'persp-kill)
-  (define-key persp-map (kbd "b") 'projectile-ibuffer))
+  (define-key persp-map (kbd "b") 'ido-switch-buffer))
 
 (progn
   (define-prefix-command 'text-map)
