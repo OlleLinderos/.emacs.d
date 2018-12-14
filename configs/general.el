@@ -1,4 +1,6 @@
-;; Defaults
+;;
+;; General
+;;
 (setq-default indent-tabs-mode nil)
 (setq-default truncate-lines t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -26,36 +28,48 @@
 
 (global-hl-line-mode)
 
+;;
+;; General Tools
+;;
+(use-package with-editor)
+(require 'with-editor)
 
-;; Theming
-(setq nord-comment-brightness 15)
-(setq ns-use-proxy-icon nil)
-(setq frame-title-format nil)
-(set-face-attribute 'fringe nil :background nil)
+;; Ivy... Remove?
+(use-package ivy)
+(require 'ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 
-(when (member "Space Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono" :height 140))
+;; Counsel support for Projectile
+(use-package counsel-projectile)
+(require 'counsel-projectile)
 
-(setq inhibit-splash-screen t
-      initial-scratch-message nil
-      initial-major-mode 'text-mode
-      initial-scratch-message "
+;; It's just counsel
+(use-package counsel)
+(require 'counsel)
 
+;; Jump around
+(use-package avy)
+(require 'avy)
+(avy-setup-default)
 
+;; Show commands
+(use-package which-key :demand)
+(setq which-key-idle-delay 0)
+(which-key-mode)
 
+;; Ranger file explorer
+(use-package ranger)
+(require 'ranger)
 
-              Hello my old friend")
+;; Easy terminal access
+(use-package shell-pop)
+(require 'shell-pop)
 
-(if (display-graphic-p)
-    (progn
-      (setq default-frame-alist
-            '((top . 30)
-              (left . 29)
-              (alpha . (100 . 100))
-              (ns-transparent-titlebar . t)
-              (tool-bar-lines . 0)
-              (width . 135)
-              (height . 39)))))
+;; Better defaults (?)
+(use-package better-defaults)
+(require 'better-defaults)
 
 
 (provide 'general)
