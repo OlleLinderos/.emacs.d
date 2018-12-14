@@ -1,5 +1,6 @@
 # My Emacs configuration
 > Emacs is a great operating system, ~~only lacking a decent editor~~
+
 Fully featured for:
 * Clojure
 * ClojureScript
