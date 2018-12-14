@@ -1,4 +1,4 @@
-> Emacs is a great operating system, ~~only lacking a decent editor~~
+## Emacs is a great operating system, ~~only lacking a decent editor~~
 
 My ever evolvning emacs config, fully featured for
 
