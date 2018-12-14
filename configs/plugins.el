@@ -88,6 +88,9 @@
 (use-package ng2-mode)
 (require 'ng2-mode)
 
+(flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+(flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+
 (setq typescript-indent-level 2)
 (setq javascript-indent-level 2)
 
@@ -101,7 +104,7 @@
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (set (make-local-variable 'company-backends) '(company-web-html))
-)
+  )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
 

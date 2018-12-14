@@ -7,7 +7,7 @@
  '(neo-theme (quote icons))
  '(package-selected-packages
    (quote
-    (base16-theme ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
+    (ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
