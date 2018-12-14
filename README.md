@@ -6,7 +6,7 @@ Fully featured for:
 * ClojureScript
 * GoLang
 * Python
-* Bash 
+* Shell
 * TypeScript
 * JavaScript
 * HTML5 / SCSS
