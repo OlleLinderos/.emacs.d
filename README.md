@@ -1,15 +1,20 @@
-# My Emacs configuration
-> Emacs is a great operating system, ~~only lacking a decent editor~~
+> ## Emacs is a great operating system, ~~only lacking a decent editor~~
 
-Fully featured for:
+My ever evolvning emacs config, fully featured for
+
+* Python
+* TypeScript
 * Clojure
 * ClojureScript
-* GoLang
-* Python
+
+Good enough for
+
+* Go
 * Shell
-* TypeScript
 * JavaScript
 * HTML5 / SCSS
+
+Also has workspaces, git, kubernetes, project management and much more!  
 
 ## Installation
 ```
