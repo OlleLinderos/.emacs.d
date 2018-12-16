@@ -3,9 +3,10 @@
 My ever evolvning emacs config, fully featured for
 
 * Python
-* TypeScript
+* TypeScript (ng2+ especially)
 * Clojure
 * ClojureScript
+* Haskell
 
 Good enough for
 
