@@ -34,6 +34,11 @@
   :after kubernetes)
 (require 'kubernetes-evil)
 
+;; Docker! 
+(use-package docker
+  :bind ("C-c d" . docker))
+(require 'docker)
+
 ;; Silver Searcher
 (use-package ag)
 (require 'ag)

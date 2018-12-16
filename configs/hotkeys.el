@@ -16,7 +16,8 @@
   "\\\\" 'uncomment-region
   "a" 'angular-map
   "b" 'buffer-menu
-  "d" 'text-map
+  "m" 'text-map
+  "d" 'docker
   "c" 'cider-map
   "f" 'file-map
   "s" 'swiper
