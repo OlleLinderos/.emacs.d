@@ -9,6 +9,9 @@
 (use-package web-mode)
 (require 'web-mode)
 
+(use-package sass-mode)
+(require 'sass-mode)
+
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
