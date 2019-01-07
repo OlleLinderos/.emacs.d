@@ -3,21 +3,21 @@
 My ever evolvning emacs config, fully featured for
 
 * Python
-* TypeScript (ng2+ especially)
+* TypeScript
+* JavaScript
 * Clojure
 * ClojureScript
 * Haskell
+* HTML/SCSS
 
 Good enough for
 
 * Go
 * Shell
-* JavaScript
-* HTML5 / SCSS
 
 Also has workspaces, git, kubernetes, project management and much more!  
 
 ## Installation
 ```
-cd ~ && git clone https://github.com/OlleLinderos/Emacs.d.git ~/.emacs.d
+git clone https://github.com/OlleLinderos/.emacs.d.git ~/.emacs.d
 ```
