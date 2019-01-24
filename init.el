@@ -1,4 +1,3 @@
-;; This is my Emacs configuration. There are many like it, but this one is mine.
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/configs")

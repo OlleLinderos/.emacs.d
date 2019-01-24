@@ -1,30 +1,26 @@
-;;
-;; Editor
-;;
-
-;; Vim emulations
-(setq evil-want-C-u-scroll t)
 (use-package evil
   :demand
-  :config (evil-mode 1))
-(require 'evil)
+  :config (evil-mode 1)
+  :init
+  (setq evil-want-C-u-scroll t))
 
 (use-package evil-leader
   :demand
   :config (progn
             (setq evil-leader/in-all-states t)
             (global-evil-leader-mode)))
-(require 'evil-leader)
 
-;; Code suggestions
-(use-package company)
-(require 'company)
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-tooltip-align-annotations t)
+  (setq company-idle-delay t)
+  (setq company-tooltip-limit 20)
+  (setq company-begin-commands '(self-insert-command)))
 
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-tooltip-align-annotations t)
-(setq company-idle-delay t)
-(setq company-tooltip-limit 20)
-(setq company-begin-commands '(self-insert-command))
+(use-package agressive-indent)
+
+(use-package )
 
 ;; Error checking
 (use-package flycheck)

@@ -1,12 +1,11 @@
-(use-package elpy)
-(require 'elpy)
-(elpy-enable)
+(use-package elpy
+  :init
+  (elpy-enable)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(use-package py-autopep8)
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
-(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-(add-hook 'elpy-mode-hook 'flycheck-mode)
+(use-package py-autopep8
+  :init
+  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 
 (provide 'python-setup)
