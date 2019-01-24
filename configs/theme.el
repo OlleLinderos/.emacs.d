@@ -42,7 +42,6 @@
 (use-package all-the-icons)
 (require 'all-the-icons)
 
-;; Replace with Hax?
 (setq custom-safe-themes t)
 (use-package nord-theme)
 (require 'nord-theme)
