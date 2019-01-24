@@ -8,4 +8,4 @@
        (if (and (boundp 'cider-mode) cider-mode)
     (cider-load-buffer)))))))
   
-(provide 'clojure)
+(provide 'clojure-setup)

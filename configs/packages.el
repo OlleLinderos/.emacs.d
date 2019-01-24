@@ -1,6 +1,3 @@
-;;
-;; Packages
-;;
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
@@ -15,6 +12,5 @@
 
 (setq use-package-always-ensure t
       use-package-always-defer t)
-
 
 (provide 'packages)

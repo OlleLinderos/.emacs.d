@@ -1,6 +1,3 @@
-;;
-;; General
-;;
 (setq-default indent-tabs-mode nil)
 (setq-default truncate-lines t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -20,6 +17,7 @@
 (setq coding-system-for-read 'utf-8)
 (setq coding-system-for-write 'utf-8)
 (set-language-environment "UTF-8")
+(toggle-scroll-bar -1)
 (add-hook 'prog-mode-hook 'column-number-mode)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
@@ -28,48 +26,30 @@
 
 (global-hl-line-mode)
 
-;;
-;; General Tools
-;;
 (use-package with-editor)
-(require 'with-editor)
 
-;; Ivy... Remove?
-(use-package ivy)
-(require 'ivy)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
+(use-package ivy
+  :init
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 
-;; Counsel support for Projectile
 (use-package counsel-projectile)
-(require 'counsel-projectile)
 
-;; It's just counsel
 (use-package counsel)
-(require 'counsel)
 
-;; Jump around
 (use-package avy)
-(require 'avy)
 (avy-setup-default)
 
-;; Show commands
-(use-package which-key :demand)
-(setq which-key-idle-delay 0)
-(which-key-mode)
+(use-package which-key :demand
+  :init
+  (setq which-key-idle-delay 0)
+  (which-key-mode))
 
-;; Ranger file explorer
 (use-package ranger)
-(require 'ranger)
 
-;; Easy terminal access
 (use-package shell-pop)
-(require 'shell-pop)
 
-;; Better defaults (?)
 (use-package better-defaults)
-(require 'better-defaults)
-
 
 (provide 'general)

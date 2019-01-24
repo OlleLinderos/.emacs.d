@@ -1,6 +1,3 @@
-;;
-;; TypeScript
-;;
 (use-package tide)
 (require 'tide)
 (defun setup-tide-mode ()
@@ -45,4 +42,4 @@
                            (company-mode)))
 
 
-(provide 'tsjs)
+(provide 'javascript-setup)

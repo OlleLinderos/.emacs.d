@@ -1,22 +1,19 @@
-(package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/configs")
 
 (let ((file-name-handler-alist nil)
       (gc-cons-threshold most-positive-fixnum))
-  (require 'packages)      ;; setup packages
-  (require 'general)       ;; my own defaults
-  (require 'theme)         ;; theming settings
-  (require 'editor)        ;; inside prog buffer
-  (require 'ide)           ;; ide tools
-  (require 'python-setup)  ;; python
-  (require 'clojure)       ;; everything clojure
-  (require 'haskell-setup) ;; everything haskell
-  (require 'web)           ;; webmode (html, css, inline js)
-  (require 'tsjs)          ;; typescript & javascript
-  (require 'hotkeys)       ;; hotkeys
-  (require 'utility)       ;; custom utility functions
-  )
+  (require 'packages)
+  (require 'general)
+  (require 'theme)
+  (require 'editor)
+  (require 'workflow)
+  (require 'python-setup)
+  (require 'clojure-setup)
+  ;;(require 'haskell-setup)
+  (require 'javascript-setup)
+  (require 'web-setup)
+  (require 'hotkeys)
+  (require 'utility))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)

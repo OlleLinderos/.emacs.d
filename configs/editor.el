@@ -16,25 +16,17 @@
   (setq company-tooltip-align-annotations t)
   (setq company-idle-delay t)
   (setq company-tooltip-limit 20)
+  (setq company-tooltip-align-annotations t)
   (setq company-begin-commands '(self-insert-command)))
 
-(use-package agressive-indent)
-
-(use-package )
-
-;; Error checking
 (use-package flycheck)
-(require 'flycheck)
 
-;; Colored parens
-(use-package rainbow-delimiters)
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; Auto complete parens
-(use-package autopair)
-(require 'autopair)
-(autopair-global-mode)
-
+(use-package autopair
+  :init
+  (autopair-global-mode))
 
 (provide 'editor)

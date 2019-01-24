@@ -1,14 +1,8 @@
-;;
-;; Utility functions
-;;
-
-;; Indent whole buffer according to mode
 (defun indent-buffer ()
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
-;; Move selection up or down
 (defun move-text-internal (arg)
    (cond
     ((and mark-active transient-mark-mode)
@@ -30,19 +24,16 @@
             (transpose-lines arg))
        (forward-line -1)))))
 
-
 (defun move-text-down (arg)
    (interactive "*p")
    (move-text-internal arg))
 
 (global-set-key [(control shift down)] 'move-text-down)
 
-
 (defun move-text-up (arg)
    (interactive "*p")
    (move-text-internal (- arg)))
 
 (global-set-key [(control shift up)] 'move-text-up)
-
 
 (provide 'utility)
