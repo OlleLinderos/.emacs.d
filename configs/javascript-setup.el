@@ -15,8 +15,11 @@
 
 (add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-;;(flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
-;;(flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+
+(with-eval-after-load 'tide
+  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+)
 
 (use-package ng2-mode
   :ensure)
