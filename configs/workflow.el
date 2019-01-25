@@ -17,6 +17,9 @@
 
 (use-package persp-projectile)
 
+(use-package winum
+  :init (winum-mode))
+
 (use-package magit)
 
 (use-package kubernetes-evil
