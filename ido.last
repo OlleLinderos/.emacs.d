@@ -1,0 +1,54 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/olle/.emacs.d/" . "configs/")
+ ("/Users/olle/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/olle/.emacs.d/configs/"
+ "/Users/olle/code/olle/"
+ "/Users/olle/.emacs.d/"
+ "/Users/olle/code/clojure/api/src/process/"
+ "/Users/olle/code/clojure/api/src/api/"
+ "/Users/olle/code/clojure/api/src/db/"
+ "/Users/olle/code/clojure/api/src/api/db/"
+ "/Users/olle/Code/haskell/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "web-setup.el"
+ "javascript-setup.el"
+ "clojure-setup.el"
+ "workflow.el"
+ "clojure.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/olle/.emacs.d/configs/" (23626 15544 519141 334000) "javascript-setup.el" "general.el" "editor.el" "workflow.el" "theme.el" "haskell-setup.el" "clojure-setup.el" "packages.el" "hotkeys.el" "web-setup.el" "utility.el" "python-setup.el" "../" "./")
+
+ ("/Users/olle/.emacs.d/" (23626 15547 274400 755000) "backups/" ".git/" "elpa/" "network-security.data" "configs/" ".projectile" ".gitignore" "README.md" "init.el" "auto-save-list/" "custom.el" "projectile.cache" "projectile-bookmarks.eld" "ido.last" "snippets/" "setup.sh" "../" "./")
+
+ ("/Users/olle/" (23623 36232 367474 345000) ".composer/" ".v8flags.6.1.534.50.264fcf838c8e4b9d17c510cd5b8b9b78.json" ".yjp/" ".viminfo" ".bash_history" ".mongorc.js" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".gem/" ".bash_profile" ".ctags" ".m2/" ".hyper.js" ".vscode/" ".mysql_history" ".swn" ".babel.json" ".pyenv/" "Documents/" ".zcompdump-Olle MacBook Pro-5.3" ".npm/" ".swo" ".Trash/" ".sdirs" ".zsh-update" ".slate" ".ghc/" ".dbshell" "Applications/" ".vimrc" "Movies/" ".ssh/" ".emacs.d.hax/" ".index.js.swp" ".codeintel/" ".idlerc/" ".insert-shebang.log" ".hyper_plugins/" ".dropbox/" "Public/" ".osh-update" ".iterm2/" ".lein/" ".deliverycenter.system" ".bash_sessions/" "Sites/" ".deliverycenter.installs" ".android/" ".node_repl_history" ".emacs.d/" ".tern-project" ".oh-my-bash/" ".oracle_jre_usage/" ".matplotlib/" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" ".rnd" ".nvm/" ".swm" ".zprofile" ".atom/" ".pylint.d/" ".irssi/" "Pictures/" "Creative Cloud Files/" ".swk" ".local/" ".ghost/" ".swl" ".swp" ".zshrc" ".bashrc" ".dbk_info" ".godot/" ".subversion/" ".cabal/" ".z" ".iterm2_shell_integration.bash" ".CFUserTextEncoding" ".yarnrc" ".jspm/" ".gnupg/" ".DS_Store" ".vim/" ".node-gyp/" ".docker/" ".fonts/" ".expo/" ".fonts.conf.d/" "Music/" ".config/" ".eclipse/" ".stack/" "../" "./")
+
+ ("/Users/olle/code/olle/" (23586 22369 746617 473000) "logo.svg" ".#index.html" "index.html" "../" "./")
+
+ ("/Users/olle/code/clojure/api/src/process/" (23574 14631 94831 954000) "core.clj" "../" "./")
+
+ ("/Users/olle/code/clojure/api/src/" (23574 13737 24418 441000) "api/" "db/" "../" "./")
+
+ ("/Users/olle/code/clojure/api/src/api/" (23574 14516 275372 344000) "handler.clj" "../" "./")
+
+ ("/Users/olle/code/clojure/api/src/db/" (23574 13746 894307 65000) "server.clj" "../" "./")
+
+ ("/Users/olle/code/clojure/api/src/api/db/" (23574 13453 274845 264000) "server.clj" "../" "./")
+
+ ("/Users/olle/Code/" (23573 7483 712718 222000) "clojure/" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
