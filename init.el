@@ -1,4 +1,5 @@
-(package-initialize)
+(unless package--initialized (package-initialize t))
+
 (add-to-list 'load-path "~/.emacs.d/configs")
 
 (let ((file-name-handler-alist nil)
