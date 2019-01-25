@@ -1,28 +1,31 @@
-(setq-default indent-tabs-mode nil)
-(setq-default truncate-lines t)
-(defalias 'yes-or-no-p 'y-or-n-p)
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) )
-(setq vc-follow-symlinks t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
-(setq ring-bell-function 'ignore)
-(setq sentence-end-double-space nil)
-(setq default-fill-column 80)
-(setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
-(setq mouse-wheel-progressive-speed nil)
-(setq mac-option-key-is-meta nil)
-(setq mac-option-modifier nil)
-(setq coding-system-for-read 'utf-8)
-(setq coding-system-for-write 'utf-8)
-(set-language-environment "UTF-8")
-(toggle-scroll-bar -1)
-(add-hook 'prog-mode-hook 'column-number-mode)
+(setq-default indent-tabs-mode nil
+              truncate-lines t
+              shell-file-name "/bin/zsh")
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (add-to-list 'exec-path "/usr/local/bin")
-(setq-default shell-file-name "/bin/zsh")
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq delete-old-versions -1
+      version-control t
+      vc-make-backup-files t
+      backup-directory-alist `(("." . "~/.emacs.d/backups"))
+      vc-follow-symlinks t
+      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))
+      ring-bell-function 'ignore
+      sentence-end-double-space nil
+      default-fill-column 80
+      mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil))
+      mouse-wheel-progressive-speed nil
+      mac-option-key-is-meta nil
+      mac-option-modifier nil
+      coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8)
+
+(set-language-environment "UTF-8")
+(add-hook 'prog-mode-hook 'column-number-mode)
+(toggle-scroll-bar -1)
 
 (global-hl-line-mode)
 
@@ -34,12 +37,12 @@
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
+(use-package counsel)
 (use-package counsel-projectile)
 
-(use-package counsel)
-
-(use-package avy)
-(avy-setup-default)
+(use-package avy
+  :config
+  (avy-setup-default))
 
 (use-package which-key :demand
   :init

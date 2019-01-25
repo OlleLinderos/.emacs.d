@@ -8,9 +8,5 @@ if ! [ -x "$(command -v pip)" ]; then
     eval 'sudo easy_install pip'
 fi
 
-if ! [ -x "$(command -v pip)" ]; then
-    eval 'sudo easy_install pip'
-fi
 
-
-# install tern, haskell and clojure stuff
+# install tern, lein etc

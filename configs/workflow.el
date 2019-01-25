@@ -48,6 +48,7 @@
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'org-mode-hook 'linum-mode))
 
+;; ugh whats up with this
 (use-package git-gutter)
 (require 'git-gutter)
 (use-package git-gutter-fringe)

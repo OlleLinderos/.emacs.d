@@ -1,12 +1,10 @@
-(setq nord-comment-brightness 15)
-(setq ns-use-proxy-icon nil)
-(setq frame-title-format nil)
-(set-face-attribute 'fringe nil :background nil)
-
 (when (member "Space Mono" (font-family-list))
   (set-face-attribute 'default nil :font "Space Mono" :height 140))
 
-(setq inhibit-splash-screen t
+(setq nord-comment-brightness 15
+      ns-use-proxy-icon nil
+      frame-title-format nil
+      inhibit-splash-screen t
       initial-scratch-message nil
       initial-major-mode 'text-mode
       initial-scratch-message "
@@ -27,7 +25,6 @@
               (width . 135)
               (height . 39)))))
 
-
 (use-package smart-mode-line
   :init
   (setq sml/no-confirm-load-theme t)
@@ -39,5 +36,7 @@
 (setq custom-safe-themes t)
 (use-package nord-theme)
 (require 'nord-theme)
+
+(set-face-attribute 'fringe nil :background nil)
 
 (provide 'theme)
