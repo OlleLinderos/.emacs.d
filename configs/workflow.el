@@ -39,7 +39,6 @@
   (setq-default neo-show-hidden-files t)
   (add-hook 'neotree-mode-hook
             (lambda ()
-              (neotree-refresh)
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
 
