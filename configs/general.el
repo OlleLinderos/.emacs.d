@@ -51,8 +51,6 @@
 
 (use-package ranger)
 
-(use-package shell-pop)
-
 (use-package better-defaults)
 
 (provide 'general)

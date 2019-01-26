@@ -21,21 +21,20 @@
   "9" 'winum-select-window-9 
   "SPC" 'counsel-M-x
   "TAB" 'open-neotree
-  "'" 'shell-pop
-  "/" 'comment-region
-  "a" 'angular-map
+  "'" 'toggle-terminal
+  "/" 'comment-or-uncomment-region
   "b" 'buffer-menu
   "m" 'text-map
-  "d" 'docker
   "c" 'cider-map
+  "d" 'docker
   "f" 'file-map
   "s" 'swiper
-  "j" 'avy-map
+  "j" 'javascript-map
   "l" 'persp-map
   "." 'toggle-map
-  "t" 'tide-map
   "g" 'magit-status
   "p" 'project-map
+  "t" 'terminal-map
   "r" 'ranger
   "w" 'evil-window-map)
 
@@ -79,6 +78,11 @@
       (find-file "~/.emacs.d/init.el"))))
 
 (progn
+  (define-prefix-command 'javascript-map)
+  (define-key javascript-map (kbd "a") 'angular-map)
+  (define-key javascript-map (kbd "t") 'tide-map))
+
+(progn
   (define-prefix-command 'tide-map)
   (define-key tide-map (kbd "d") 'tide-jump-to-definition)
   (define-key tide-map (kbd "r") 'tide-rename-symbol))
@@ -86,6 +90,12 @@
 (progn
   (define-prefix-command 'angular-map)
   (define-key angular-map (kbd "c") 'ng2-open-counterpart))
+
+(progn
+  (define-prefix-command 'terminal-map)
+  (define-key terminal-map (kbd "t") 'multi-term-)
+  (define-key terminal-map (kbd "n") 'multi-term-next)
+  (define-key terminal-map (kbd "p") 'multi-term-prev))
 
 (progn
   (define-prefix-command 'persp-map)

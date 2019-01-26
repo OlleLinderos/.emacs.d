@@ -33,16 +33,19 @@
 
 (use-package neotree
   :init
-  (setq neo-theme 'icons)
-  (setq neo-window-width 40)
-  (setq neo-smart-open t)
+  (setq neo-theme 'icons
+        neo-window-width 40
+        neo-smart-open t)
+  (setq-default neo-show-hidden-files t)
   (add-hook 'neotree-mode-hook
             (lambda ()
+              (neotree-refresh)
+              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
 
 (defun open-neotree ()
   (interactive)
-  (evil-window-top)
+  (winum-select-window-1)
   (neotree-projectile-action))
 
 (use-package linum-relative
@@ -50,6 +53,17 @@
   (linum-relative-mode)
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'org-mode-hook 'linum-mode))
+
+(use-package multi-term
+  :config
+  (setq multi-term-program "/bin/zsh"
+        multi-term-dedicated-window-height 18
+        multi-term-dedicated-max-window-height 18))
+
+(defun toggle-terminal ()
+  (interactive)
+  (multi-term-dedicated-toggle)
+  (multi-term-dedicated-select))
 
 ;; ugh whats up with this
 (use-package git-gutter)
