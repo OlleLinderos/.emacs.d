@@ -1,4 +1,4 @@
-(unless package--initialized (package-initialize t))
+(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 
