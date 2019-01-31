@@ -3,16 +3,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(smart-mode-line-respectful))
+ '(custom-enabled-themes (quote (smart-mode-line-respectful)))
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
+<<<<<<< HEAD
  '(neo-theme 'icons t)
+=======
+ '(neo-theme (quote icons) t)
+>>>>>>> 2a0532ddb9f2a1b8782819829b8601248203b349
  '(package-selected-packages
-   '(multi-term winum window-numbering ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package))
+   (quote
+    (multi-term winum window-numbering ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
  '(shell-pop-shell-type
-   '("ansi-term" "*ansi-term*"
+   (quote
+    ("ansi-term" "*ansi-term*"
      (lambda nil
-       (ansi-term shell-pop-term-shell)))))
+       (ansi-term shell-pop-term-shell))))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
