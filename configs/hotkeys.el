@@ -93,7 +93,7 @@
 
 (progn
   (define-prefix-command 'terminal-map)
-  (define-key terminal-map (kbd "t") 'multi-term-)
+  (define-key terminal-map (kbd "t") 'multi-term)
   (define-key terminal-map (kbd "n") 'multi-term-next)
   (define-key terminal-map (kbd "p") 'multi-term-prev))
 
@@ -109,6 +109,5 @@
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
   (define-key text-map (kbd "i") 'indent-buffer)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
-
 
 (provide 'hotkeys)
