@@ -31,6 +31,10 @@
 
 (use-package ag)
 
+(use-package winum
+  :init
+  (winum-mode))
+
 (use-package neotree
   :init
   (setq neo-theme 'icons
@@ -44,7 +48,6 @@
 
 (defun open-neotree ()
   (interactive)
-  (winum-select-window-1)
   (neotree-projectile-action))
 
 (use-package linum-relative
