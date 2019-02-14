@@ -26,6 +26,7 @@
 (set-language-environment "UTF-8")
 (add-hook 'prog-mode-hook 'column-number-mode)
 (toggle-scroll-bar -1)
+(menu-bar-mode -1)
 
 (global-hl-line-mode)
 
