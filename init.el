@@ -11,6 +11,7 @@
   (require 'workflow)
   (require 'python-setup)
   (require 'clojure-setup)
+  (require 'ruby-setup)
   ;;(require 'haskell-setup)
   (require 'javascript-setup)
   (require 'web-setup)
