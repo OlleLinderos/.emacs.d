@@ -1,6 +1,6 @@
 (use-package robe
-  :config
-  (global-robe-mode))
+  :init
+  (add-hook 'ruby-mode-hook 'enh-ruby-mode))
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
