@@ -23,7 +23,7 @@
   "TAB" 'open-neotree
   "'" 'toggle-terminal
   "/" 'comment-or-uncomment-region
-  "b" 'buffer-menu
+  "b" 'buffer-map
   "m" 'text-map
   "c" 'cider-map
   "d" 'docker
@@ -53,6 +53,16 @@
   (define-prefix-command 'jackin-map)
   (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
   (define-key jackin-map (kbd "c") 'cider-jack-in-clojure))
+
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(progn
+  (define-prefix-command 'buffer-map)
+  (define-key buffer-map (kbd "b") 'buffer-menu)
+  (define-key buffer-map (kbd "k") 'kill-buffer)
+  (define-key buffer-map (kbd "c") 'close-all-buffers))
 
 (progn
   (define-prefix-command 'avy-map)

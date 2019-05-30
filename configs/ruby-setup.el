@@ -1,13 +1,8 @@
-(use-package enh-ruby-mode
+(use-package robe
   :init
-  (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode)))
+  (add-hook 'ruby-mode-hook 'enh-ruby-mode))
 
-;; Robe Mode? :D
-;; (use-package robe
-;;   :init
-;;   (add-hook 'ruby-mode-hook 'enh-ruby-mode))
-
-;; (eval-after-load 'company
-;;   '(push 'company-robe company-backends))
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
 
 (provide 'ruby-setup)

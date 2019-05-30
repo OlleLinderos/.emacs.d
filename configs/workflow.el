@@ -6,8 +6,13 @@
         '("node_modules/"
           "bower_components/"
           "vendor/"
+          ".idea/"
+          "out/"
+          "resources/out/"
+          "target/"
           ".git/"
           "dist/"
+          ".cljs_nashorn_repl"
           ".tmp/"))
   (projectile-mode))
 
