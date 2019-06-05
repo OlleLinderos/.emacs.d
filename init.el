@@ -18,6 +18,7 @@
   (require 'init-clojure)
   (require 'init-ruby)
   (require 'init-haskell)
+  (require 'init-elm)
   (require 'init-javascript)
   (require 'init-web)
 
