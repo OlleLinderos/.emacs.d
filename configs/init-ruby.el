@@ -5,4 +5,4 @@
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(provide 'ruby-setup)
+(provide 'init-ruby)

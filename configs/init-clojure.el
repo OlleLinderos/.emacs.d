@@ -29,4 +29,4 @@
                                          (cider-load-buffer)))))))
 (use-package clj-refactor)
 
-(provide 'clojure-setup)
+(provide 'init-clojure)

@@ -4,19 +4,23 @@
 
 (let ((file-name-handler-alist nil)
       (gc-cons-threshold most-positive-fixnum))
+
+  ;; General setup
   (require 'packages)
   (require 'general)
   (require 'theme)
+  (require 'utility)
+  (require 'hotkeys)
   (require 'editor)
   (require 'workflow)
-  (require 'python-setup)
-  (require 'clojure-setup)
-  (require 'ruby-setup)
-  ;;(require 'haskell-setup)
-  (require 'javascript-setup)
-  (require 'web-setup)
-  (require 'hotkeys)
-  (require 'utility))
+
+  ;; Language setup
+  (require 'init-python)
+  (require 'init-clojure)
+  (require 'init-ruby)
+  (require 'init-haskell)
+  (require 'init-javascript)
+  (require 'init-web))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)

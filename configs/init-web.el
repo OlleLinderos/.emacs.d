@@ -14,4 +14,4 @@
   (add-hook 'web-mode-hook 'setup-web-mode)
   (add-hook 'web-mode-hook 'emmet-mode))
 
-(provide 'web-setup)
+(provide 'init-web)

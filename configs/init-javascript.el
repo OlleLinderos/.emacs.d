@@ -36,4 +36,4 @@
                            (tern-mode)
                            (company-mode)))
 
-(provide 'javascript-setup)
+(provide 'init-javascript)
