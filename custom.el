@@ -6,10 +6,10 @@
  '(custom-enabled-themes (quote (smart-mode-line-respectful)))
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
- '(neo-theme (quote icons) t)
+ '(neo-theme (quote icons))
  '(package-selected-packages
    (quote
-    (helm-robe multi-term ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
+    (parinfer helm-robe multi-term ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"

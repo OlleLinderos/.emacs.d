@@ -1,7 +1,9 @@
 auto-save-list
+transient/
 ido.last
 elpa
 projectile-bookmarks.eld
 network-security.data
 backups
 projectile.cache
+recentf
