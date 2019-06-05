@@ -9,10 +9,9 @@
   (require 'packages)
   (require 'general)
   (require 'theme)
-  (require 'utility)
-  (require 'hotkeys)
   (require 'editor)
   (require 'workflow)
+  (require 'utility)
 
   ;; Language setup
   (require 'init-python)
@@ -20,7 +19,10 @@
   (require 'init-ruby)
   (require 'init-haskell)
   (require 'init-javascript)
-  (require 'init-web))
+  (require 'init-web)
+
+  ;; !important
+  (require 'hotkeys))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
