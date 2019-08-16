@@ -1,5 +1,3 @@
-(package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/configs")
 
 (let ((file-name-handler-alist nil)
@@ -14,6 +12,7 @@
   (require 'utility)
 
   ;; Language setup
+  (require 'init-cpp)
   (require 'init-python)
   (require 'init-clojure)
   (require 'init-ruby)

@@ -1,5 +1,5 @@
 (when (member "Space Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono" :height 140))
+  (set-face-attribute 'default nil :font "Space Mono" :height 160))
 
 (setq nord-comment-brightness 15
       ns-use-proxy-icon nil
