@@ -18,7 +18,17 @@
         company-tooltip-align-annotations t
         company-begin-commands '(self-insert-command)))
 
-(use-package flycheck)
+(use-package company-quickhelp
+  :ensure t
+  :init
+  (company-quickhelp-mode 1)
+  (use-package pos-tip
+    :ensure t))
+
+ (use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'typescript-mode-hook 'flycheck-mode))
 
 (use-package rainbow-delimiters
   :init

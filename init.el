@@ -1,3 +1,4 @@
+(package-initialize)
 (add-to-list 'load-path "~/.emacs.d/configs")
 
 (let ((file-name-handler-alist nil)
@@ -18,7 +19,6 @@
   (require 'init-ruby)
   (require 'init-haskell)
   (require 'init-elm)
-  (require 'init-javascript)
   (require 'init-web)
 
   ;; !important
