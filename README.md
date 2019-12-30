@@ -1,7 +1,5 @@
 # .emacs.d
 
-If I only could bring one thing to a deserted island it would be this.
-
 ![xkcd](https://imgs.xkcd.com/comics/real_programmers.png)
 
 ### Installation
