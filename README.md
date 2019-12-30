@@ -1,5 +1,9 @@
 # .emacs.d
 
+If I only could bring one thing to a deserted island it would be this.
+
+[](https://imgs.xkcd.com/comics/workflow.png)
+
 ### Installation
 ```
 git clone https://github.com/OlleLinderos/.emacs.d.git ~/.emacs.d
