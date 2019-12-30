@@ -1,5 +1,6 @@
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+
 (global-set-key (kbd "<C-tab>") 'evil-window-next)
 
 (define-key evil-insert-state-map (kbd "C-u")
@@ -28,6 +29,7 @@
   "c" 'cider-map
   "d" 'docker
   "f" 'file-map
+  "h" 'haskell-map
   "s" 'swiper
   "j" 'javascript-map
   "l" 'persp-map
@@ -43,16 +45,6 @@
 (progn
   (define-prefix-command 'toggle-map)
   (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen))
-
-(progn
-  (define-prefix-command 'cider-map)
-  (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
-  (define-key cider-map (kbd "j") 'jackin-map))
-
-(progn
-  (define-prefix-command 'jackin-map)
-  (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
-  (define-key jackin-map (kbd "c") 'cider-jack-in-clojure))
 
 (defun close-all-buffers ()
   (interactive)
@@ -86,20 +78,6 @@
   (define-key file-map (kbd "e")
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el"))))
-
-(progn
-  (define-prefix-command 'javascript-map)
-  (define-key javascript-map (kbd "a") 'angular-map)
-  (define-key javascript-map (kbd "t") 'tide-map))
-
-(progn
-  (define-prefix-command 'tide-map)
-  (define-key tide-map (kbd "d") 'tide-jump-to-definition)
-  (define-key tide-map (kbd "r") 'tide-rename-symbol))
-
-(progn
-  (define-prefix-command 'angular-map)
-  (define-key angular-map (kbd "c") 'ng2-open-counterpart))
 
 (progn
   (define-prefix-command 'terminal-map)

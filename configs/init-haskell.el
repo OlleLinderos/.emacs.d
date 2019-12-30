@@ -1,16 +1,23 @@
 (use-package haskell-mode
   :pin melpa-stable)
 
+(use-package company-ghc)
+
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-(use-package company-ghc
-  :init
-  (add-to-list 'company-backends 'company-ghc))
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
 
-(use-package flycheck-haskell
-  :init
-  (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'haskell-indent-mode)
+(add-hook 'haskell-mode-hook 'haskell-font-lock-symbols t)
+
+(put 'downcase-region 'disabled nil)
+
+(progn
+  (define-prefix-command 'haskell-map)
+  (define-key haskell-map (kbd "e") 'inferior-haskell-load-and-run))
 
 (provide 'init-haskell)

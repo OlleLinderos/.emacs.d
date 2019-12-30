@@ -1,5 +1,5 @@
 (when (member "Space Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono" :height 160))
+  (set-face-attribute 'default nil :font "Space Mono" :height 120))
 
 (setq nord-comment-brightness 15
       ns-use-proxy-icon nil
@@ -32,7 +32,6 @@
   (sml/setup))
 
 (use-package all-the-icons)
-
 (setq custom-safe-themes t)
 (use-package nord-theme)
 (require 'nord-theme)

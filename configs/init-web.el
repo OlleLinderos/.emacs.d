@@ -1,5 +1,6 @@
 (use-package emmet-mode)
 (use-package sass-mode)
+(use-package elm-mode)
 
 (defun setup-tide-mode ()
   (interactive)
@@ -17,6 +18,7 @@
   :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.tsx\\'" . web-mode)
+         ("\\.ts\\'" . web-mode)
          ("\\.jsx\\'" . web-mode))
   :init
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -62,5 +64,19 @@
 
 (use-package ng2-mode
   :ensure)
+
+(progn
+  (define-prefix-command 'javascript-map)
+  (define-key javascript-map (kbd "a") 'angular-map)
+  (define-key javascript-map (kbd "t") 'tide-map))
+
+(progn
+  (define-prefix-command 'tide-map)
+  (define-key tide-map (kbd "d") 'tide-jump-to-definition)
+  (define-key tide-map (kbd "r") 'tide-rename-symbol))
+
+(progn
+  (define-prefix-command 'angular-map)
+  (define-key angular-map (kbd "c") 'ng2-open-counterpart))
 
 (provide 'init-web)
