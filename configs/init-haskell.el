@@ -3,12 +3,12 @@
 
 (use-package company-ghc)
 
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-(add-to-list 'company-backends 'company-ghc)
-(custom-set-variables '(company-ghc-show-info t))
+;; (add-to-list 'company-backends 'company-ghc)
+;; (custom-set-variables '(company-ghc-show-info t))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
