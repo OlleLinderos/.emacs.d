@@ -57,13 +57,43 @@
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
 
-
 (with-eval-after-load 'tide
   (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
   (flycheck-add-mode 'typescript-tide 'ng2-ts-mode))
 
 (use-package ng2-mode
   :ensure)
+
+(use-package js2-mode
+  :ensure t
+  :interpreter (("node" . js2-mode))
+  :bind (:map js2-mode-map ("C-c C-p" . js2-print-json-path))
+  :mode "\\.\\(js\\|json\\)$"
+  :config
+  (add-hook 'js-mode-hook 'js2-minor-mode)
+  (setq js2-basic-offset 2
+        js2-highlight-level 3
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil))
+
+
+(use-package auto-complete
+  :diminish auto-complete-mode
+  :ensure t
+  :config
+  (use-package auto-complete-config)
+  (ac-config-default)
+  (add-to-list 'ac-modes 'html-mode)
+  (setq ac-use-menu-map t)
+  (ac-set-trigger-key "TAB")
+  (ac-set-trigger-key "<tab>"))
+
+(use-package ac-js2
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'ac-js2-mode)
+  (setq ac-js2-evaluate-calls t))
 
 (progn
   (define-prefix-command 'javascript-map)
@@ -78,5 +108,6 @@
 (progn
   (define-prefix-command 'angular-map)
   (define-key angular-map (kbd "c") 'ng2-open-counterpart))
+
 
 (provide 'init-web)
