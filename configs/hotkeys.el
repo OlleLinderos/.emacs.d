@@ -21,7 +21,7 @@
   "8" 'winum-select-window-8 
   "9" 'winum-select-window-9 
   "SPC" 'counsel-M-x
-  "TAB" 'open-neotree
+  "TAB" 'my-neotree-project-dir-toggle
   "'" 'toggle-terminal
   "/" 'comment-or-uncomment-region
   "b" 'buffer-map
