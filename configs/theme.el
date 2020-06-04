@@ -32,9 +32,10 @@
   (sml/setup))
 
 (use-package all-the-icons)
+
 (setq custom-safe-themes t)
-(use-package nord-theme)
 (require 'nord-theme)
+;;(use-package nord-theme)
 
 (set-face-attribute 'fringe nil :background nil)
 
