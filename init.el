@@ -26,3 +26,5 @@
 (load custom-file 'noerror)
 
 (setq gc-cons-threshold best-gc-cons-threshold)
+
+(server-start)
