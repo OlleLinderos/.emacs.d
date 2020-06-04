@@ -13,6 +13,7 @@
           ".git/"
           "dist/"
           ".cljs_nashorn_repl"
+          ".stack-work/"
           ".tmp/"))
   (projectile-mode))
 
@@ -72,7 +73,6 @@
   (multi-term-dedicated-toggle)
   (multi-term-dedicated-select))
 
-;; ugh whats up with this
 (use-package git-gutter)
 (require 'git-gutter)
 (use-package git-gutter-fringe)
