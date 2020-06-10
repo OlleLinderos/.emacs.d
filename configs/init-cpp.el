@@ -1,23 +1,25 @@
-;; (use-package platformio-mode)
+;; Keeping this for the day when I actually get around to
+;; building something on my Arduino
 
-;; (add-to-list 'company-backends 'company-irony)
+(use-package platformio-mode)
 
-;; (add-hook 'c++-mode-hook (lambda ()
-;;                            (irony-mode)
-;;                            (irony-eldoc)
-;;                            (platformio-conditionally-enable)))
+(add-to-list 'company-backends 'company-irony)
 
-;; (add-hook 'irony-mode-hook
-;;           (lambda ()
-;;             (define-key irony-mode-map [remap completion-at-point]
-;;               'irony-completion-at-point-async)
+(add-hook 'c++-mode-hook (lambda ()
+                           (irony-mode)
+                           (irony-eldoc)
+                           (platformio-conditionally-enable)))
 
-;;             (define-key irony-mode-map [remap complete-symbol]
-;;               'irony-completion-at-point-async)
+(add-hook 'irony-mode-hook
+          (lambda ()
+            (define-key irony-mode-map [remap completion-at-point]
+              'irony-completion-at-point-async)
 
-;;             (irony-cdb-autosetup-compile-options)))
+            (define-key irony-mode-map [remap complete-symbol]
+              'irony-completion-at-point-async)
+
+            (irony-cdb-autosetup-compile-options)))
             
-;; (add-hook 'flycheck-mode-hook 'flycheck-irony-setup)
-
+(add-hook 'flycheck-mode-hook 'flycheck-irony-setup)
 
 (provide 'init-cpp)
