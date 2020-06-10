@@ -1,7 +1,10 @@
 auto-save-list
-transient/
+transient
 ido.last
 elpa
+elpy
+url
+ac-comphist.dat
 projectile-bookmarks.eld
 network-security.data
 backups
