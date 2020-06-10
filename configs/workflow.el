@@ -29,13 +29,6 @@
 
 (use-package magit)
 
-(use-package kubernetes-evil
-  :ensure t
-  :after kubernetes)
-
-(use-package docker
-  :bind ("C-c d" . docker))
-
 (use-package ag)
 
 (use-package winum
@@ -74,11 +67,7 @@
   (multi-term-dedicated-toggle)
   (multi-term-dedicated-select))
 
-(use-package git-gutter)
-(require 'git-gutter)
-(use-package git-gutter-fringe)
 (require 'git-gutter-fringe)
-(global-git-gutter-mode)
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
 
