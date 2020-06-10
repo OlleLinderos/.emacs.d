@@ -47,7 +47,7 @@
 
 (use-package which-key :demand
   :init
-  (setq which-key-idle-delay 0)
+  (setq which-key-idle-delay 0.25)
   (which-key-mode))
 
 (use-package ranger)

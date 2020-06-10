@@ -28,6 +28,7 @@
   :init (winum-mode))
 
 (use-package magit)
+(setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
 
 (use-package ag)
 

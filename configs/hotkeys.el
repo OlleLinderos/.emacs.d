@@ -24,10 +24,12 @@
   "TAB" 'my-neotree-project-dir-toggle
   "'" 'toggle-terminal
   "/" 'comment-or-uncomment-region
+  "a" 'avy-map
   "b" 'buffer-map
   "m" 'text-map
   "c" 'cider-map
   "d" 'docker
+  "e" 'eval-buffer
   "f" 'file-map
   "h" 'haskell-map
   "s" 'swiper
@@ -58,7 +60,7 @@
 
 (progn
   (define-prefix-command 'avy-map)
-  (define-key avy-map (kbd "j") 'avy-goto-char)
+  (define-key avy-map (kbd "a") 'avy-goto-char)
   (define-key avy-map (kbd "w") 'avy-goto-word-1)
   (define-key avy-map (kbd "l") 'avy-goto-line)
   (define-key avy-map (kbd "c") 'avy-copy-line))
@@ -66,6 +68,7 @@
 (progn
   (define-prefix-command 'project-map)
   (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
+  (define-key project-map (kbd "b") 'counsel-projectile-switch-to-buffer)
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
   (define-key project-map (kbd ".") 'projectile-command-map)

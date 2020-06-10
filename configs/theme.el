@@ -1,5 +1,5 @@
-(when (member "Space Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Space Mono" :height 130))
+(when (member "Source Code Pro" (font-family-list))
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 125))
 
 (setq nord-comment-brightness 15
       ns-use-proxy-icon nil
@@ -35,7 +35,6 @@
 
 (setq custom-safe-themes t)
 (require 'nord-theme)
-;;(use-package nord-theme)
 
 (set-face-attribute 'fringe nil :background nil)
 
