@@ -11,6 +11,7 @@
 (progn
   (define-prefix-command 'cider-map)
   (define-key cider-map (kbd "e") 'cider-eval-defun-at-point)
+  (define-key cider-map (kbd "f") 'cider-find-var)
   (define-key cider-map (kbd "j") 'jackin-map))
 
 (progn

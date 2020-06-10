@@ -14,6 +14,7 @@
           "dist/"
           ".cljs_nashorn_repl"
           ".stack-work/"
+          ".shadow-cljs/"
           ".tmp/"))
   (projectile-mode))
 
