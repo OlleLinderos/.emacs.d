@@ -71,6 +71,7 @@
   (define-key project-map (kbd "b") 'counsel-projectile-switch-to-buffer)
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
+  (define-key project-map (kbd "a") 'projectile-ag)
   (define-key project-map (kbd ".") 'projectile-command-map)
   (define-key project-map (kbd "!") 'projectile-save-known-projects))
 
@@ -87,6 +88,7 @@
   (define-key terminal-map (kbd "t") 'multi-term)
   (define-key terminal-map (kbd "n") 'multi-term-next)
   (define-key terminal-map (kbd "p") 'multi-term-prev))
+
 
 (progn
   (define-prefix-command 'persp-map)

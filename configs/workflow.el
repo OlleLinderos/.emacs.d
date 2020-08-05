@@ -39,9 +39,9 @@
 (use-package neotree
   :init
   (setq neo-theme 'icons
-        neo-window-width 40
         neo-smart-open t)
   (setq-default neo-show-hidden-files t)
+  (setq neo-window-fixed-size nil)
   (add-hook 'neotree-mode-hook
             (lambda ()
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)

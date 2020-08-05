@@ -1,5 +1,6 @@
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/configs")
+(add-to-list 'load-path "~/.emacs.d/custom-packages")
 
 (defvar best-gc-cons-threshold 4000000)
 
@@ -13,7 +14,7 @@
   (require 'utility)
 
   ;(require 'init-cpp)
-  (require 'init-go)
+  ;(require 'init-go)
   (require 'init-python)
   (require 'init-clojure)
   (require 'init-ruby)
