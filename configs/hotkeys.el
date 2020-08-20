@@ -1,12 +1,23 @@
+; Add vim "half page up" hotkey
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-
-(global-set-key (kbd "<C-tab>") 'evil-window-next)
-
 (define-key evil-insert-state-map (kbd "C-u")
   (lambda ()
     (interactive)
     (evil-delete (point-at-bol) (point))))
+
+(defun add-leader-key-map (leader-map fns)
+  (let ((map (cdr leader-map)))
+    (evil-leader/set-key
+      (car leader-map) map)
+    (progn
+      (define-prefix-command map)
+      (dolist (key fns)
+        (define-key map
+          (kbd (car key))
+          (cdr key))))))
+
+(global-set-key (kbd "<C-tab>") 'evil-window-next)
 
 (evil-leader/set-leader "SPC")
 (evil-leader/set-key
@@ -38,7 +49,6 @@
   "." 'toggle-map
   "g" 'magit-status
   "p" 'project-map
-  "t" 'terminal-map
   "r" 'ranger
   "w" 'evil-window-map)
 
@@ -82,12 +92,6 @@
   (define-key file-map (kbd "e")
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el"))))
-
-(progn
-  (define-prefix-command 'terminal-map)
-  (define-key terminal-map (kbd "t") 'multi-term)
-  (define-key terminal-map (kbd "n") 'multi-term-next)
-  (define-key terminal-map (kbd "p") 'multi-term-prev))
 
 
 (progn
