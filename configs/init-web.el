@@ -9,9 +9,6 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
 
 (use-package web-mode
@@ -26,11 +23,11 @@
   (set (make-local-variable 'company-backends) '(company-web-html))
   (add-hook 'web-mode-hook 'emmet-mode)
   :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-block-padding 2
-        web-mode-comment-style 2
+  (setq web-mode-markup-indent-offset 4
+        web-mode-css-indent-offset 4
+        web-mode-code-indent-offset 4
+        web-mode-block-padding 4
+        web-mode-comment-style 4
 
         web-mode-enable-css-colorization t
         web-mode-enable-auto-pairing t
@@ -40,7 +37,6 @@
             (lambda ()
               (when (string-equal "tsx" (file-name-extension buffer-file-name))
 		(setup-tide-mode))))
-  ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (use-package typescript-mode
@@ -75,25 +71,6 @@
         js2-highlight-level 3
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil))
-
-
-(use-package auto-complete
-  :diminish auto-complete-mode
-  :ensure t
-  :config
-  (use-package auto-complete-config)
-  (ac-config-default)
-  (add-to-list 'ac-modes 'html-mode)
-  (setq ac-use-menu-map t)
-  (ac-set-trigger-key "TAB")
-  (ac-set-trigger-key "<tab>"))
-
-(use-package ac-js2
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'js2-mode-hook 'ac-js2-mode)
-  (setq ac-js2-evaluate-calls t))
 
 (progn
   (define-prefix-command 'javascript-map)
