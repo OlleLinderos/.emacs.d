@@ -30,6 +30,8 @@
 
 (global-hl-line-mode)
 
+(require 'iso-transl)
+
 (use-package with-editor)
 
 (use-package ivy
