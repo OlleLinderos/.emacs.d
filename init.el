@@ -15,8 +15,7 @@
   (require 'utility)
 
   ;(require 'init-cpp)
-  ;(require 'init-go)
-
+  (require 'init-go)
   (require 'init-term)
   (require 'init-python)
   (require 'init-clojure)
