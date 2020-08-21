@@ -58,17 +58,6 @@
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'org-mode-hook 'linum-mode))
 
-(use-package multi-term
-  :config
-  (setq multi-term-program "/bin/zsh"
-        multi-term-dedicated-window-height 18
-        multi-term-dedicated-max-window-height 18))
-
-(defun toggle-terminal ()
-  (interactive)
-  (multi-term-dedicated-toggle)
-  (multi-term-dedicated-select))
-
 (require 'git-gutter-fringe)
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
