@@ -1,8 +1,6 @@
+; Add vim "half page up" hotkey
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-
-(global-set-key (kbd "<C-tab>") 'evil-window-next)
-
 (define-key evil-insert-state-map (kbd "C-u")
   (lambda ()
     (interactive)
@@ -24,31 +22,21 @@
   "<right>" 'next-buffer
   "SPC" 'counsel-M-x
   "TAB" 'my-neotree-project-dir-toggle
-  "'" 'toggle-terminal
   "/" 'comment-or-uncomment-region
   "a" 'avy-map
   "b" 'buffer-map
   "m" 'text-map
-  "c" 'cider-map
   "d" 'docker
   "e" 'eval-buffer
   "f" 'file-map
-  "h" 'haskell-map
   "s" 'swiper
-  "j" 'javascript-map
   "l" 'persp-map
-  "." 'toggle-map
   "g" 'magit-status
   "p" 'project-map
-  "t" 'terminal-map
   "r" 'ranger
   "w" 'evil-window-map)
 
 (global-set-key [escape] 'minibuffer-keyboard-quit)
-
-(progn
-  (define-prefix-command 'toggle-map)
-  (define-key toggle-map (kbd "f") 'toggle-frame-fullscreen))
 
 (defun close-all-buffers ()
   (interactive)
@@ -84,13 +72,6 @@
   (define-key file-map (kbd "e")
     (lambda() (interactive)
       (find-file "~/.emacs.d/init.el"))))
-
-(progn
-  (define-prefix-command 'terminal-map)
-  (define-key terminal-map (kbd "t") 'multi-term)
-  (define-key terminal-map (kbd "n") 'multi-term-next)
-  (define-key terminal-map (kbd "p") 'multi-term-prev))
-
 
 (progn
   (define-prefix-command 'persp-map)

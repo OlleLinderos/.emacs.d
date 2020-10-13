@@ -1,3 +1,4 @@
+
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/custom-packages")
@@ -14,7 +15,8 @@
   (require 'utility)
 
   ;(require 'init-cpp)
-  ;(require 'init-go)
+  (require 'init-go)
+  (require 'init-term)
   (require 'init-python)
   (require 'init-clojure)
   (require 'init-ruby)
@@ -27,5 +29,3 @@
 (load custom-file 'noerror)
 
 (setq gc-cons-threshold best-gc-cons-threshold)
-
-(server-start)

@@ -72,6 +72,7 @@
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil))
 
+(evil-leader/set-key "j" 'javascript-map)
 (progn
   (define-prefix-command 'javascript-map)
   (define-key javascript-map (kbd "a") 'angular-map)
