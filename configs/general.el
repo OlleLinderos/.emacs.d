@@ -1,9 +1,15 @@
 (setq-default indent-tabs-mode nil
               truncate-lines t
-              shell-file-name "/bin/zsh")
+              explicit-shell-file-name "/bin/zsh"
+              shell-file-name "zsh")
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (add-to-list 'exec-path "/usr/local/bin")
+
+(use-package exec-path-from-shell)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
