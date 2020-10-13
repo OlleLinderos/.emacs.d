@@ -20,6 +20,8 @@
   "7" 'winum-select-window-7 
   "8" 'winum-select-window-8 
   "9" 'winum-select-window-9 
+  "<left>" 'previous-buffer
+  "<right>" 'next-buffer
   "SPC" 'counsel-M-x
   "TAB" 'my-neotree-project-dir-toggle
   "'" 'toggle-terminal
