@@ -6,7 +6,7 @@
  '(company-ghc-show-info t)
  '(company-quickhelp-color-background "#3E4452")
  '(company-quickhelp-color-foreground "#ABB2BF")
- '(custom-enabled-themes (quote (smart-mode-line-respectful)))
+ '(custom-enabled-themes (quote (nord smart-mode-line-respectful)))
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
  '(neo-theme (quote icons))
@@ -23,14 +23,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#111" :foreground "#D8DEE9" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal :foundry "CF  " :family "Space Mono"))))
+ '(default ((t (:inherit nil :stipple nil :foreground "#D8DEE9" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal :foundry "CF  " :family "Space Mono"))))
  '(css-selector ((t (:inherit font-lock-function-name-face))))
- '(fringe ((t (:background "#111" :foreground "#D8DEE9"))))
+ '(fringe ((t (:foreground "#D8DEE9"))))
  '(highlight ((((class color) (min-colors 89)) (:foreground "#88C0D0" :background "#434C5E"))))
  '(hl-line ((t (:background "#2f3647"))))
  '(js2-object-property ((t (:foreground "LightSteelBlue2"))))
- '(linum ((t (:background "#111" :foreground "#4C566A"))))
- '(linum-relative-current-face ((t (:background "#111" :foreground "#eee"))))
+ '(linum ((t (:foreground "#4C566A"))))
+ '(linum-relative-current-face ((t (:foreground "#eee"))))
  '(mode-line ((t (:background "#2c3242" :foreground "#88C0D0" :inverse-video nil))))
  '(mode-line-inactive ((t (:background "#222733" :foreground "#D8DEE9" :inverse-video nil))))
  '(neo-root-dir-face ((((class color) (min-colors 89)) (:foreground "#8FBCBB" :weight bold))))

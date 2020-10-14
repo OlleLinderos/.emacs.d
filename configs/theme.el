@@ -35,6 +35,7 @@
 
 (setq custom-safe-themes t)
 (require 'nord-theme)
+(load-theme 'nord t)
 
 (set-face-attribute 'fringe nil :background nil)
 
