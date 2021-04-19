@@ -3,38 +3,31 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#21252B" "#E06C75" "#98C379" "#E5C07B" "#61AFEF" "#C678DD" "#56B6C2" "#ABB2BF"])
  '(company-ghc-show-info t)
- '(company-quickhelp-color-background "#3E4452")
- '(company-quickhelp-color-foreground "#ABB2BF")
- '(custom-enabled-themes (quote (nord smart-mode-line-respectful)))
+ '(custom-enabled-themes '(smart-mode-line-respectful))
+ '(fci-rule-color "#3E4451")
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
- '(neo-theme (quote icons))
+ '(neo-theme 'icons t)
  '(package-selected-packages
-   (quote
-    (terraform-mode markdown-mode go-mode arduino-mode flymake-haskell-multi parinfer helm-robe multi-term ranger paredit evil-leader evil autopair projectile git-gutter-fringe git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package)))
+   '(irony-eldoc flycheck-irony company-irony irony modern-cpp-font-lock platformio-mode atom-one-dark-theme markdown-mode go-mode arduino-mode flymake-haskell-multi parinfer multi-term paredit evil-leader evil autopair projectile git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package))
  '(shell-pop-shell-type
-   (quote
-    ("ansi-term" "*ansi-term*"
+   '("ansi-term" "*ansi-term*"
      (lambda nil
-       (ansi-term shell-pop-term-shell))))))
+       (ansi-term shell-pop-term-shell))))
+ '(tetris-x-colors
+   [[229 192 123]
+    [97 175 239]
+    [209 154 102]
+    [224 108 117]
+    [152 195 121]
+    [198 120 221]
+    [86 182 194]]))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :foreground "#D8DEE9" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal :foundry "CF  " :family "Space Mono"))))
- '(css-selector ((t (:inherit font-lock-function-name-face))))
- '(fringe ((t (:foreground "#D8DEE9"))))
- '(highlight ((((class color) (min-colors 89)) (:foreground "#88C0D0" :background "#434C5E"))))
- '(hl-line ((t (:background "#2f3647"))))
- '(js2-object-property ((t (:foreground "LightSteelBlue2"))))
- '(linum ((t (:foreground "#4C566A"))))
- '(linum-relative-current-face ((t (:foreground "#eee"))))
- '(mode-line ((t (:background "#2c3242" :foreground "#88C0D0" :inverse-video nil))))
- '(mode-line-inactive ((t (:background "#222733" :foreground "#D8DEE9" :inverse-video nil))))
- '(neo-root-dir-face ((((class color) (min-colors 89)) (:foreground "#8FBCBB" :weight bold))))
- '(persp-selected-face ((t (:foreground "FF9900"))))
- '(sml/minor-modes ((t (:foreground "#778899" :width normal))))
- '(term ((t (:background "#181b23" :foreground "#D8DEE9"))))
- '(tide-hl-identifier-face ((t (:inherit highlight :foreground "#ff9900")))))
+ )

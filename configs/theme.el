@@ -1,8 +1,7 @@
 (when (member "Source Code Pro" (font-family-list))
   (set-face-attribute 'default nil :font "Source Code Pro" :height 125))
 
-(setq nord-comment-brightness 15
-      ns-use-proxy-icon nil
+(setq ns-use-proxy-icon nil
       frame-title-format nil
       inhibit-splash-screen t
       initial-scratch-message nil
@@ -34,8 +33,10 @@
 (use-package all-the-icons)
 
 (setq custom-safe-themes t)
-(require 'nord-theme)
-(load-theme 'nord t)
+
+(use-package atom-one-dark-theme
+  :init
+  (load-theme 'atom-one-dark t))
 
 (set-face-attribute 'fringe nil :background nil)
 
