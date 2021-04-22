@@ -36,7 +36,9 @@
 
 (use-package atom-one-dark-theme
   :init
-  (load-theme 'atom-one-dark t))
+  (add-hook 'after-init-hook (lambda ()
+                               (load-theme 'atom-one-dark t))))
+
 
 (set-face-attribute 'fringe nil :background nil)
 
