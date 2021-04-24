@@ -1,7 +1,3 @@
-;; Keeping this for the day when I actually get around to
-;; building something on my Arduino
-
-
 (use-package irony
   :config
   (progn
@@ -15,27 +11,29 @@
     (setq-default irony-cdb-compilation-databases '(irony-cdb-libclang
                                                     irony-cdb-clang-complete))
 
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-    ))
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)))
 
 (use-package company-irony
-  :requires (company irony)
+  :after (company irony)
   :config
   (progn
     (eval-after-load 'company '(add-to-list 'company-backends 'company-irony))))
 
 (use-package flycheck-irony
-  :requires (flycheck irony)
+  :after (flycheck irony)
   :config
   (progn
     (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))))
 
 (use-package irony-eldoc
-  :requires (eldoc irony)
+  :after (eldoc irony)
   :config
   (progn
     (add-hook 'irony-mode-hook #'irony-eldoc)))
 
-(use-package platformio-mode)
+(use-package company-c-headers
+  :config
+  (add-to-list 'company-backends 'company-c-headers))
 
-(provide 'init-cpp)
+
+(provide 'init-c-cpp)
