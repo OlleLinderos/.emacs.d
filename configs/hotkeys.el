@@ -57,8 +57,8 @@
 
 (progn
   (define-prefix-command 'project-map)
-  (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
-  (define-key project-map (kbd "b") 'counsel-projectile-switch-to-buffer)
+  (define-key project-map (kbd "p") 'projectile-persp-switch-project)
+  (define-key project-map (kbd "b") 'persp-counsel-switch-buffer)
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
   (define-key project-map (kbd "a") 'projectile-ag)

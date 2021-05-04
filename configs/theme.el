@@ -1,5 +1,5 @@
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 125))
+(when (member "Droid Sans Mono" (font-family-list))
+  (set-face-attribute 'default nil :font "Droid Sans Mono" :height 143))
 
 (setq nord-comment-brightness 15
       ns-use-proxy-icon nil
@@ -34,8 +34,13 @@
 (use-package all-the-icons)
 
 (setq custom-safe-themes t)
-(require 'nord-theme)
-(load-theme 'nord t)
+
+(use-package atom-one-dark-theme
+  :init
+  (load-theme 'atom-one-dark t))
+
+;; (require 'nord-theme)
+;; (load-theme 'nord t)
 
 (set-face-attribute 'fringe nil :background nil)
 
