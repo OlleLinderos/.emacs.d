@@ -56,4 +56,8 @@
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'org-mode-hook 'linum-mode))
 
+(require 'git-gutter-fringe)
+(setq-default right-fringe-width 20)
+(setq git-gutter-fr:side 'right-fringe)
+
 (provide 'workflow)
