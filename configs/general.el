@@ -65,8 +65,6 @@
   (setq which-key-idle-delay 0.25)
   (which-key-mode))
 
-(use-package ranger)
-
 (use-package better-defaults)
 
 (use-package markdown-mode

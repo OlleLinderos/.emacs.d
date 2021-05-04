@@ -34,10 +34,9 @@
 
 (setq custom-safe-themes t)
 
-(use-package atom-one-dark-theme
-  :init
-  (add-hook 'after-init-hook (lambda ()
-                               (load-theme 'atom-one-dark t))))
+(require 'atom-one-dark-theme)
+(add-hook 'after-init-hook (lambda ()
+                             (load-theme 'atom-one-dark t)))
 
 (set-face-attribute 'fringe nil :background nil)
 

@@ -28,13 +28,13 @@
    (interactive "*p")
    (move-text-internal arg))
 
-(global-set-key [(control shift down)] 'move-text-down)
+(global-set-key [(control shift j)] 'move-text-down)
 
 (defun move-text-up (arg)
    (interactive "*p")
    (move-text-internal (- arg)))
 
-(global-set-key [(control shift up)] 'move-text-up)
+(global-set-key [(control shift k)] 'move-text-up)
 
 (defun my-neotree-project-dir-toggle ()
   "Open NeoTree using the project root, using projectile, find-file-in-project,
@@ -63,5 +63,12 @@ or the current buffer directory."
         (neotree-dir project-dir))
       (when filepath
         (neotree-find filepath)))))
+
+(defun kill-all-scratch-buffers ()
+  (interactive)
+  (cl-letf (((symbol-function 'kill-buffer-ask) #'kill-buffer))
+    (kill-matching-buffers "*scratch*")))
+
+(add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
 
 (provide 'utility)

@@ -19,13 +19,6 @@
           ".tmp/"))
   (projectile-mode))
 
-(defun kill-all-scratch-buffers ()
-  (interactive)
-  (cl-letf (((symbol-function 'kill-buffer-ask) #'kill-buffer))
-    (kill-matching-buffers "*scratch*")))
-
-(add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
-
 (use-package winum
   :init (winum-mode))
 

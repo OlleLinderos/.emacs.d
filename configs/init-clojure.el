@@ -9,7 +9,6 @@
 
 (use-package clj-refactor)
 
-
 (evil-leader/set-key "c" 'cider-map)
 (progn
     (define-prefix-command 'cider-map)

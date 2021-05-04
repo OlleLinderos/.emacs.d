@@ -16,7 +16,6 @@
 
 (put 'downcase-region 'disabled nil)
 
-
 (evil-leader/set-key "h" 'haskell-map)
 (progn
   (define-prefix-command 'haskell-map)
