@@ -25,6 +25,13 @@
 
 (use-package persp-projectile)
 
+;; TODO: Fix this!
+;; (defun remove-scratch-buffer ()
+;;   (if (get-buffer "*scratch*")
+;;       (kill-matching-buffers "*scratch*")))
+
+;; (add-hook 'projectile-after-switch-project-hook #'remove-scratch-buffer)
+
 (use-package winum
   :init (winum-mode))
 
