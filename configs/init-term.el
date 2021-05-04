@@ -1,3 +1,6 @@
+;;(use-package vterm
+;;  :ensure t)
+
 (use-package multi-term
   :config
   (setq multi-term-program "/bin/zsh"
@@ -8,7 +11,6 @@
   (interactive)
   (multi-term-dedicated-toggle)
   (multi-term-dedicated-select))
-
 
 (evil-leader/set-key "'" 'toggle-dedicated-terminal)
 

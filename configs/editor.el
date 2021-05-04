@@ -11,6 +11,8 @@
 
 (use-package company
   :config
+  (define-key company-active-map (kbd "C-q") 'company-select-previous)
+  (define-key company-active-map (kbd "C-w") 'company-select-next)
   (add-hook 'after-init-hook 'global-company-mode)
   (setq company-tooltip-align-annotations t
         company-idle-delay t
@@ -25,7 +27,7 @@
   (use-package pos-tip
     :ensure t))
 
- (use-package flycheck
+(use-package flycheck
   :ensure t
   :config
   (add-hook 'typescript-mode-hook 'flycheck-mode))
@@ -40,5 +42,11 @@
 
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+
+;; (use-package yasnippet
+;;   :init
+;;   (yas-global-mode 1))
+
+;; (use-package yasnippet-snippets)
 
 (provide 'editor)

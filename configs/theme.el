@@ -1,5 +1,5 @@
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 125))
+(when (member "Droid Sans Mono" (font-family-list))
+  (set-face-attribute 'default nil :font "Droid Sans Mono" :height 143))
 
 (setq ns-use-proxy-icon nil
       frame-title-format nil
@@ -38,7 +38,6 @@
   :init
   (add-hook 'after-init-hook (lambda ()
                                (load-theme 'atom-one-dark t))))
-
 
 (set-face-attribute 'fringe nil :background nil)
 
