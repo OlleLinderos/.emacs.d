@@ -25,12 +25,12 @@
 
 (use-package persp-projectile)
 
-;; TODO: Fix this!
-;; (defun remove-scratch-buffer ()
-;;   (if (get-buffer "*scratch*")
-;;       (kill-matching-buffers "*scratch*")))
+(defun kill-all-scratch-buffers ()
+  (interactive)
+  (cl-letf (((symbol-function 'kill-buffer-ask) #'kill-buffer))
+    (kill-matching-buffers "*scratch*")))
 
-;; (add-hook 'projectile-after-switch-project-hook #'remove-scratch-buffer)
+(add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
 
 (use-package winum
   :init (winum-mode))
@@ -50,6 +50,9 @@
         neo-window-width 50)
   (add-hook 'neotree-mode-hook
             (lambda ()
+              (define-key evil-normal-state-local-map (kbd "C-q") 'evil-previous-line)
+              (define-key evil-normal-state-local-map (kbd "C-w") 'evil-next-line)
+              (define-key evil-normal-state-local-map (kbd "C-e") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
 

@@ -6,10 +6,10 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (add-to-list 'exec-path "/usr/local/bin")
 
-;;(when (memq window-system '(mac ns x))
-;;  (use-package exec-path-from-shell
-;;  :init
-;;  (exec-path-from-shell-initialize)))
+(when (memq window-system '(mac ns x))
+ (use-package exec-path-from-shell
+ :init
+ (exec-path-from-shell-initialize)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -41,6 +41,10 @@
 (use-package with-editor)
 
 (use-package ivy
+  :config
+  (define-key ivy-minibuffer-map (kbd "C-q") 'ivy-previous-line)
+  (define-key ivy-minibuffer-map (kbd "C-w") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-e") 'ivy-call)
   :init
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
