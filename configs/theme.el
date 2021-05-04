@@ -1,8 +1,7 @@
 (when (member "Droid Sans Mono" (font-family-list))
   (set-face-attribute 'default nil :font "Droid Sans Mono" :height 143))
 
-(setq nord-comment-brightness 15
-      ns-use-proxy-icon nil
+(setq ns-use-proxy-icon nil
       frame-title-format nil
       inhibit-splash-screen t
       initial-scratch-message nil
@@ -37,10 +36,8 @@
 
 (use-package atom-one-dark-theme
   :init
-  (load-theme 'atom-one-dark t))
-
-;; (require 'nord-theme)
-;; (load-theme 'nord t)
+  (add-hook 'after-init-hook (lambda ()
+                               (load-theme 'atom-one-dark t))))
 
 (set-face-attribute 'fringe nil :background nil)
 
