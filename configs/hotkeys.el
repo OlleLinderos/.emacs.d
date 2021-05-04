@@ -30,7 +30,6 @@
   "e" 'eval-buffer
   "f" 'file-map
   "s" 'swiper
-  "l" 'persp-map
   "g" 'magit-status
   "p" 'project-map
   "r" 'ranger
@@ -44,7 +43,8 @@
 
 (progn
   (define-prefix-command 'buffer-map)
-  (define-key buffer-map (kbd "b") 'buffer-menu)
+  (define-key buffer-map (kbd "b") 'counsel-projectile-switch-to-buffer)
+  (define-key buffer-map (kbd "a") 'buffer-menu)
   (define-key buffer-map (kbd "k") 'kill-buffer)
   (define-key buffer-map (kbd "c") 'close-all-buffers))
 
@@ -57,8 +57,8 @@
 
 (progn
   (define-prefix-command 'project-map)
-  (define-key project-map (kbd "p") 'projectile-persp-switch-project)
-  (define-key project-map (kbd "b") 'persp-counsel-switch-buffer)
+  (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
+  (define-key project-map (kbd "b") 'counsel-projectile-switch-to-buffer)
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
   (define-key project-map (kbd "a") 'projectile-ag)
@@ -74,16 +74,9 @@
       (find-file "~/.emacs.d/init.el"))))
 
 (progn
-  (define-prefix-command 'persp-map)
-  (define-key persp-map (kbd "p") 'projectile-persp-switch-project)
-  (define-key persp-map (kbd "l") 'persp-switch)
-  (define-key persp-map (kbd "k") 'persp-kill)
-  (define-key persp-map (kbd "b") 'ido-switch-buffer))
-
-(progn
   (define-prefix-command 'text-map)
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
-  (define-key text-map (kbd "i") 'indent-buffer)
+    (define-key text-map (kbd "i") 'indent-buffer)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
 (provide 'hotkeys)

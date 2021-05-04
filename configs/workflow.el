@@ -1,7 +1,3 @@
-(use-package perspective
-  :config
-  (persp-mode))
-
 (use-package projectile
   :init
   (setq projectile-indexing-method 'native)
@@ -22,8 +18,6 @@
           ".shadow-cljs/"
           ".tmp/"))
   (projectile-mode))
-
-(use-package persp-projectile)
 
 (defun kill-all-scratch-buffers ()
   (interactive)

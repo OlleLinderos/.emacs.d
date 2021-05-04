@@ -50,7 +50,10 @@
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
-(use-package counsel)
+(use-package counsel
+  :config
+  (setcdr (assoc 'counsel-M-x ivy-initial-inputs-alist) ""))
+
 (use-package counsel-projectile)
 
 (use-package avy
