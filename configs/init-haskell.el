@@ -1,7 +1,7 @@
 (use-package haskell-mode
   :pin melpa-stable)
 
-(use-package company-ghc)
+;; (use-package company-ghc)
 
 ;; (autoload 'ghc-init "ghc" nil t)
 ;; (autoload 'ghc-debug "ghc" nil t)
@@ -17,7 +17,7 @@
 (put 'downcase-region 'disabled nil)
 
 
-(evil-leader/set-key "h" haskell-map)
+(evil-leader/set-key "h" 'haskell-map)
 (progn
   (define-prefix-command 'haskell-map)
   (define-key haskell-map (kbd "e") 'inferior-haskell-load-and-run))

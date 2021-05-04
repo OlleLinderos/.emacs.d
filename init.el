@@ -21,7 +21,7 @@
   (require 'init-python)
   (require 'init-clojure)
   (require 'init-ruby)
-  ;(require 'init-haskell)
+  (require 'init-haskell)
   (require 'init-web)
 
   (require 'hotkeys))
