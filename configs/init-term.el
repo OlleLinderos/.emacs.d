@@ -20,8 +20,6 @@
   (evil-define-key 'insert vterm-mode-map (kbd "C-n")      #'vterm--self-insert)
   (evil-define-key 'insert vterm-mode-map (kbd "C-m")      #'vterm--self-insert)
   (evil-define-key 'insert vterm-mode-map (kbd "C-p")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-j")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-k")      #'vterm--self-insert)
   (evil-define-key 'insert vterm-mode-map (kbd "C-r")      #'vterm--self-insert)
   (evil-define-key 'insert vterm-mode-map (kbd "C-t")      #'vterm--self-insert)
   (evil-define-key 'insert vterm-mode-map (kbd "C-g")      #'vterm--self-insert)
@@ -33,8 +31,13 @@
   (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
   (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume)
 
+  (evil-define-key 'normal vterm-mode-map (kbd "C-d")      #'evil-scroll-down)
+
   (evil-define-key 'normal vterm-mode-map (kbd "y")        #'evil-yank)
-  (evil-define-key 'normal vterm-mode-map (kbd "p")        #'term-paste))
+  (evil-define-key 'normal vterm-mode-map (kbd "p")        #'term-paste)
+
+  (evil-define-key 'normal vterm-mode-map (kbd "C-k") 'projectile-previous-project-buffer)
+  (evil-define-key 'normal vterm-mode-map (kbd "C-j") 'projectile-next-project-buffer))
 
 (evil-leader/set-key "t" 'term-map)
 (progn

@@ -1,3 +1,6 @@
+(global-set-key (kbd "C-k") 'projectile-previous-project-buffer)
+(global-set-key (kbd "C-j") 'projectile-next-project-buffer)
+
 ; Add vim "half page up" hotkey
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
