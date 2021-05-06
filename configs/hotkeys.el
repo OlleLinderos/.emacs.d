@@ -65,6 +65,7 @@
   (define-key project-map (kbd "f") 'counsel-projectile-find-file)
   (define-key project-map (kbd "s") 'counsel-projectile-ag)
   (define-key project-map (kbd "a") 'projectile-ag)
+  (define-key project-map (kbd "k") 'projectile-kill-buffers)
   (define-key project-map (kbd ".") 'projectile-command-map)
   (define-key project-map (kbd "!") 'projectile-save-known-projects))
 
