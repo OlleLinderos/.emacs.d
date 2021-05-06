@@ -23,9 +23,11 @@
   :init (winum-mode))
 
 (use-package magit
-  :config (define-key magit-mode-map 
-            (kbd "q") 
-            (lambda() (interactive) (magit-mode-bury-buffer t)))
+  :config
+  (define-key magit-mode-map 
+    (kbd "q") 
+    ;; Maybe (probably?) also kill process buffer
+    (lambda() (interactive) (magit-mode-bury-buffer t)))
   :init
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
