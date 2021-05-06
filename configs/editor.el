@@ -9,6 +9,10 @@
     (setq evil-leader/in-all-states t)
     (global-evil-leader-mode)))
 
+(use-package evil-mc
+  :init
+  (evil-mc-mode 1))
+
 (use-package company
   :config
   (define-key company-active-map (kbd "C-q") 'company-select-previous)

@@ -24,14 +24,16 @@
 
 (use-package magit
   :config
-  (define-key magit-mode-map 
-    (kbd "q") 
-    (lambda()
-      "Restore window configuration and kill all Magit buffers."
-      (interactive)
-      (let ((buffers (magit-mode-get-buffers)))
-        (magit-restore-window-configuration)
-        (mapc #'kill-buffer buffers))))
+  ;; magit minibuffer sometimes gets stuck.
+  ;; either fix that or rethink buffer management
+  ;; (define-key magit-mode-map 
+  ;;   (kbd "q") 
+  ;;   (lambda()
+  ;;     "Restore window configuration and kill all Magit buffers."
+  ;;     (interactive)
+  ;;     (let ((buffers (magit-mode-get-buffers)))
+  ;;       (magit-restore-window-configuration)
+  ;;       (mapc #'kill-buffer buffers))))
   :init
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
