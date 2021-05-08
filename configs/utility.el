@@ -1,9 +1,11 @@
 (defun indent-buffer ()
+  "Indent whole buffer."
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
 (defun move-text-internal (arg)
+  "Move line or selection up or down."
    (cond
     ((and mark-active transient-mark-mode)
      (if (> (point) (mark))
@@ -25,12 +27,14 @@
        (forward-line -1)))))
 
 (defun move-text-down (arg)
+  "move-text-internal implemenetation."
    (interactive "*p")
    (move-text-internal arg))
 
 (global-set-key [(control shift j)] 'move-text-down)
 
 (defun move-text-up (arg)
+  "move-text-internal implemenetation."
    (interactive "*p")
    (move-text-internal (- arg)))
 
@@ -65,10 +69,12 @@ or the current buffer directory."
         (neotree-find filepath)))))
 
 (defun kill-all-scratch-buffers ()
+  "Initially used when using perspective, and opening a new perspective created
+a scratch buffer per perspective."
   (interactive)
   (cl-letf (((symbol-function 'kill-buffer-ask) #'kill-buffer))
     (kill-matching-buffers "*scratch*")))
 
-(add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
+; (add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
 
 (provide 'utility)
