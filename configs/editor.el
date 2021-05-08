@@ -47,10 +47,5 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-;; (use-package yasnippet
-;;   :init
-;;   (yas-global-mode 1))
-
-;; (use-package yasnippet-snippets)
 
 (provide 'editor)
