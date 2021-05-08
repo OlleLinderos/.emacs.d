@@ -1,5 +1,13 @@
-(use-package emmet-mode)
+(use-package emmet-mode
+  :config
+  (setq emmet-self-closing-tag-style " /")
+  (setq emmet-expand-jsx-className? t)
+  :init
+  (define-key emmet-mode-keymap (kbd "C-j") nil)
+  (define-key emmet-mode-keymap (kbd "<C-return>") 'emmet-expand-line))
+
 (use-package sass-mode)
+
 (use-package elm-mode)
 
 (defun setup-tide-mode ()

@@ -80,7 +80,7 @@
 (progn
   (define-prefix-command 'text-map)
   (define-key text-map (kbd "x") 'delete-trailing-whitespace)
-    (define-key text-map (kbd "i") 'indent-buffer)
+  (define-key text-map (kbd "i") 'indent-buffer)
   (define-key text-map (kbd "t") 'toggle-truncate-lines))
 
 (provide 'hotkeys)

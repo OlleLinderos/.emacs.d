@@ -23,7 +23,7 @@
   :init (winum-mode))
 
 (use-package magit
-  :config
+  ;; :config
   ;; magit minibuffer sometimes gets stuck.
   ;; either fix that or rethink buffer management
   ;; (define-key magit-mode-map 
