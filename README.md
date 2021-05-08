@@ -1,1 +1,1 @@
-![xkcd](https://imgs.xkcd.com/comics/real_programmers.png)
+![xkcd](https://imgs.xkcd.com/comics/workflow.png)
