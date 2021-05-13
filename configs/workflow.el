@@ -68,4 +68,15 @@
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
 
+(use-package hl-todo)
+(global-hl-todo-mode t)
+(setq hl-todo-highlight-punctuation ":"
+      hl-todo-keyword-faces
+      `(("TODO"       warning bold)
+        ("FIXME"      error bold)
+        ("HACK"       font-lock-constant-face bold)
+        ("REVIEW"     font-lock-keyword-face bold)
+        ("NOTE"       success bold)
+        ("DEPRECATED" font-lock-doc-face bold)))
+
 (provide 'workflow)
