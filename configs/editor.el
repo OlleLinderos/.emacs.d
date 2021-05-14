@@ -40,9 +40,7 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package autopair
-  :init
-  (autopair-global-mode))
+(electric-pair-mode t)
 
 (show-paren-mode 1)
 (setq show-paren-delay 0)
