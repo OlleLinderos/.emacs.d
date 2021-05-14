@@ -1,9 +1,9 @@
-(use-package emmet-mode
-  :config
-  (setq emmet-self-closing-tag-style " /"
-        emmet-expand-jsx-className? t)
-  (unbind-key "C-j" emmet-mode-keymap)
-  (define-key emmet-mode-keymap (kbd "<C-tab>") 'emmet-expand-line))
+;; (use-package emmet-mode
+;;   :config
+;;   (setq emmet-self-closing-tag-style " /"
+;;         emmet-expand-jsx-className? t)
+;;   (unbind-key "C-j" emmet-mode-keymap)
+;;   (define-key emmet-mode-keymap (kbd "<C-tab>") 'emmet-expand-line))
 
 (use-package sass-mode)
 
