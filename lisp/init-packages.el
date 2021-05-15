@@ -14,4 +14,6 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+(use-package use-package-ensure-system-package)
+
 (provide 'init-packages)
