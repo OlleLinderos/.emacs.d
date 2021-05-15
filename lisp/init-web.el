@@ -1,14 +1,3 @@
-;; (use-package emmet-mode
-;;   :config
-;;   (setq emmet-self-closing-tag-style " /"
-;;         emmet-expand-jsx-className? t)
-;;   (unbind-key "C-j" emmet-mode-keymap)
-;;   (define-key emmet-mode-keymap (kbd "<C-tab>") 'emmet-expand-line))
-
-(use-package sass-mode)
-
-(use-package elm-mode)
-
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -73,5 +62,8 @@
   (define-prefix-command 'angular-map)
   (define-key angular-map (kbd "c") 'ng2-open-counterpart))
 
+
+(use-package sass-mode)
+(use-package elm-mode)
 
 (provide 'init-web)
