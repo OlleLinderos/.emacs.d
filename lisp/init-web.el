@@ -1,3 +1,7 @@
+(use-package dap-mode)
+(require 'dap-chrome)
+;; NOTE: Making this work with tide instead of LSP would be fantastic
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)

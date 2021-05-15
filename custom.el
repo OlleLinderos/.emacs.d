@@ -10,9 +10,9 @@
  '(fci-rule-color "#3E4451")
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
- '(neo-theme 'icons t)
+ '(neo-theme 'icons)
  '(package-selected-packages
-   '(lsp-haskell use-package-ensure-system-package dap-cpptools dap-c++ lsp-pyright lsp-ivy lsp-ui lsp-mode hl-todo scss-mode evil-mc multi-vterm vterm keychain-environment company-ghc haskell-mode irony-mode company-arduino irony-eldoc flycheck-irony company-irony irony modern-cpp-font-lock platformio-mode atom-one-dark-theme markdown-mode go-mode arduino-mode flymake-haskell-multi parinfer multi-term paredit evil-leader evil autopair projectile git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package))
+   '(dap-chrome rjsx-mode lsp-haskell use-package-ensure-system-package dap-cpptools dap-c++ lsp-pyright lsp-ivy lsp-ui lsp-mode hl-todo scss-mode evil-mc multi-vterm vterm keychain-environment company-ghc haskell-mode irony-mode company-arduino irony-eldoc flycheck-irony company-irony irony modern-cpp-font-lock platformio-mode atom-one-dark-theme markdown-mode go-mode arduino-mode flymake-haskell-multi parinfer multi-term paredit evil-leader evil autopair projectile git-gutter better-defaults linum-relative neotree smart-mode-line avy ivy shell-pop rainbow-delimiters ag golden-ratio with-editor company which-key use-package))
  '(shell-pop-shell-type
    '("ansi-term" "*ansi-term*"
      (lambda nil
