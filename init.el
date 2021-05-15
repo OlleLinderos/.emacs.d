@@ -1,5 +1,5 @@
 (package-initialize)
-(add-to-list 'load-path "~/.emacs.d/configs")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/custom-packages")
 
 (defvar best-gc-cons-threshold 4000000)
@@ -13,6 +13,7 @@
   (require 'workflow)
   (require 'utility)
 
+  (require 'init-lsp)
   (require 'init-c-cpp)
   (require 'init-arduino)
   (require 'init-go)
