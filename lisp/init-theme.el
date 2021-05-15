@@ -28,4 +28,4 @@
 
 (set-face-attribute 'fringe nil :background nil)
 
-(provide 'setup-theme)
+(provide 'init-theme)

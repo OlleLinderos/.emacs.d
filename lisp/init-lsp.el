@@ -2,21 +2,9 @@
   :config
   (setq lsp-idle-delay 0.5
         lsp-enable-symbol-highlighting t
-        lsp-enable-snippet nil  
-        lsp-pyls-plugins-flake8-enabled t)
-  (lsp-register-custom-settings
-   '(("pyls.plugins.pyls_mypy.enabled" t t)
-     ("pyls.plugins.pyls_mypy.live_mode" nil t)
-     ("pyls.plugins.pyls_black.enabled" t t)
-     ("pyls.plugins.pyls_isort.enabled" t t)
-
-     ;; Disable these as they're duplicated by flake8
-     ("pyls.plugins.pycodestyle.enabled" nil t)
-     ("pyls.plugins.mccabe.enabled" nil t)
-     ("pyls.plugins.pyflakes.enabled" nil t)))
+        lsp-enable-snippet nil)
   :hook
   ((c++-mode . lsp)
-   (python-mode . lsp)
    (haskell-mode . lsp)
    (ruby-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration)))
