@@ -3,19 +3,27 @@
   (setq lsp-idle-delay 0.5
         lsp-enable-symbol-highlighting t
         lsp-enable-snippet nil)
+  (defun amk-lsp-format-buffer-quick ()
+    (let ((lsp-response-timeout 2))
+      (lsp-format-buffer)))
+  (defun amk-lsp-format-on-save ()
+    (add-hook 'before-save-hook #'amk-lsp-format-buffer-quick nil t))
+  (defun amk-lsp-disable-format-on-save ()
+    (remove-hook 'before-save-hook #'amk-lsp-format-buffer-quick t))
+  (defun amk-lsp-organize-imports-on-save ()
+    (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+  :custom
+  (lsp-solargraph-multi-root nil)
   :hook
-  ((c++-mode . lsp)
-   (haskell-mode . lsp)
-   (ruby-mode . lsp)
-   (lsp-mode . lsp-enable-which-key-integration)))
+  ((lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-ui
   :config (setq lsp-ui-sideline-show-hover t
                 lsp-ui-sideline-delay 0.1
                 lsp-ui-doc-delay 5
                 lsp-ui-sideline-ignore-duplicates t
-                lsp-ui-doc-position 'bottom
-                lsp-ui-doc-alignment 'frame
+                lsp-ui-doc-position 'top
+                lsp-ui-doc-alignment 'window
                 lsp-ui-doc-header nil
                 lsp-ui-doc-include-signature t
                 lsp-ui-doc-use-childframe t)
@@ -24,10 +32,6 @@
               ("gr" . lsp-ui-peek-find-references))
   :commands lsp-ui-mode)
 
-;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-
-;; optionally if you want to use debugger
-;; (use-package dap-mode)
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+(use-package dap-mode)
 
 (provide 'init-lsp)
