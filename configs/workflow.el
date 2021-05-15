@@ -1,3 +1,5 @@
+;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+
 (use-package projectile
   :init
   (setq projectile-indexing-method 'native)
