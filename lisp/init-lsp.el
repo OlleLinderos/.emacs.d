@@ -18,7 +18,7 @@
   ((lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-ui
-  :config (setq lsp-ui-sideline-show-hover t
+  :config (setq lsp-ui-sideline-show-hover nil 
                 lsp-ui-sideline-delay 0.1
                 lsp-ui-doc-delay 5
                 lsp-ui-sideline-ignore-duplicates t
