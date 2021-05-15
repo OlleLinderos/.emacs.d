@@ -1,8 +1,7 @@
-(use-package robe
-  :init
-  (add-hook 'ruby-mode-hook 'enh-ruby-mode))
-
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
+(use-package ruby-mode
+  :after lsp-mode
+  :hook ((ruby-mode . lsp-deferred)
+         (ruby-mode . amk-lsp-format-on-save))
+  :ensure-system-package (solargraph . "gem install --user-install solargraph"))
 
 (provide 'init-ruby)
