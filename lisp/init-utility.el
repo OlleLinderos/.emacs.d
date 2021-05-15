@@ -77,4 +77,4 @@ a scratch buffer per perspective."
 
 ; (add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
 
-(provide 'utility)
+(provide 'init-utility)

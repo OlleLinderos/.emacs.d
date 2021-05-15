@@ -12,5 +12,4 @@
   (setq company-arduino-home "~/Arduino")
   (add-hook 'c++-mode-hook 'company-arduino-turn-on))
 
-(provide 'init-arduino)
- pfi
+(provide 'init-platformio)

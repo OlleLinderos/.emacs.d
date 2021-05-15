@@ -14,4 +14,4 @@
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
-(provide 'setup-packages)
+(provide 'init-packages)
