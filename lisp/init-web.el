@@ -22,7 +22,6 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) 
   (set (make-local-variable 'company-backends) '(company-web-html))
-  (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook #'setup-tide-mode)
   :config
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
