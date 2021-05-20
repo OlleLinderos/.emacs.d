@@ -17,7 +17,10 @@
 (use-package smart-mode-line
   :init
   (setq sml/no-confirm-load-theme t
-        sml/theme 'respectful)
+        sml/theme 'respectful
+        sml/name-width 60
+        sml/mode-width 'full
+        sml/shorten-modes t)
   (sml/setup))
 
 (use-package all-the-icons)
