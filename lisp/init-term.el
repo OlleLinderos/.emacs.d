@@ -2,7 +2,7 @@
   :ensure t)
 
 (use-package multi-vterm
-  :hook (vterm-mode (lambda () (read-only-mode -1)))
+  :hook (vterm-mode . (lambda () (read-only-mode -1)))
 
   :config
 
