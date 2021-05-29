@@ -201,13 +201,13 @@ a `before-save-hook'."
        (delete-file outputfile))))
 
 ;;;###autoload
-(define-minor-mode prettier-js-mode
-  "Runs prettier on file save when this mode is turned on"
-  :lighter " Prettier"
-  :global nil
-  (if prettier-js-mode
-      (add-hook 'before-save-hook 'prettier-js nil 'local)
-    (remove-hook 'before-save-hook 'prettier-js 'local)))
+;; (define-minor-mode prettier-js-mode
+;;   "Runs prettier on file save when this mode is turned on"
+;;   :lighter " Prettier"
+;;   :global nil
+;;   (if prettier-js-mode
+;;       (add-hook 'before-save-hook 'prettier-js nil 'local)
+;;     (remove-hook 'before-save-hook 'prettier-js 'local)))
 
 (provide 'prettier-js)
 ;;; prettier-js.el ends here
