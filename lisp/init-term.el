@@ -1,5 +1,4 @@
-(use-package vterm
-  :ensure t)
+(use-package vterm)
 
 (use-package multi-vterm
   :hook (vterm-mode . (lambda () (read-only-mode -1)))
