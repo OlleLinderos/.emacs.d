@@ -25,14 +25,15 @@
         lsp-enable-indentation nil)
   :hook (web-mode . lsp-deferred))
 
+;; TODO: Can this be done in an :after above?
 (eval-after-load 'web-mode
     '(progn
        (add-hook 'web-mode-hook #'add-node-modules-path)
        (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (use-package add-node-modules-path)
-
 (require' prettier-js)
+(define-key text-map (kbd "p") 'prettier-js)
 
 (require 'dap-chrome)
 

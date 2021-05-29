@@ -34,12 +34,12 @@
   :config
   (define-key company-active-map (kbd "C-q") 'company-select-previous)
   (define-key company-active-map (kbd "C-w") 'company-select-next)
-  (add-hook 'after-init-hook 'global-company-mode)
   (setq company-tooltip-align-annotations t
         company-idle-delay t
         company-tooltip-limit 20
         company-tooltip-align-annotations t
-        company-begin-commands '(self-insert-command)))
+        company-begin-commands '(self-insert-command))
+  :hook ((after-init . global-company-mode)))
 
 (use-package company-quickhelp
   :ensure t
@@ -48,14 +48,10 @@
   (use-package pos-tip
     :ensure t))
 
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'typescript-mode-hook 'flycheck-mode))
+(use-package flycheck)
 
 (use-package rainbow-delimiters
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
@@ -64,8 +60,8 @@
 (use-package linum-relative
   :init
   (linum-relative-mode)
-  (add-hook 'prog-mode-hook 'linum-mode)
-  (add-hook 'org-mode-hook 'linum-mode))
+  :hook ((prog-mode . linum-mode)
+         (org-mode . linum-mode)))
 
 (require 'git-gutter-fringe)
 (setq-default right-fringe-width 20)
