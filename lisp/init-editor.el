@@ -42,11 +42,9 @@
   :hook ((after-init . global-company-mode)))
 
 (use-package company-quickhelp
-  :ensure t
   :init
   (company-quickhelp-mode 1)
-  (use-package pos-tip
-    :ensure t))
+  (use-package pos-tip))
 
 (use-package flycheck)
 
