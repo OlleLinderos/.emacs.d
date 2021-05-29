@@ -2,9 +2,9 @@
   :ensure t)
 
 (use-package multi-vterm
+  :hook (vterm-mode (lambda () (read-only-mode -1)))
+
   :config
-  (add-hook 'vterm-mode-hook (lambda ()
-                               (read-only-mode -1)))
 
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
 

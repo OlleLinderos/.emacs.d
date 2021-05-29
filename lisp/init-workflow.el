@@ -96,12 +96,11 @@
         neo-smart-open t
         neo-window-fixed-size nil
         neo-window-width 50)
-  (add-hook 'neotree-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "C-q") 'evil-previous-line)
-              (define-key evil-normal-state-local-map (kbd "C-w") 'evil-next-line)
-              (define-key evil-normal-state-local-map (kbd "C-e") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
+  :hook (neotree-mode . (lambda ()
+                          (define-key evil-normal-state-local-map (kbd "C-q") 'evil-previous-line)
+                          (define-key evil-normal-state-local-map (kbd "C-w") 'evil-next-line)
+                          (define-key evil-normal-state-local-map (kbd "C-e") 'neotree-enter)
+                          (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+                          (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
 
 (provide 'init-workflow)
