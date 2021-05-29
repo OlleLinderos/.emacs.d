@@ -1,7 +1,6 @@
-;; npm i -g typescript-language-server; npm i -g typescript
-
 (use-package web-mode
-  :ensure t
+  :ensure-system-package ((typescript-language-server . "npm i -g typescript-language-server")
+                          (tsserver . "npm i -g typescript"))
   :mode (("\\.js\\'" . web-mode)
 	 ("\\.jsx\\'" . web-mode)
 	 ("\\.ts\\'" . web-mode)
