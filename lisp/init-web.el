@@ -23,18 +23,16 @@
         web-mode-enable-current-element-highlight t
         web-mode-enable-part-face t
         lsp-enable-indentation nil)
-  (add-hook 'web-mode-hook 'lsp)
-  (eval-after-load 'web-mode
+  :hook (web-mode . lsp-deferred))
+
+(eval-after-load 'web-mode
     '(progn
        (add-hook 'web-mode-hook #'add-node-modules-path)
-       (add-hook 'web-mode-hook #'prettier-js-mode))))
-
-(use-package prettier-js
-  :defer t
-  :diminish prettier-js-mode
-  :hook (((web-mode) . prettier-js-mode)))
+       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (use-package add-node-modules-path)
+
+(require' prettier-js)
 
 (require 'dap-chrome)
 
