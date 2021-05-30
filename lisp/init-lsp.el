@@ -15,22 +15,23 @@
   ((lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-ui
-  :config (setq lsp-ui-sideline-show-hover nil
-                lsp-ui-sideline-delay 0
-                lsp-ui-sideline-show-code-actions t
-                lsp-ui-sideline-ignore-duplicates t
-                lsp-ui-sideline-show-symbol nil
-
-                lsp-ui-doc-delay 1
-                lsp-ui-doc-show-with-cursor nil
-                lsp-ui-doc-show-with-mouse t
-                lsp-ui-doc-position 'at-point
-                lsp-ui-doc-alignment 'window
-                lsp-ui-doc-header nil
-                lsp-ui-doc-include-signature t
-                lsp-ui-doc-use-childframe t
-
-                lsp-ui-peek-fontify 'always)
+  :config
+  (setq lsp-ui-sideline-show-hover nil
+        lsp-ui-sideline-delay 0
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-ignore-duplicates t
+        lsp-ui-sideline-show-symbol nil
+        
+        lsp-ui-doc-delay 1
+        lsp-ui-doc-show-with-cursor nil
+        lsp-ui-doc-show-with-mouse t
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-alignment 'window
+        lsp-ui-doc-header nil
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-use-childframe t
+        
+        lsp-ui-peek-fontify 'always)
   :commands lsp-ui-mode)
 
 (use-package dap-mode)
