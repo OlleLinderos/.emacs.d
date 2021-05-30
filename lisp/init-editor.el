@@ -5,6 +5,8 @@
   (setq evil-want-C-u-scroll t)
   (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
   (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+  (define-key evil-insert-state-map (kbd "C-p") nil) ;; dabbrev-expand messing with company-capf
+  (define-key evil-insert-state-map (kbd "C-n") nil) ;; 
   (define-key evil-insert-state-map (kbd "C-u")
     (lambda ()
       (interactive)
@@ -32,8 +34,6 @@
 
 (use-package company
   :config
-  (define-key company-active-map (kbd "C-q") 'company-select-previous)
-  (define-key company-active-map (kbd "C-w") 'company-select-next)
   (setq company-tooltip-align-annotations t
         company-idle-delay t
         company-tooltip-limit 20
