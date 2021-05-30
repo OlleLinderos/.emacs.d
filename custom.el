@@ -10,7 +10,6 @@
  '(fci-rule-color "#3E4451")
  '(global-git-gutter-mode t)
  '(js2-highlight-level 3)
- '(lsp-clients-clangd-args '("--enable-config=1"))
  '(lsp-headerline-breadcrumb-icons-enable nil)
  '(neo-theme 'icons t)
  '(package-selected-packages
