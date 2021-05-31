@@ -1,0 +1,5 @@
+[[https://imgs.xkcd.com/comics/workflow.png]]
+
+** Todos
+***** TODO Use Nix for all the lsp language servers
+***** TODO Extend header paths for c++ lsp mode

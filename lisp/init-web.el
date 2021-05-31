@@ -1,72 +1,51 @@
-(use-package dap-mode)
-(require 'dap-chrome)
-;; NOTE: Making this work with tide instead of LSP would be fantastic
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
-
 (use-package web-mode
-  :ensure t
-  :mode (("\\.html?\\'" . web-mode)
-         ("\\.tsx\\'" . web-mode)
-         ("\\.ts\\'" . web-mode)
-         ("\\.jsx\\'" . web-mode))
-  :init
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) 
-  (set (make-local-variable 'company-backends) '(company-web-html))
-  (add-hook 'web-mode-hook #'setup-tide-mode)
+  :ensure-system-package ((typescript-language-server . "npm i -g typescript-language-server")
+                          (tsserver . "npm i -g typescript"))
+  :mode (("\\.js\\'" . web-mode)
+	 ("\\.jsx\\'" . web-mode)
+	 ("\\.ts\\'" . web-mode)
+	 ("\\.tsx\\'" . web-mode)
+	 ("\\.html\\'" . web-mode)
+	 ("\\.vue\\'" . web-mode)
+	 ("\\.json\\'" . web-mode)
+         ("\\.tpl\\.php\\'" . web-mode))
+  :commands web-mode
   :config
-  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
   (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 4
+        web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
+        web-mode-indent-style 2
         web-mode-block-padding 2
         web-mode-comment-style 2
         web-mode-enable-css-colorization t
         web-mode-enable-auto-pairing t
         web-mode-enable-comment-keywords t
-        web-mode-enable-current-element-highlight t))
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-part-face t
+        lsp-enable-indentation nil)
+  :hook (web-mode . lsp-deferred))
 
-(use-package typescript-mode
-  :ensure t
-  :config
-  (setq typescript-indent-level 2)
-  (add-hook 'typescript-mode #'subword-mode))
+;; TODO: Can this be done in an :after above?
+(eval-after-load 'web-mode
+    '(progn
+       (add-hook 'web-mode-hook #'add-node-modules-path)
+       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
-(use-package tide
-  :init
-  :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+(use-package add-node-modules-path)
+(require' prettier-js)
+(define-key text-map (kbd "p") 'prettier-js)
 
-(with-eval-after-load 'tide
-  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
-  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode))
+(require 'dap-chrome)
 
-(evil-leader/set-key "j" 'javascript-map)
-(progn
-  (define-prefix-command 'javascript-map)
-  (define-key javascript-map (kbd "a") 'angular-map)
-  
-  (define-key javascript-map (kbd "d") 'tide-jump-to-definition)
-  (define-key javascript-map (kbd "r") 'tide-rename-symbol))
-
-(progn
-  (define-prefix-command 'angular-map)
-  (define-key angular-map (kbd "c") 'ng2-open-counterpart))
-
-
-(use-package sass-mode)
-(use-package elm-mode)
+(with-eval-after-load "dap-mode"
+  (dap-register-debug-template
+   "Chromium Browse URL :: mainframe"
+   (list :type "chromium"
+         :cwd nil
+         :mode "url"
+         :runtimeExecutable "/usr/bin/chromium"
+         :request "launch"
+         :url "http://localhost:8101"
+         :name "Chromium Browse URL")))
 
 (provide 'init-web)
