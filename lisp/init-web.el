@@ -25,6 +25,8 @@
         lsp-enable-indentation nil)
   :hook (web-mode . lsp-deferred))
 
+(setq lsp-clients-typescript-tls-path "~/.nvm/versions/node/v14.8.0/bin/typescript-language-server")
+
 ;; TODO: Can this be done in an :after above?
 (eval-after-load 'web-mode
     '(progn
@@ -40,10 +42,10 @@
 (with-eval-after-load "dap-mode"
   (dap-register-debug-template
    "Chromium Browse URL :: mainframe"
-   (list :type "chromium"
+   (list :type "Chrome"
          :cwd nil
          :mode "url"
-         :runtimeExecutable "/usr/bin/chromium"
+         :runtimeExecutable "/usr/bin/chromium-browser"
          :request "launch"
          :url "http://localhost:8101"
          :name "Chromium Browse URL")))

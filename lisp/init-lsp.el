@@ -24,7 +24,7 @@
         
         lsp-ui-doc-delay 1
         lsp-ui-doc-show-with-cursor nil
-        lsp-ui-doc-show-with-mouse t
+        lsp-ui-doc-show-with-mouse nil
         lsp-ui-doc-position 'at-point
         lsp-ui-doc-alignment 'window
         lsp-ui-doc-header nil
@@ -39,6 +39,7 @@
 (evil-leader/set-key "l" 'my-lsp-map)
 (progn
   (define-prefix-command 'my-lsp-map)
+  (define-key my-lsp-map (kbd ".") 'lsp-workspace-restart)
   (define-key my-lsp-map (kbd "a") 'lsp-execute-code-action)
   (define-key my-lsp-map (kbd "m") 'lsp-ui-imenu)
   (define-key my-lsp-map (kbd "d") 'lsp-ui-peek-find-definitions)
