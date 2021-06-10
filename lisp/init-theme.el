@@ -1,5 +1,5 @@
 (when (member "Droid Sans Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Droid Sans Mono" :height 143))
+  (set-face-attribute 'default nil :font "Droid Sans Mono" :height 150))
 
 (setq custom-safe-themes t
       ns-use-proxy-icon nil
