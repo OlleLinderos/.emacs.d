@@ -9,6 +9,8 @@
       backup-directory-alist `(("." . "~/.emacs.d/backups"))
       vc-follow-symlinks t
       auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))
+      backup-by-copying t
+      create-lockfiles nil
       ring-bell-function 'ignore
       sentence-end-double-space nil
       default-fill-column 80

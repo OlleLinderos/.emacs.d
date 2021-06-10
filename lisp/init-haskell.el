@@ -1,5 +1,5 @@
 (use-package lsp-haskell
-  :ensure-system-package (haskell-language-server-wrapper . "yay -S haskell-language-server-bin")
+  ;;:ensure-system-package (haskell-language-server-wrapper . "yay -S haskell-language-server-bin")
   :hook ((haskell-mode . flycheck-mode)
          (haskell-mode . lsp-deferred)
          (haskell-literate-mode . lsp-deferred)))
