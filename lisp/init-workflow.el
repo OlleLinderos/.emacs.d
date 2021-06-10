@@ -19,6 +19,11 @@
 
 (use-package golden-ratio)
 
+(use-package ivy-rich
+  :config (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+  :init
+  (ivy-rich-mode 1))
+
 (use-package which-key :demand
   :init
   (setq which-key-idle-delay 0.25)
