@@ -1,6 +1,7 @@
 (use-package lsp-mode
   :config
-  (setq lsp-idle-delay 0 
+  (setq lsp-idle-delay 0.2
+        lsp-log-io nil
         lsp-enable-symbol-highlighting t
         lsp-enable-snippet nil)
   (defun amk-lsp-format-on-save ()
@@ -14,10 +15,13 @@
   :hook
   ((lsp-mode . lsp-enable-which-key-integration)))
 
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\].yarn"))
+
 (use-package lsp-ui
   :config
   (setq lsp-ui-sideline-show-hover nil
-        lsp-ui-sideline-delay 0
+        lsp-ui-sideline-delay 0.2
         lsp-ui-sideline-show-code-actions t
         lsp-ui-sideline-ignore-duplicates t
         lsp-ui-sideline-show-symbol nil

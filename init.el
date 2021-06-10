@@ -2,7 +2,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/custom-packages")
 
-(defvar best-gc-cons-threshold 4000000)
+(defvar best-gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
 
 (let ((file-name-handler-alist nil)
       (gc-cons-threshold most-positive-fixnum))
