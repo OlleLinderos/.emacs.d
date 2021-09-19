@@ -13,7 +13,7 @@
  '(lsp-headerline-breadcrumb-icons-enable nil)
  '(neo-theme 'icons t)
  '(package-selected-packages
-   '(ivy-rich company ccls add-node-modules-path winum which-key web-mode use-package-ensure-system-package tide swoop smex smart-mode-line sass-mode robe rjsx-mode ranger rainbow-delimiters python-mode py-autopep8 prettier-js platformio-mode php-mode persp-projectile neotree multi-vterm multi-term modern-cpp-font-lock magit lsp-ui lsp-python-ms lsp-pyright lsp-ivy lsp-haskell linum-relative keychain-environment irony-eldoc hl-todo golden-ratio go-mode flycheck-irony exec-path-from-shell evil-mc evil-leader emmet-mode elpy elm-mode eglot dap-mode counsel-projectile company-quickhelp company-arduino clj-refactor better-defaults autopair atom-one-dark-theme all-the-icons ag)))
+   '(elixir-mode nim-mode ivy-rich company ccls add-node-modules-path winum which-key web-mode use-package-ensure-system-package tide swoop smex smart-mode-line sass-mode robe rjsx-mode ranger rainbow-delimiters python-mode py-autopep8 prettier-js platformio-mode php-mode persp-projectile neotree multi-vterm multi-term modern-cpp-font-lock magit lsp-ui lsp-python-ms lsp-pyright lsp-ivy lsp-haskell linum-relative keychain-environment irony-eldoc hl-todo golden-ratio go-mode flycheck-irony exec-path-from-shell evil-mc evil-leader emmet-mode elpy elm-mode eglot dap-mode counsel-projectile company-quickhelp company-arduino clj-refactor better-defaults autopair atom-one-dark-theme all-the-icons ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

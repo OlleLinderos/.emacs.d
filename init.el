@@ -25,7 +25,9 @@
   (require 'init-clojure)
   (require 'init-ruby)
   (require 'init-haskell)
-  (require 'init-web))
+  (require 'init-web)
+  (require 'init-nim)
+  (require 'init-elixir))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
