@@ -29,6 +29,7 @@
 (global-hl-line-mode)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "GOPROXY" "https://proxy.golang.org,direct")
 (add-to-list 'exec-path "/usr/local/bin")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -36,7 +37,7 @@
 ;; Do I really still need this? 
 (when (memq window-system '(mac ns x))
  (use-package exec-path-from-shell
- :init
+ :config
  (exec-path-from-shell-initialize)))
 
 ;; Fixes <dead_tilde> type errors. Not sure if I still need this.

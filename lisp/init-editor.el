@@ -1,3 +1,5 @@
+(setq-default tab-width 4)
+
 (use-package evil
   :init (evil-mode 1)
   :config
