@@ -37,6 +37,7 @@
   (progn
     (define-prefix-command 'project-map)
     (define-key project-map (kbd "p") 'counsel-projectile-switch-project)
+    (define-key project-map (kbd "r") 'projectile-replace-regexp)
     (define-key project-map (kbd "b") 'counsel-projectile-switch-to-buffer)
     (define-key project-map (kbd "d") 'projectile-find-file-in-directory)
     (define-key project-map (kbd "f") 'counsel-projectile-find-file)
