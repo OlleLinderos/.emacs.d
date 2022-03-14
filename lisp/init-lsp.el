@@ -18,7 +18,6 @@
 ;;       ad-do-it))
 
 ;;  )
->>>>>>> 41b99fb (Random wip stuff)
 
 (use-package lsp-mode
   :init
@@ -28,6 +27,8 @@
   (setq lsp-idle-delay 0.2
         lsp-log-io nil
         lsp-enable-symbol-highlighting t
+        lsp-eldoc-render-all t
+
         lsp-enable-snippet nil)
   (defun amk-lsp-format-on-save ()
     (add-hook 'before-save-hook #'amk-lsp-format-buffer-quick nil t))
@@ -63,11 +64,16 @@
         lsp-ui-doc-header nil
         lsp-ui-doc-include-signature t
         lsp-ui-doc-use-childframe t
-        
+
         lsp-ui-peek-fontify 'always)
   :commands lsp-ui-mode)
 
-(use-package dap-mode)
+(use-package dap-mode
+  :config
+  (dap-auto-configure-mode)
+  (setq dap-print-io t)
+  (add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra))))
 
 (evil-leader/set-key "l" 'my-lsp-map)
 (progn
