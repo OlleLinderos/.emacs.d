@@ -1,7 +1,6 @@
 (use-package elixir-mode
   :hook
-  (lambda ()
-   (lsp-de)
-   (flycheck-mode)))
+  (elixir-mode . flycheck-mode)
+  (elixir-mode . lsp-deferred))
 
 (provide 'init-elixir)
