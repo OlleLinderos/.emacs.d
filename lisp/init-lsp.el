@@ -41,6 +41,8 @@
   :hook
   ((lsp-mode . lsp-enable-which-key-integration)))
 
+
+
      ;; :ensure-system-package
      ;; ((typescript-language-server . "npm install -g typescript-language-server")
      ;;  (javascript-typescript-langserver . "npm install -g javascript-typescript-langserver")
@@ -68,13 +70,6 @@
         lsp-ui-peek-fontify 'always)
   :commands lsp-ui-mode)
 
-(use-package dap-mode
-  :config
-  (dap-auto-configure-mode)
-  (setq dap-print-io t)
-  (add-hook 'dap-stopped-hook
-          (lambda (arg) (call-interactively #'dap-hydra))))
-
 (evil-leader/set-key "l" 'my-lsp-map)
 (progn
   (define-prefix-command 'my-lsp-map)
@@ -85,5 +80,18 @@
   (define-key my-lsp-map (kbd "i") 'lsp-ui-peek-find-implementation)
   (define-key my-lsp-map (kbd "r") 'lsp-ui-peek-find-references)
   (define-key my-lsp-map (kbd "s") 'lsp-ui-doc-show))
+
+(use-package dap-mode
+  :config
+  (dap-auto-configure-mode)
+  (setq dap-print-io t)
+  (add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra))))
+
+(evil-leader/set-key "d" 'my-dap-map)
+(progn
+  (define-prefix-command 'my-dap-map)
+  (define-key my-dap-map (kbd "d") 'dap-debug)
+  (define-key my-dap-map (kbd "b") 'dap-breakpoint-toggle))
 
 (provide 'init-lsp)

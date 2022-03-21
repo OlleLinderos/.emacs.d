@@ -37,17 +37,17 @@
 (require' prettier-js)
 (define-key text-map (kbd "p") 'prettier-js)
 
-(require 'dap-chrome)
+;; (require 'dap-chrome)
 
-(with-eval-after-load "dap-mode"
-  (dap-register-debug-template
-   "Chromium Browse URL :: mainframe"
-   (list :type "Chrome"
-         :cwd nil
-         :mode "url"
-         :runtimeExecutable "/usr/bin/chromium-browser"
-         :request "launch"
-         :url "http://localhost:8101"
-         :name "Chromium Browse URL")))
+;; (with-eval-after-load "dap-mode"
+;;   (dap-register-debug-template
+;;    "Chromium Browse URL :: mainframe"
+;;    (list :type "Chrome"
+;;          :cwd nil
+;;          :mode "url"
+;;          :runtimeExecutable "/usr/bin/chromium-browser"
+;;          :request "launch"
+;;          :url "http://localhost:8101"
+;;          :name "Chromium Browse URL")))
 
 (provide 'init-web)
