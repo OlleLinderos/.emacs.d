@@ -19,6 +19,8 @@
   :config
   (org-roam-setup))
 
+(evil-leader/set-key "." 'org-roam-capture)
+
 ;; TODO: Move org mode config here
 ;; (setq org-default-notes-file (concat org-directory "/notes.org"))
 
