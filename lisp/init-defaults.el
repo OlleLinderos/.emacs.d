@@ -19,7 +19,9 @@
       mac-option-key-is-meta nil
       mac-option-modifier nil
       coding-system-for-read 'utf-8
-      coding-system-for-write 'utf-8)
+      coding-system-for-write 'utf-8
+      x-select-enable-clipboard nil
+      x-select-enable-primary nil)
 
 (set-language-environment "UTF-8")
 (add-hook 'prog-mode-hook 'column-number-mode)
