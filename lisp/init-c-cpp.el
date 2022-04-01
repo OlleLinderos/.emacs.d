@@ -1,5 +1,3 @@
-;; https://github.com/MaskRay/ccls/wiki
-
 (use-package ccls
   :config
   (setq ccls-executable "ccls"

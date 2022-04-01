@@ -42,8 +42,6 @@
 (progn
   (define-prefix-command 'term-map)
   (define-key term-map (kbd "t") 'multi-vterm)
-  ;; NOTE: Can I make this only switch to next/prev in project, or would
-  ;; that be annoying?
   (define-key term-map (kbd "n") 'multi-vterm-next)
   (define-key term-map (kbd "p") 'multi-vterm-prev))
 
