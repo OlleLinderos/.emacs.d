@@ -14,14 +14,10 @@
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
-         ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-setup))
 
 (evil-leader/set-key "." 'org-roam-capture)
-
-;; TODO: Move org mode config here
-;; (setq org-default-notes-file (concat org-directory "/notes.org"))
 
 (provide 'init-docs)

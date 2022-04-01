@@ -1,24 +1,3 @@
-;; (with-eval-after-load 'lsp-mode
-;;   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\].yarn")
-;;   (setq lsp-log-io nil)
-;;   (setq lsp-enable-snippet nil)
-;; ;;  (setq lsp-enable-completion-at-point nil)
-;; ;;  (setq lsp-enable-symbol-highlighting nil)
-;;   (setq lsp-restart 'auto-restart)
-
-;;  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored) ; json
-
-;; ;;  don't ping LSP lanaguage server too frequently
-;;   (defvar lsp-on-touch-time 0)
-;;   (defadvice lsp-on-change (around lsp-on-change-hack activate)
-;;     ;; don't run `lsp-on-change' too frequently
-;;     (when (> (- (float-time (current-time))
-;;                 lsp-on-touch-time) 30) ;; 30 seconds
-;;       (setq lsp-on-touch-time (float-time (current-time)))
-;;       ad-do-it))
-
-;;  )
-
 (use-package lsp-mode
   :init
   (setq lsp-prefer-capf t
@@ -40,15 +19,6 @@
   (lsp-solargraph-multi-root nil)
   :hook
   ((lsp-mode . lsp-enable-which-key-integration)))
-
-
-
-     ;; :ensure-system-package
-     ;; ((typescript-language-server . "npm install -g typescript-language-server")
-     ;;  (javascript-typescript-langserver . "npm install -g javascript-typescript-langserver")
-     ;;  (yaml-language-server . "npm install -g yaml-language-server")
-     ;;  (tsc . "npm install -g typescript")
-     ;;  (gopls . "GO111MODULE=on go get golang.org/x/tools/gopls@latest")))
 
 (use-package lsp-ui
   :config

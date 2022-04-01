@@ -23,15 +23,12 @@
         web-mode-enable-current-element-highlight t
         web-mode-enable-part-face t
         lsp-enable-indentation nil)
-  :hook (web-mode . lsp-deferred))
+  :hook (web-mode . lsp-deferred)
+  :after
+  (add-hook 'web-mode-hook #'add-node-modules-path)
+  (add-hook 'web-mode-hook #'prettier-js-mode))
 
 (setq lsp-clients-typescript-tls-path "~/.nvm/versions/node/v14.8.0/bin/typescript-language-server")
-
-;; TODO: Can this be done in an :after above?
-(eval-after-load 'web-mode
-    '(progn
-       (add-hook 'web-mode-hook #'add-node-modules-path)
-       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (use-package add-node-modules-path)
 (require' prettier-js)
