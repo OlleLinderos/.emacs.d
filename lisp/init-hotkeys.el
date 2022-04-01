@@ -3,6 +3,8 @@
   (define-prefix-command 'buffer-map)
   (define-key buffer-map (kbd "b") 'counsel-projectile-switch-to-buffer)
   (define-key buffer-map (kbd "a") 'ibuffer)
+  (define-key buffer-map (kbd "n") 'next-buffer)
+  (define-key buffer-map (kbd "p") 'previous-buffer)
   (define-key buffer-map (kbd "k") 'kill-buffer)
   (define-key buffer-map (kbd "c")
     (lambda()
