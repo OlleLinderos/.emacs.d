@@ -77,4 +77,18 @@ a scratch buffer per perspective."
 
 ; (add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
 
+(defun ivy-with-thing-at-point (cmd)
+  (let ((ivy-initial-inputs-alist
+         (list
+          (cons cmd (thing-at-point 'symbol)))))
+    (funcall cmd)))
+
+(defun counsel-ag-thing-at-point ()
+  (interactive)
+  (ivy-with-thing-at-point 'counsel-ag))
+    
+(defun swiper-thing-at-point ()
+  (interactive)
+  (ivy-with-thing-at-point 'swiper))
+
 (provide 'init-utility)

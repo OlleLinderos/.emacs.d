@@ -7,7 +7,8 @@
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
         enable-recursive-minibuffers t)
-  (evil-leader/set-key "s" 'swiper))
+  (evil-leader/set-key "s" 'swiper)
+  (evil-leader/set-key "C-s" 'swiper-thing-at-point))
 
 (use-package counsel
   :config
@@ -42,6 +43,7 @@
     (define-key project-map (kbd "d") 'projectile-find-file-in-directory)
     (define-key project-map (kbd "f") 'counsel-projectile-find-file)
     (define-key project-map (kbd "s") 'counsel-projectile-ag)
+    (define-key project-map (kbd "C-s") 'counsel-ag-thing-at-point)
     (define-key project-map (kbd "a") 'projectile-ag)
     (define-key project-map (kbd "k") 'projectile-kill-buffers)
     (define-key project-map (kbd ".") 'projectile-command-map)
