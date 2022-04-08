@@ -17,6 +17,7 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
+  (setq org-roam-v2-ack t)
   (org-roam-setup))
 
 (evil-leader/set-key "." 'org-roam-capture)

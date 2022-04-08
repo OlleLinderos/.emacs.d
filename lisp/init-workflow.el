@@ -30,6 +30,7 @@
   (setq which-key-idle-delay 0.25)
   (which-key-mode))
 
+; C-M-n and C-M-p to preview 
 (use-package projectile
   :config
   (global-set-key (kbd "C-k") 'projectile-previous-project-buffer)

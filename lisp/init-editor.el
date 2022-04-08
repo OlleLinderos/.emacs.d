@@ -23,7 +23,7 @@
   (evil-leader/set-leader "SPC")
   (evil-leader/set-key
     "/" 'comment-or-uncomment-region
-    "a" 'avy-map
+    "," 'evil-avy-goto-char
     "b" 'buffer-map
     "m" 'text-map
     "e" 'eval-buffer
@@ -57,13 +57,10 @@
 (show-paren-mode 1)
 (electric-pair-mode t)
 
-(use-package linum-relative
-  :init
-  (linum-relative-mode)
-  :hook ((prog-mode . linum-mode)
-         (org-mode . linum-mode)))
+(global-linum-mode)
 
 (require 'git-gutter-fringe)
+
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
 
