@@ -1,3 +1,41 @@
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs)
+(tree-sitter-require 'tsx)
+
+(define-derived-mode typescript-tsx-mode web-mode "TypeScript/TSX")
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
+
+(defun meain/evil-delete-advice (orig-fn beg end &optional type _ &rest args)
+    "Make d, c, x to not write to clipboard."
+    (apply orig-fn beg end type ?_ args))
+(advice-add 'evil-delete-char :around 'meain/evil-delete-advice)
+(advice-add 'evil-change :around 'meain/evil-delete-advice)
+
+;; (use-package yasnippet
+;;   :config
+;;   (yas-global-mode 1))
+
+;; (use-package yasnippet-snippets)
+
+;; Add yasnippet support for all company backends
+;; https://github.com/syl20bnr/spacemacs/pull/179
+;; (defvar company-mode/enable-yas t
+;;   "Enable yasnippet for all backends.")
+
+;; (defun company-mode/backend-with-yas (backend)
+;;   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+;;       backend
+;;     (append (if (consp backend) backend (list backend))
+;;             '(:with company-yasnippet))))
+
+;;(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+
 (setq-default tab-width 4)
 
 (use-package evil
@@ -13,6 +51,8 @@
     (lambda ()
       (interactive)
       (evil-delete (point-at-bol) (point)))))
+
+(setq-default evil-kill-on-visual-paste nil)
 
 (use-package evil-leader
   :demand

@@ -23,4 +23,7 @@
     (define-key jackin-map (kbd "s") 'cider-jack-in-clojurescript)
     (define-key jackin-map (kbd "c") 'cider-jack-in-clojure))
 
+(use-package clojure-mode
+  :hook ((clojure-mode . lsp-deferred)))
+
 (provide 'init-clojure)
