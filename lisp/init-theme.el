@@ -25,9 +25,15 @@
 
 (use-package all-the-icons)
 
+(use-package solarized-theme)
+(setq solarized-scale-org-headlines nil
+      solarized-height-minus-1 1)
+
 (require 'atom-one-dark-theme)
 (add-hook 'after-init-hook (lambda ()
+                             ;(load-theme 'solarized-light t)
                              (load-theme 'atom-one-dark t)))
+
 
 (set-face-attribute 'fringe nil :background nil)
 

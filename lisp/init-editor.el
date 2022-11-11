@@ -57,10 +57,10 @@
 (show-paren-mode 1)
 (electric-pair-mode t)
 
-(global-linum-mode)
+(setq linum-format " %d")
+(add-hook 'prog-mode-hook 'linum-mode)
 
 (require 'git-gutter-fringe)
-
 (setq-default right-fringe-width 20)
 (setq git-gutter-fr:side 'right-fringe)
 
