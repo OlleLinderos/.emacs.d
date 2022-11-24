@@ -1,3 +1,9 @@
+(defun meain/evil-delete-advice (orig-fn beg end &optional type _ &rest args)
+    "Make d, c, x to not write to clipboard."
+    (apply orig-fn beg end type ?_ args))
+(advice-add 'evil-delete-char :around 'meain/evil-delete-advice)
+(advice-add 'evil-change :around 'meain/evil-delete-advice)
+
 (defun indent-buffer ()
   "Indent whole buffer."
   (interactive)
