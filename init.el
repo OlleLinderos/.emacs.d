@@ -25,7 +25,8 @@
   (require 'init-clojure)
   (require 'init-ruby)
   (require 'init-haskell)
-  (require 'init-web)
+  ;(require 'init-web)
+  (require 'init-ts)
   (require 'init-nim)
   (require 'init-elixir))
 

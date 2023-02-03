@@ -3,46 +3,26 @@
   :ensure t
   :config
     (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "M-p") 'copilot-previous-completion)
+    (define-key copilot-completion-map (kbd "M-n") 'copilot-next-completion)
+    (define-key copilot-completion-map (kbd "M-<tab>") 'copilot-accept-completion-by-word))
 
 (add-hook 'prog-mode-hook 'copilot-mode)
 
 (with-eval-after-load 'company
   ;; disable inline previews
   (delq 'company-preview-if-just-one-frontend company-frontends))
-  
 
 (use-package tree-sitter
   :config
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(use-package tree-sitter-langs)
-(tree-sitter-require 'tsx)
-
-(define-derived-mode typescript-tsx-mode web-mode "TypeScript/TSX")
-
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
-(add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
-
-;; (use-package yasnippet
-;;   :config
-;;   (yas-global-mode 1))
-
-;; (use-package yasnippet-snippets)
-
-;; Add yasnippet support for all company backends
-;; https://github.com/syl20bnr/spacemacs/pull/179
-;; (defvar company-mode/enable-yas t
-;;   "Enable yasnippet for all backends.")
-
-;; (defun company-mode/backend-with-yas (backend)
-;;   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-;;       backend
-;;     (append (if (consp backend) backend (list backend))
-;;             '(:with company-yasnippet))))
-
-;;(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+(use-package tree-sitter-langs
+  :after tree-sitter
+  :config (tree-sitter-require 'tsx)
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
 
 (setq-default tab-width 4)
 
@@ -76,7 +56,8 @@
     "m" 'text-map
     "e" 'eval-buffer
     "f" 'file-map
-    "w" 'evil-window-map))
+    "w" 'evil-window-map
+    "a" 'vc-annotate))
 
 (use-package evil-mc
   :init
