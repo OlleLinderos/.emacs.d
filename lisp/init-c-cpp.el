@@ -7,5 +7,4 @@
   :hook ((c-mode c++-mode objc-mode) .
          (lambda () (require 'ccls) (lsp))))
 
-
 (provide 'init-c-cpp)
