@@ -1,3 +1,7 @@
+(use-package writeroom-mode
+  :init
+  (evil-leader/set-key "z" 'writeroom-mode))
+
 (use-package ivy
   :config
   (define-key ivy-minibuffer-map (kbd "C-q") 'ivy-previous-line)
