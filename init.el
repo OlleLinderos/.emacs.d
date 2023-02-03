@@ -20,7 +20,7 @@
   (require 'init-c-cpp)
   (require 'init-platformio)
   (require 'init-go)
-  (require 'init-term)
+  ;(require 'init-term)
   (require 'init-python)
   (require 'init-clojure)
   (require 'init-ruby)
