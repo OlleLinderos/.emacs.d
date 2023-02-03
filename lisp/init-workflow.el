@@ -98,6 +98,8 @@
   ;;     (let ((buffers (magit-mode-get-buffers)))
   ;;       (magit-restore-window-configuration)
   ;;       (mapc #'kill-buffer buffers))))
+  :config
+  (setq magit-blame-echo-style 'margin)
   :init
   (evil-leader/set-key "g" 'magit-status)
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
