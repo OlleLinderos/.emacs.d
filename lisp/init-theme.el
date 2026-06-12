@@ -1,12 +1,8 @@
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 165))
+;; -*- lexical-biding: t -*-
 
-(setq custom-safe-themes t
-      ns-use-proxy-icon nil
-      frame-title-format nil
-      inhibit-splash-screen t
-      initial-scratch-message nil
-      initial-major-mode 'text-mode
+(setq custom-safe-themes t)
+
+(setq initial-major-mode 'text-mode
       initial-scratch-message "
 
 
@@ -14,27 +10,27 @@
 
               Hello my old friend")
 
-(use-package smart-mode-line
-  :init
-  (setq sml/no-confirm-load-theme t
-        sml/theme 'respectful
-        sml/name-width 60
-        sml/mode-width 'full
-        sml/shorten-modes t)
-  (sml/setup))
+(when (member "JetBrainsMono Nerd Font" (font-family-list))
+  (set-face-attribute 'default nil
+                      :font (font-spec :family "JetBrainsMono Nerd Font" :size 16)))
 
-(use-package all-the-icons)
+(use-package catppuccin-theme
+  :config
+  (setq catppuccin-flavor 'macchiato)
+  (catppuccin-set-color 'red "#ee99a0")
+  (catppuccin-set-color 'peach "#ef9f76")
+  (catppuccin-set-color 'mauve "#ca9ee6")
+  (load-theme 'catppuccin t))
 
-(use-package solarized-theme)
-(setq solarized-scale-org-headlines nil
-      solarized-height-minus-1 1)
+(dolist (face '(font-lock-function-name-face font-lock-function-call-face))
+  (when (facep face)
+    (set-face-attribute face nil :foreground "#b7bdf8")))
 
-(require 'atom-one-dark-theme)
-(add-hook 'after-init-hook (lambda ()
-                             ;(load-theme 'solarized-light t)
-                             (load-theme 'atom-one-dark t)))
+(when (facep 'font-lock-type-face)
+  (set-face-attribute 'font-lock-type-face nil :foreground "#f0c6c6"))
 
-
-(set-face-attribute 'fringe nil :background nil)
+(dolist (face '(font-lock-property-name-face font-lock-property-use-face))
+  (when (facep face)
+    (set-face-attribute face nil :foreground "#b7bdf8")))
 
 (provide 'init-theme)

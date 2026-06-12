@@ -1,100 +1,78 @@
-(defun meain/evil-delete-advice (orig-fn beg end &optional type _ &rest args)
-    "Make d, c, x to not write to clipboard."
-    (apply orig-fn beg end type ?_ args))
-(advice-add 'evil-delete-char :around 'meain/evil-delete-advice)
-(advice-add 'evil-change :around 'meain/evil-delete-advice)
+;; -*- lexical-binding: t; -*-
 
 (defun indent-buffer ()
-  "Indent whole buffer."
+  "Indent the whole buffer."
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
-(defun move-text-internal (arg)
-  "Move line or selection up or down."
-   (cond
-    ((and mark-active transient-mark-mode)
-     (if (> (point) (mark))
-            (exchange-point-and-mark))
-     (let ((column (current-column))
-              (text (delete-and-extract-region (point) (mark))))
-       (forward-line arg)
-       (move-to-column column t)
-       (set-mark (point))
-       (insert text)
-       (exchange-point-and-mark)
-       (setq deactivate-mark nil)))
-    (t
-     (beginning-of-line)
-     (when (or (> arg 0) (not (bobp)))
-       (forward-line)
-       (when (or (< arg 0) (not (eobp)))
-            (transpose-lines arg))
-       (forward-line -1)))))
-
-(defun move-text-down (arg)
-  "move-text-internal implemenetation."
-   (interactive "*p")
-   (move-text-internal arg))
-
-(global-set-key [(control shift j)] 'move-text-down)
-
-(defun move-text-up (arg)
-  "move-text-internal implemenetation."
-   (interactive "*p")
-   (move-text-internal (- arg)))
-
-(global-set-key [(control shift k)] 'move-text-up)
-
-(defun my-neotree-project-dir-toggle ()
-  "Open NeoTree using the project root, using projectile, find-file-in-project,
-or the current buffer directory."
+(defun boat/goto-scratch ()
+  "Switch to the *scratch* buffer."
   (interactive)
-  (let* ((filepath (buffer-file-name))
-         (project-dir
-          (with-demoted-errors
-              (cond
-               ((featurep 'projectile)
-                (projectile-project-root))
-               ((featurep 'find-file-in-project)
-                (ffip-project-root))
-               (t ;; Fall back to version control root.
-                (if filepath
-                    (vc-call-backend
-                     (vc-responsible-backend filepath) 'root filepath)
-                  nil)))))
-         (neo-smart-open t))
+  (switch-to-buffer (get-buffer-create "*scratch*")))
 
-    (if (and (fboundp 'neo-global--window-exists-p)
-             (neo-global--window-exists-p))
-        (neotree-hide)
-      (neotree-show)
-      (when project-dir
-        (neotree-dir project-dir))
-      (when filepath
-        (neotree-find filepath)))))
-
-(defun kill-all-scratch-buffers ()
-  "Initially used when using perspective, and opening a new perspective created
-a scratch buffer per perspective."
+(defun boat/find-init-file ()
+  "Open init.el."
   (interactive)
-  (cl-letf (((symbol-function 'kill-buffer-ask) #'kill-buffer))
-    (kill-matching-buffers "*scratch*")))
+  (find-file (expand-file-name "init.el" user-emacs-directory)))
 
-; (add-hook 'projectile-after-switch-project-hook #'kill-all-scratch-buffers)
-
-(defun ivy-with-thing-at-point (cmd)
-  (let ((ivy-initial-inputs-alist
-         (list
-          (cons cmd (thing-at-point 'symbol)))))
-    (funcall cmd)))
-
-(defun counsel-ag-thing-at-point ()
+(defun boat/reload-init ()
+  "Reload init.el, re-evaluating every init-* module."
   (interactive)
-  (ivy-with-thing-at-point 'counsel-ag))
-    
-(defun swiper-thing-at-point ()
+  ;; init.el pulls the modules in with `require', which is a no-op for
+  ;; loaded features — drop them so the requires run again.
+  (setq features (seq-remove (lambda (f)
+                               (string-prefix-p "init-" (symbol-name f)))
+                             features))
+  (let ((init-file (expand-file-name "init.el" user-emacs-directory)))
+    (load-file init-file)
+    (message "Reloaded %s" init-file)))
+
+(defun boat/rg-thing-at-point ()
+  "Ripgrep the project for the symbol at point."
   (interactive)
-  (ivy-with-thing-at-point 'swiper))
+  (consult-ripgrep (and (fboundp 'projectile-project-root)
+                        (projectile-project-root))
+                   (thing-at-point 'symbol t)))
+
+(defun boat/consult-line-symbol ()
+  "Search lines in the current buffer for the symbol at point."
+  (interactive)
+  (consult-line (thing-at-point 'symbol t)))
+
+;; Move the current line or region up/down with C-S-j / C-S-k.
+(defun boat/move-text-internal (arg)
+  (cond
+   ((and mark-active transient-mark-mode)
+    (if (> (point) (mark))
+        (exchange-point-and-mark))
+    (let ((column (current-column))
+          (text (delete-and-extract-region (point) (mark))))
+      (forward-line arg)
+      (move-to-column column t)
+      (set-mark (point))
+      (insert text)
+      (exchange-point-and-mark)
+      (setq deactivate-mark nil)))
+   (t
+    (beginning-of-line)
+    (when (or (> arg 0) (not (bobp)))
+      (forward-line)
+      (when (or (< arg 0) (not (eobp)))
+        (transpose-lines arg))
+      (forward-line -1)))))
+
+(defun boat/move-text-down (arg)
+  "Move line or region down ARG lines."
+  (interactive "*p")
+  (boat/move-text-internal arg))
+
+(defun boat/move-text-up (arg)
+  "Move line or region up ARG lines."
+  (interactive "*p")
+  (boat/move-text-internal (- arg)))
+
+(global-set-key [(control shift j)] 'boat/move-text-down)
+(global-set-key [(control shift k)] 'boat/move-text-up)
 
 (provide 'init-utility)
