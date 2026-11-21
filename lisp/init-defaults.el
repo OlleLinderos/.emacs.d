@@ -75,6 +75,16 @@
         (setenv "PATH" (concat (getenv "PATH") ":" expanded))))))
 (setenv "GOPROXY" "https://proxy.golang.org,direct")
 
+;; Trust .dir-locals.el in every directory under ~/Code
+(define-advice hack-local-variables-filter
+    (:around (fn variables dir-name) trust-code-dir)
+  (let ((safe-local-variable-directories
+         (if (and dir-name (file-in-directory-p dir-name "~/Code/"))
+             (cons (file-name-as-directory dir-name)
+                   safe-local-variable-directories)
+           safe-local-variable-directories)))
+    (funcall fn variables dir-name)))
+
 ;; Run a server so I can toggle the theme when I toggle the system default theme.
 (require 'server)
 (unless (server-running-p)
