@@ -31,17 +31,35 @@
                                         mine/notes-code-directory))
                      worktree)))))))
 
+(defvar mine/notes--origin nil)
+
+(defun mine/notes--in-notes-p ()
+  (string-prefix-p (file-name-as-directory (expand-file-name mine/notes-directory))
+                   (expand-file-name default-directory)))
+
+(defun mine/notes--remember-origin ()
+  (unless (mine/notes--in-notes-p)
+    (setq mine/notes--origin (current-buffer))))
+
+(defun mine/notes-back ()
+  (interactive)
+  (if (buffer-live-p mine/notes--origin)
+      (switch-to-buffer mine/notes--origin)
+    (switch-to-buffer (other-buffer (current-buffer) t))))
+
 (defun mine/notes-open ()
   (interactive)
   (let ((file (expand-file-name mine/notes-file-name (mine/notes--directory))))
     (unless (file-exists-p file)
       (make-directory (file-name-directory file) t)
       (write-region "" nil file nil 'silent))
+    (mine/notes--remember-origin)
     (find-file file)))
 
 (defun mine/notes-browse ()
   (interactive)
   (let ((dir (mine/notes--directory)))
+    (mine/notes--remember-origin)
     (dirvish (if (file-directory-p dir)
                  dir
                (expand-file-name mine/notes-directory)))))
@@ -84,6 +102,31 @@
       (org-todo (or (cadr (member state org-todo-keywords-1))
                     (car org-todo-keywords-1)))
     (org-cycle arg)))
+
+(setq org-todo-keywords '((sequence "L8TR" "TODO" "WIP" "|" "DONE"))
+      org-todo-keyword-faces '(("WIP" . warning) ("L8TR" . shadow)))
+
+(setq org-fontify-done-headline nil
+      org-fontify-todo-headline nil)
+
+(defun mine/org-heading-display ()
+  (add-to-list 'font-lock-extra-managed-props 'display)
+  (font-lock-add-keywords
+   nil
+   '(("^\\(\\*+ \\)" 1
+      (list 'face nil 'display
+            (make-string (* 2 (- (match-end 1) (match-beginning 1) 2)) ?\s)))
+     ("^\\*+ WIP\\( \\)" 1 '(face nil display (space :width 2))))))
+
+(add-hook 'org-mode-hook #'mine/org-heading-display)
+
+(apply #'custom-set-faces
+       '(org-done ((t (:inherit success))))
+       (mapcar (lambda (n)
+                 `(,(intern (format "org-level-%d" n))
+                   ((t (:inherit default :foreground unspecified
+                        :height unspecified :weight unspecified)))))
+               (number-sequence 1 8)))
 
 (with-eval-after-load 'org
   (with-eval-after-load 'evil
