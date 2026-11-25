@@ -42,6 +42,31 @@
         (file-name-nondirectory (directory-file-name container))
       (projectile-default-project-name root))))
 
+(defun mine/--worktree-commit-times (worktrees)
+  "Alist of (COMMIT . COMMITTER-TIME) for the heads of WORKTREES."
+  (when-let* ((commits (seq-remove
+                        (lambda (c) (or (null c) (string-match-p "\\`0+\\'" c)))
+                        (seq-uniq (mapcar #'cadr worktrees)))))
+    (mapcar (lambda (line)
+              (let ((parts (split-string line " ")))
+                (cons (car parts) (string-to-number (cadr parts)))))
+            (apply #'magit-git-lines "log" "--no-walk=unsorted"
+                   "--format=%H %ct" commits))))
+
+(defun mine/--worktree-change-time (path commit-time)
+  "Latest of COMMIT-TIME and the mtimes of uncommitted files in PATH."
+  (let ((default-directory (file-name-as-directory path))
+        (latest commit-time))
+    (when (file-directory-p default-directory)
+      (dolist (entry (magit-git-items "status" "--porcelain" "-z"
+                                      "--no-renames"))
+        (when-let* ((attrs (file-attributes (substring entry 3))))
+          (setq latest
+                (max latest
+                     (float-time
+                      (file-attribute-modification-time attrs)))))))
+    latest))
+
 (defun mine/read-worktree (repo)
   (require 'magit)
   (let* ((current (and (not (file-remote-p default-directory))
@@ -56,11 +81,29 @@
           (or (seq-remove (lambda (wt) (nth 3 wt)) ; bare: nothing to open
                           (magit-list-worktrees))
               (user-error "No worktrees to open in this repository")))
+         (times (mine/--worktree-commit-times worktrees))
+         (worktrees
+          (mapcar #'cdr
+                  (seq-sort-by
+                   #'car #'>
+                   (mapcar (lambda (wt)
+                             (cons (mine/--worktree-change-time
+                                    (car wt)
+                                    (alist-get (cadr wt) times 0 nil #'equal))
+                                   wt))
+                           worktrees))))
          (table (mapcar (lambda (wt)
                           (cons (file-relative-name
                                  (directory-file-name (car wt)) base)
                                 wt))
                         worktrees))
+         ;; Without this vertico re-sorts by history, length and name.
+         (collection
+          (lambda (string pred action)
+            (if (eq action 'metadata)
+                '(metadata (display-sort-function . identity)
+                           (cycle-sort-function . identity))
+              (complete-with-action action table string pred))))
          (completion-extra-properties
           (list :annotation-function
                 (lambda (cand)
@@ -72,7 +115,7 @@
                                  "  (current)")))))))
     (file-name-as-directory
      (abbreviate-file-name
-      (cadr (assoc (completing-read "Worktree: " table nil t) table))))))
+      (cadr (assoc (completing-read "Worktree: " collection nil t) table))))))
 
 (defun mine/projectile-switch-worktree (worktree)
   (interactive (list (mine/read-worktree default-directory)))

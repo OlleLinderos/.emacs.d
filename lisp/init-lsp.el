@@ -42,6 +42,20 @@
         lsp-ui-peek-fontify 'always
         lsp-ui-peek-expand-function #'mine/lsp-ui-peek-expand-all))
 
+;; Peek file names relative to the git checkout, not the LSP workspace root.
+(defun mine/lsp-ui-checkout-relative-path (orig path)
+  (let* ((path (file-truename path))
+         (root (and (not (file-remote-p path))
+                    (locate-dominating-file path ".git"))))
+    (if root
+        (file-relative-name path root)
+      (funcall orig path))))
+(advice-add 'lsp-ui--workspace-path
+            :around #'mine/lsp-ui-checkout-relative-path)
+
+(with-eval-after-load 'lsp-ui-peek
+  (set-face-attribute 'lsp-ui-peek-filename nil :underline t))
+
 (with-eval-after-load 'lsp-ui-doc
   (defun mine/lsp-ui-doc-strip-line-pad (&rest _)
     (let ((buf (get-buffer (lsp-ui-doc--make-buffer-name))))
