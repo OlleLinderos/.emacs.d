@@ -56,6 +56,13 @@
 (define-key project-map (kbd "!") 'projectile-save-known-projects)
 (define-key project-map (kbd ".") 'projectile-command-map)
 
+;; Notes.
+(define-prefix-command 'notes-map)
+(define-key mine/leader-map (kbd "n") 'notes-map)
+(define-key notes-map (kbd "n") 'mine/notes-open)
+(define-key notes-map (kbd "d") 'mine/notes-browse)
+(define-key notes-map (kbd "t") 'mine/org-make-todo)
+
 ;; Git.
 (define-prefix-command 'git-map)
 (define-key mine/leader-map (kbd "g") 'git-map)

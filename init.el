@@ -12,6 +12,7 @@
   (require 'init-modeline)
   (require 'init-editor)
   (require 'init-workflow)
+  (require 'init-notes)
   (require 'init-completion)
   (require 'init-hotkeys)
   (require 'init-utility)

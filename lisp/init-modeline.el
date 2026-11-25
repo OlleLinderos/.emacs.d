@@ -63,10 +63,14 @@
       info)))
 
 (defun mine/mode-line-project ()
-  (if-let* ((wt (mine/linked-worktree)))
-      (concat (car wt) "  "
-              (propertize "worktree " 'face 'shadow)
-              (propertize (cdr wt) 'face 'bold))
+  (if-let* ((wt (or (mine/linked-worktree)
+                    ;; Notes show the worktree they are about.
+                    (and (fboundp 'mine/notes-context) (mine/notes-context)))))
+      (if (cdr wt)
+          (concat (car wt) "  "
+                  (propertize "worktree " 'face 'shadow)
+                  (propertize (cdr wt) 'face 'bold))
+        (car wt))
     (if (and (fboundp 'projectile-project-p) (projectile-project-p))
         (projectile-project-name)
       "")))
