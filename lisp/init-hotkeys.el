@@ -59,7 +59,8 @@
 ;; Notes.
 (define-prefix-command 'notes-map)
 (define-key mine/leader-map (kbd "n") 'notes-map)
-(define-key notes-map (kbd "n") 'mine/notes-open)
+(define-key notes-map (kbd "w") 'mine/notes-open)
+(define-key notes-map (kbd "r") 'mine/notes-open-repo)
 (define-key notes-map (kbd "d") 'mine/notes-browse)
 (define-key notes-map (kbd "b") 'mine/notes-back)
 (define-key notes-map (kbd "t") 'mine/org-make-todo)

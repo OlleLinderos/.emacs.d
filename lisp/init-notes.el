@@ -47,14 +47,30 @@
       (switch-to-buffer mine/notes--origin)
     (switch-to-buffer (other-buffer (current-buffer) t))))
 
-(defun mine/notes-open ()
-  (interactive)
-  (let ((file (expand-file-name mine/notes-file-name (mine/notes--directory))))
+(defun mine/notes--repo-directory ()
+  (let* ((notes (file-name-as-directory
+                 (expand-file-name mine/notes-directory)))
+         (app (or (car (mine/notes-context))
+                  (car (split-string
+                        (substring (mine/notes--directory) (length notes))
+                        "/" t)))))
+    (file-name-as-directory (if app (expand-file-name app notes) notes))))
+
+(defun mine/notes--open-in (dir)
+  (let ((file (expand-file-name mine/notes-file-name dir)))
     (unless (file-exists-p file)
       (make-directory (file-name-directory file) t)
       (write-region "" nil file nil 'silent))
     (mine/notes--remember-origin)
     (find-file file)))
+
+(defun mine/notes-open ()
+  (interactive)
+  (mine/notes--open-in (mine/notes--directory)))
+
+(defun mine/notes-open-repo ()
+  (interactive)
+  (mine/notes--open-in (mine/notes--repo-directory)))
 
 (defun mine/notes-browse ()
   (interactive)
@@ -103,7 +119,7 @@
                     (car org-todo-keywords-1)))
     (org-cycle arg)))
 
-(setq org-todo-keywords '((sequence "L8TR" "TODO" "WIP" "|" "DONE"))
+(setq org-todo-keywords '((sequence "L8TR" "TODO" "WIP" "PR" "|" "DONE"))
       org-todo-keyword-faces '(("WIP" . warning) ("L8TR" . shadow)))
 
 (setq org-fontify-done-headline nil
@@ -116,7 +132,8 @@
    '(("^\\(\\*+ \\)" 1
       (list 'face nil 'display
             (make-string (* 2 (- (match-end 1) (match-beginning 1) 2)) ?\s)))
-     ("^\\*+ WIP\\( \\)" 1 '(face nil display (space :width 2))))))
+     ("^\\*+ WIP\\( \\)" 1 '(face nil display (space :width 2)))
+     ("^\\*+ PR\\( \\)" 1 '(face nil display (space :width 3))))))
 
 (add-hook 'org-mode-hook #'mine/org-heading-display)
 
