@@ -312,11 +312,18 @@
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1
         magit-blame-echo-style 'margin))
 
+(defun mine/magit-visit-file-other-window ()
+  (interactive)
+  (cond ((and (fboundp 'evil-visual-state-p) (evil-visual-state-p))
+         (evil-exit-visual-state))
+        ((region-active-p) (deactivate-mark)))
+  (magit-diff-visit-worktree-file-other-window))
+
 (defun mine/magit-visit-file-other-window-bindings ()
   (define-key magit-file-section-map (kbd "RET")
-              #'magit-diff-visit-worktree-file-other-window)
+              #'mine/magit-visit-file-other-window)
   (define-key magit-hunk-section-map (kbd "RET")
-              #'magit-diff-visit-worktree-file-other-window))
+              #'mine/magit-visit-file-other-window))
 (with-eval-after-load 'magit-diff
   (add-hook 'magit-mode-hook #'mine/magit-visit-file-other-window-bindings))
 
